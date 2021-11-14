@@ -1,0 +1,10 @@
+<settings>
+    <setting propertyKey="@Properties.MainDataField" title="@Strings.MainDataField" prompt="@Strings.MainDataFieldPrompt">
+        <settingConfig type="list" required="true">
+            <listEntry value="0">@Strings.HeartRate</listEntry>
+            <listEntry value="1">@Strings.HeartRateZone</listEntry>
+            <listEntry value="2">@Strings.TargetHeartRate</listEntry>
+            <!-- TODO: low and high target values -->
+        </settingConfig>
+    </setting>
+</settings>

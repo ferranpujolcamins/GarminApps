@@ -1,0 +1,9 @@
+<strings>
+    <string id="AppName">Triple Field</string>
+
+    <string id="MainDataField">Main data field</string>
+    <string id="MainDataFieldPrompt">Select what data to show no the main field</string>
+    <string id="HeartRate">Heart rate</string>
+    <string id="HeartRateZone">Heart rate zone</string>
+    <string id="TargetHeartRate">Target heart rate</string>
+</strings>
