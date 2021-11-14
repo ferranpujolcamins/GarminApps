@@ -3,14 +3,14 @@
 	"tasks": [
 		{
 			"type": "monkeyc",
-			"device": "fenix5plus",
+			"device": "fenix6spro",
 			"simulatorBuild": true,
 			"problemMatcher": [
 				"$monkeyc.error",
 				"$monkeyc.fileWarning",
 				"$monkeyc.genericWarning"
 			],
-			"label": "monkeyc: fenix5plus",
+			"label": "monkeyc: fenix6spro",
 			"group": {
 				"kind": "build",
 				"isDefault": true

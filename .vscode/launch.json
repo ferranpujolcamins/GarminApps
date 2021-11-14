@@ -11,7 +11,7 @@
             "prg": "${workspaceFolder}${pathSeparator}bin${pathSeparator}${workspaceFolderBasename}.prg",
             "prgDebugXml": "${workspaceFolder}${pathSeparator}bin${pathSeparator}${workspaceFolderBasename}.prg.debug.xml",
             "stopAtLaunch": false,
-            "device": "fenix5plus",
+            "device": "fenix6spro",
         },
         {
             "type": "monkeyc",
@@ -20,7 +20,7 @@
             "prg": "${workspaceFolder}${pathSeparator}bin${pathSeparator}test_fenix5plus_${workspaceFolderBasename}.prg",
             "prgDebugXml": "${workspaceFolder}${pathSeparator}bin${pathSeparator}test_fenix5plus_${workspaceFolderBasename}.prg.debug.xml",
             "runTests": true,
-            "device": "fenix5plus"
+            "device": "fenix6spro"
         }
     ]
 }

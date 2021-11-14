@@ -4,22 +4,25 @@ import Toybox.Activity;
 enum FieldId {
     HeartRate = 0,
     HRZone = 1,
-    TargetHR = 2
+    TargetHR = 2,
+
+   // Target = 3,
+   // TargetData = 4
 }
 
-function getFieldValue(index as FieldId, info as Info, workoutStepProvider as CurrentWorkoutStepProvider) as Number? {
+function getFieldValue(index as FieldId, info as Info, workoutStepProvider as CurrentWorkoutStepProvider) as Float? {
     switch(index) {
         case HeartRate:
             return info.currentHeartRate;
         case HRZone:
-            return info.currentHeartRate;
+            return getHeartRateZone();
         case TargetHR:
             var step = workoutStepProvider.getCurrentWorkoutStep();
             if (step == null) {
                 return null;
             }
             if (step.targetType == Activity.WORKOUT_STEP_TARGET_HEART_RATE) {
-                return (step.targetValueLow + step.targetValueHigh) / 2;
+                return ((step.targetValueLow + step.targetValueHigh) / 2) as Float;
             }
             return null;
 

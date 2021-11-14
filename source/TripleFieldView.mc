@@ -7,22 +7,29 @@ import Toybox.WatchUi;
 
 class TripleFieldView extends WatchUi.DataField {
 
+    class Field {
+        function initialize(id as FieldId, value as Float?) {
+            mId = id;
+            mValue = value;
+        }
+
+        var mId as FieldId;
+        var mValue as Float? = null;
+    }
+
     class Model {
         function initialize(
-            label as String,
-            mainFieldValue as Numeric?,
-            field2Value as Numeric?,
-            field3Value as Numeric?
+            mainField as Field,
+            field2 as Field,
+            field3 as Field
         ) {
-            mLabelText = label;
-            mMainFieldValue = mainFieldValue;
-            mField2Value = field2Value;
-            mField3Value = field3Value;
+            mMainField = mainField;
+            mField2 = field2;
+            mField3 = field3;
         }
-        var mLabelText as String;
-        var mMainFieldValue as Numeric? = null;
-        var mField2Value as Numeric? = null;
-        var mField3Value as Numeric? = null;
+        var mMainField as Field;
+        var mField2 as Field;
+        var mField3 as Field;
     }
 
     var mModel as Model;
@@ -30,10 +37,9 @@ class TripleFieldView extends WatchUi.DataField {
     function initialize() {
         DataField.initialize();
         mModel = new Model(
-            "",
-            null,
-            null,
-            null
+            new Field(0 as FieldId, null),
+            new Field(0 as FieldId, null),
+            new Field(0 as FieldId, null)
         );
     }
 
@@ -70,10 +76,9 @@ class TripleFieldView extends WatchUi.DataField {
         var field2 = properties.getValue(DataField2);
         var field3 = properties.getValue(DataField3);
         var model = new Model(
-            getFieldName(mainField as FieldId),
-            getFieldValue(mainField as FieldId, info, currentWorkoutStepProvider),
-            getFieldValue(field2 as FieldId, info, currentWorkoutStepProvider),
-            getFieldValue(field3 as FieldId, info, currentWorkoutStepProvider)
+            new Field(mainField as FieldId, getFieldValue(mainField as FieldId, info, currentWorkoutStepProvider)),
+            new Field(field2 as FieldId, getFieldValue(field2 as FieldId, info, currentWorkoutStepProvider)),
+            new Field(field3 as FieldId, getFieldValue(field3 as FieldId, info, currentWorkoutStepProvider))
         );
         return model;
     }
@@ -89,29 +94,52 @@ class TripleFieldView extends WatchUi.DataField {
         var value3 = View.findDrawableById("value3") as Text;
 
         if (getBackgroundColor() == Graphics.COLOR_BLACK) {
+            label.setColor(Graphics.COLOR_WHITE);
             mainValue.setColor(Graphics.COLOR_WHITE);
             value2.setColor(Graphics.COLOR_WHITE);
             value3.setColor(Graphics.COLOR_WHITE);
         } else {
+            label.setColor(Graphics.COLOR_BLACK);
             mainValue.setColor(Graphics.COLOR_BLACK);
             value2.setColor(Graphics.COLOR_BLACK);
             value3.setColor(Graphics.COLOR_BLACK);
         }
 
-
-
-        label.setText(mModel.mLabelText);
-        mainValue.setText(asText(mModel.mMainFieldValue));
-        value2.setText(asText(mModel.mField2Value));
-        value3.setText(asText(mModel.mField3Value));
+        label.setText(getFieldName(mModel.mMainField.mId));
+        renderField(mModel.mMainField, mainValue);
+        renderField(mModel.mField2, value2);
+        renderField(mModel.mField3, value3);
 
         // Call parent's onUpdate(dc) to redraw the layout
         View.onUpdate(dc);
     }
 
-    function asText(value as Number?) as String {
+    function renderField(field as Field, label as Text) as Void {
+        var text;
+        switch (field.mId) {
+            case HeartRate:
+                text = formatBPM(field.mValue);
+                break;
+            case HRZone:
+                text = formatZone(field.mValue);
+                break;
+            case TargetHR:
+                text = formatBPM(field.mValue);
+                break;
+        }
+        label.setText(text);
+    }
+
+    function formatBPM(value as Float?) as String {
         if (value != null) {
-            return value.format("%.2f");
+            return value.format("%i");
+        }
+        return "--";
+    }
+
+    function formatZone(value as Float?) as String {
+        if (value != null) {
+            return value.format("%.1f");
         }
         return "--";
     }
