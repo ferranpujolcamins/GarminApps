@@ -10,37 +10,33 @@ class TripleFieldView extends WatchUi.DataField {
     class Model {
         function initialize(
             mainField as Field,
-            mainFieldOnShow as Field?,
             field2 as Field,
             field3 as Field
         ) {
             mMainField = mainField;
-            mMainFieldOnShow = mainFieldOnShow;
             mField2 = field2;
             mField3 = field3;
         }
         var mMainField as Field;
-        var mMainFieldOnShow as Field?;
         var mField2 as Field;
         var mField3 as Field;
     }
 
     var mModel as Model;
-    var mCounter as Counter;
+    var mCountDown as CountDown;
 
     function initialize() {
         DataField.initialize();
         mModel = new Model(
             new Field(0 as FieldId, null),
-            null,
             new Field(0 as FieldId, null),
             new Field(0 as FieldId, null)
         );
-        mCounter = new Counter(4);
+        mCountDown = new CountDown(new Time.Duration(4));
     }
 
     function onShow() as Void {
-        mCounter = new Counter(4);
+        mCountDown.reset();
     }
 
     // Set your layout here. Anytime the size of obscurity of
@@ -77,14 +73,15 @@ class TripleFieldView extends WatchUi.DataField {
         var field2Id = properties.getValue(DataField2) as FieldId;
         var field3Id = properties.getValue(DataField3) as FieldId;
 
-        var mainFieldOnShow = null;
-        if (mainFieldOnShowId != null && mainFieldOnShowId != None) {
-            mainFieldOnShow = new Field(mainFieldOnShowId as FieldId, getFieldValue(mainFieldOnShowId as FieldId, info, currentWorkoutStepProvider));
+        var mainField;
+        if (!mCountDown.done() && mainFieldOnShowId != null && mainFieldOnShowId != None) {
+            mainField = new Field(mainFieldOnShowId, getFieldValue(mainFieldOnShowId, info, currentWorkoutStepProvider));
+        } else {
+            mainField = new Field(mainFieldId, getFieldValue(mainFieldId, info, currentWorkoutStepProvider));
         }
 
         var model = new Model(
-            new Field(mainFieldId, getFieldValue(mainFieldId, info, currentWorkoutStepProvider)),
-            mainFieldOnShow,
+            mainField,
             new Field(field2Id, getFieldValue(field2Id, info, currentWorkoutStepProvider)),
             new Field(field3Id, getFieldValue(field3Id, info, currentWorkoutStepProvider))
         );
@@ -94,6 +91,7 @@ class TripleFieldView extends WatchUi.DataField {
     // Display the value you computed here. This will be called
     // once a second when the data field is visible.
     function onUpdate(dc as Dc) as Void {
+                    
         (View.findDrawableById("Background") as Text).setColor(getBackgroundColor());
 
         var label = View.findDrawableById("label") as Text;
@@ -113,29 +111,13 @@ class TripleFieldView extends WatchUi.DataField {
             value3.setColor(Graphics.COLOR_BLACK);
         }
 
-        renderMainField(label, mainValue);
+        label.setText(getFieldName(mModel.mMainField.mId));
+        renderField(mModel.mMainField, mainValue);
         renderField(mModel.mField2, value2);
         renderField(mModel.mField3, value3);
 
         // Call parent's onUpdate(dc) to redraw the layout
         View.onUpdate(dc);
-    }
-
-    function renderMainField(label as Text, value as Text) as Void {
-        var mainFieldOnShowDisplayed = false;
-        if(!mCounter.done()) {
-            mCounter.tick();
-            var mainFieldOnShow = mModel.mMainFieldOnShow;
-            if (mainFieldOnShow != null) {
-                mainFieldOnShowDisplayed = true;
-                label.setText(getFieldName(mainFieldOnShow.mId));
-                renderField(mainFieldOnShow, value);
-            }
-        }
-        if (!mainFieldOnShowDisplayed) {
-            label.setText(getFieldName(mModel.mMainField.mId));
-            renderField(mModel.mMainField, value);
-        }
     }
 
     function renderField(field as Field, label as Text) as Void {

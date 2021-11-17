@@ -1,20 +1,20 @@
 import Toybox.Lang;
+import Toybox.Time;
 
-class Counter {
-    hidden var mCounter as Number;
+class CountDown {
+    hidden var mDuration as Duration;
+    hidden var mEndMoment as Moment;
 
-    function initialize(ticks as Number) {
-        if (ticks < 0) {
-            throw new InvalidValueException("ticks must be non negative");
-        }
-        mCounter = ticks;
+    function initialize(duration as Duration) {
+        mDuration = duration;
+        mEndMoment = Time.now().add(mDuration);
     }
 
-    function tick() as Void {
-        mCounter -= 1;
+    function reset() as Void {
+        mEndMoment = Time.now().add(mDuration);
     }
 
     function done() as Boolean {
-        return mCounter <= 0;
+        return mEndMoment.lessThan(Time.now());
     }
 }
