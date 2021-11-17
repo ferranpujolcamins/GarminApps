@@ -1,12 +1,17 @@
 <strings>
     <string id="AppName">Triple Field</string>
 
+    <string id="None">None</string>
+
     <string id="MainDataField">Main data field</string>
     <string id="MainDataFieldPrompt">Select what data to show in the main field</string>
+    <string id="MainDataFieldOnShow">Main data field onShow</string>
+    <string id="MainDataFieldOnShowPrompt">Select what data to show in the main field for a brief time after the data page of the field is entered.</string>
     <string id="DataField2">Auxiliar data field 1</string>
     <string id="DataField2Prompt">Select what data to show in the auxiliar data field 1</string>
     <string id="DataField3">Auxiliar data field 2</string>
     <string id="DataField3Prompt">Select what data to show no the auxiliar data field 2</string>
+    
     <string id="HeartRate">Heart rate</string>
     <string id="HeartRateZone">Heart rate zone</string>
     <string id="TargetHeartRate">Target heart rate</string>

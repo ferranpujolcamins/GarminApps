@@ -7,6 +7,15 @@
             <!-- TODO: low and high target values -->
         </settingConfig>
     </setting>
+    <setting propertyKey="@Properties.MainDataFieldOnShow" title="@Strings.MainDataFieldOnShow" prompt="@Strings.MainDataFieldOnShowPrompt">
+        <settingConfig type="list" required="true">
+            <listEntry value="9999">@Strings.None</listEntry>
+            <listEntry value="0">@Strings.HeartRate</listEntry>
+            <listEntry value="1">@Strings.HeartRateZone</listEntry>
+            <listEntry value="2">@Strings.TargetHeartRate</listEntry>
+            <!-- TODO: low and high target values -->
+        </settingConfig>
+    </setting>
     <setting propertyKey="@Properties.DataField2" title="@Strings.DataField2" prompt="@Strings.DataField2Prompt">
         <settingConfig type="list" required="true">
             <listEntry value="0">@Strings.HeartRate</listEntry>

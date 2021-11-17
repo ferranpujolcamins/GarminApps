@@ -1,6 +1,7 @@
 <resources>
 	<properties>
 		<property id="MainDataField" type="Number">0</property>
+		<property id="MainDataFieldOnShow" type="Number">0</property>
 		<property id="DataField2" type="Number">0</property>
 		<property id="DataField3" type="Number">0</property>
 	</properties>

@@ -2,12 +2,24 @@ import Toybox.Lang;
 import Toybox.Activity;
 
 enum FieldId {
+    None = 9999,
     HeartRate = 0,
     HRZone = 1,
     TargetHR = 2,
 
    // Target = 3,
    // TargetData = 4
+}
+
+
+class Field {
+    function initialize(id as FieldId, value as Float?) {
+        mId = id;
+        mValue = value;
+    }
+
+    var mId as FieldId;
+    var mValue as Float? = null;
 }
 
 function getFieldValue(index as FieldId, info as Info, workoutStepProvider as CurrentWorkoutStepProvider) as Float? {

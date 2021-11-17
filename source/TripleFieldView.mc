@@ -2,45 +2,45 @@ import Toybox.Lang;
 import Toybox.Activity;
 import Toybox.Application;
 import Toybox.Graphics;
-import Toybox.Lang;
+import Toybox.Time;
 import Toybox.WatchUi;
 
 class TripleFieldView extends WatchUi.DataField {
 
-    class Field {
-        function initialize(id as FieldId, value as Float?) {
-            mId = id;
-            mValue = value;
-        }
-
-        var mId as FieldId;
-        var mValue as Float? = null;
-    }
-
     class Model {
         function initialize(
             mainField as Field,
+            mainFieldOnShow as Field?,
             field2 as Field,
             field3 as Field
         ) {
             mMainField = mainField;
+            mMainFieldOnShow = mainFieldOnShow;
             mField2 = field2;
             mField3 = field3;
         }
         var mMainField as Field;
+        var mMainFieldOnShow as Field?;
         var mField2 as Field;
         var mField3 as Field;
     }
 
     var mModel as Model;
+    var mCounter as Counter;
 
     function initialize() {
         DataField.initialize();
         mModel = new Model(
             new Field(0 as FieldId, null),
+            null,
             new Field(0 as FieldId, null),
             new Field(0 as FieldId, null)
         );
+        mCounter = new Counter(4);
+    }
+
+    function onShow() as Void {
+        mCounter = new Counter(4);
     }
 
     // Set your layout here. Anytime the size of obscurity of
@@ -72,13 +72,21 @@ class TripleFieldView extends WatchUi.DataField {
     }
 
     function _compute(currentWorkoutStepProvider as CurrentWorkoutStepProvider, info as Info, properties as Properties) as Model {
-        var mainField = properties.getValue(MainDataField);
-        var field2 = properties.getValue(DataField2);
-        var field3 = properties.getValue(DataField3);
+        var mainFieldId = properties.getValue(MainDataField) as FieldId;
+        var mainFieldOnShowId = properties.getValue(MainDataFieldOnShow) as FieldId?;
+        var field2Id = properties.getValue(DataField2) as FieldId;
+        var field3Id = properties.getValue(DataField3) as FieldId;
+
+        var mainFieldOnShow = null;
+        if (mainFieldOnShowId != null && mainFieldOnShowId != None) {
+            mainFieldOnShow = new Field(mainFieldOnShowId as FieldId, getFieldValue(mainFieldOnShowId as FieldId, info, currentWorkoutStepProvider));
+        }
+
         var model = new Model(
-            new Field(mainField as FieldId, getFieldValue(mainField as FieldId, info, currentWorkoutStepProvider)),
-            new Field(field2 as FieldId, getFieldValue(field2 as FieldId, info, currentWorkoutStepProvider)),
-            new Field(field3 as FieldId, getFieldValue(field3 as FieldId, info, currentWorkoutStepProvider))
+            new Field(mainFieldId, getFieldValue(mainFieldId, info, currentWorkoutStepProvider)),
+            mainFieldOnShow,
+            new Field(field2Id, getFieldValue(field2Id, info, currentWorkoutStepProvider)),
+            new Field(field3Id, getFieldValue(field3Id, info, currentWorkoutStepProvider))
         );
         return model;
     }
@@ -105,13 +113,29 @@ class TripleFieldView extends WatchUi.DataField {
             value3.setColor(Graphics.COLOR_BLACK);
         }
 
-        label.setText(getFieldName(mModel.mMainField.mId));
-        renderField(mModel.mMainField, mainValue);
+        renderMainField(label, mainValue);
         renderField(mModel.mField2, value2);
         renderField(mModel.mField3, value3);
 
         // Call parent's onUpdate(dc) to redraw the layout
         View.onUpdate(dc);
+    }
+
+    function renderMainField(label as Text, value as Text) as Void {
+        var mainFieldOnShowDisplayed = false;
+        if(!mCounter.done()) {
+            mCounter.tick();
+            var mainFieldOnShow = mModel.mMainFieldOnShow;
+            if (mainFieldOnShow != null) {
+                mainFieldOnShowDisplayed = true;
+                label.setText(getFieldName(mainFieldOnShow.mId));
+                renderField(mainFieldOnShow, value);
+            }
+        }
+        if (!mainFieldOnShowDisplayed) {
+            label.setText(getFieldName(mModel.mMainField.mId));
+            renderField(mModel.mMainField, value);
+        }
     }
 
     function renderField(field as Field, label as Text) as Void {
