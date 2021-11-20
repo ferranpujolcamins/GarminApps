@@ -9,30 +9,36 @@ class TripleFieldView extends WatchUi.DataField {
 
     class Model {
         function initialize(
-            mainField as Field,
-            field2 as Field,
-            field3 as Field
+            label as String,
+            mainField as String,
+            field2 as String,
+            field3 as String
         ) {
+            mLabel = label;
             mMainField = mainField;
             mField2 = field2;
             mField3 = field3;
         }
-        var mMainField as Field;
-        var mField2 as Field;
-        var mField3 as Field;
+        var mLabel as String;
+        var mMainField as String;
+        var mField2 as String;
+        var mField3 as String;
     }
 
     var mModel as Model;
     var mCountDown as CountDown;
+    var mProperties as Properties;
 
     function initialize() {
         DataField.initialize();
         mModel = new Model(
-            new Field(0 as FieldId, null),
-            new Field(0 as FieldId, null),
-            new Field(0 as FieldId, null)
+            "",
+            "",
+            "",
+            ""
         );
         mCountDown = new CountDown(new Time.Duration(4));
+        mProperties = new ApplicationProperties();
     }
 
     function onShow() as Void {
@@ -128,10 +134,19 @@ class TripleFieldView extends WatchUi.DataField {
     // Note that compute() and onUpdate() are asynchronous, and there is no
     // guarantee that compute() will be called before onUpdate().
     function compute(info as Info) as Void {
-        mModel = _compute(new ActivityCurrentWorkoutStepProvider(Activity), info, new ApplicationProperties());
+        mModel = _compute(
+            new FieldValueProvider(
+                new ActivityCurrentWorkoutStepProvider(Activity),
+                UserProfile,
+                info
+            ),
+            mProperties
+        );
     }
 
-    function _compute(currentWorkoutStepProvider as CurrentWorkoutStepProvider, info as Info, properties as Properties) as Model {
+    function _compute(fieldValueProvider as FieldValueProvider,
+                      properties as Properties) as Model {
+
         var mainFieldId = properties.getValue(MainDataField) as FieldId;
         var mainFieldOnShowId = properties.getValue(MainDataFieldOnShow) as FieldId?;
         var field2Id = properties.getValue(DataField2) as FieldId;
@@ -139,15 +154,19 @@ class TripleFieldView extends WatchUi.DataField {
 
         var mainField;
         if (!mCountDown.done() && mainFieldOnShowId != null && mainFieldOnShowId != None) {
-            mainField = new Field(mainFieldOnShowId, getFieldValue(mainFieldOnShowId, info, currentWorkoutStepProvider));
+            mainField = new Field(mainFieldOnShowId, fieldValueProvider.get(mainFieldOnShowId));
         } else {
-            mainField = new Field(mainFieldId, getFieldValue(mainFieldId, info, currentWorkoutStepProvider));
+            mainField = new Field(mainFieldId, fieldValueProvider.get(mainFieldId));
         }
+        
+        var field2 = new Field(field2Id, fieldValueProvider.get(field2Id));
+        var field3 = new Field(field3Id, fieldValueProvider.get(field3Id));
 
         var model = new Model(
-            mainField,
-            new Field(field2Id, getFieldValue(field2Id, info, currentWorkoutStepProvider)),
-            new Field(field3Id, getFieldValue(field3Id, info, currentWorkoutStepProvider))
+            getFieldName(mainField.mId),
+            renderField(mainField),
+            renderField(field2),
+            renderField(field3)
         );
         return model;
     }
@@ -175,42 +194,35 @@ class TripleFieldView extends WatchUi.DataField {
             value3.setColor(Graphics.COLOR_BLACK);
         }
 
-        label.setText(getFieldName(mModel.mMainField.mId));
-        renderField(mModel.mMainField, mainValue);
-        renderField(mModel.mField2, value2);
-        renderField(mModel.mField3, value3);
+        label.setText(mModel.mLabel);
+        mainValue.setText(mModel.mMainField);
+        value2.setText(mModel.mField2);
+        value3.setText(mModel.mField3);
 
         // Call parent's onUpdate(dc) to redraw the layout
         View.onUpdate(dc);
     }
 
-    function renderField(field as Field, label as Text) as Void {
-        var text;
+    function renderField(field as Field) as String {
+        var value = field.mValue;
+        if (value == null) {
+            return "--";
+        }
         switch (field.mId) {
             case HeartRate:
-                text = formatBPM(field.mValue);
-                break;
+                return formatBPM(value);
             case HRZone:
-                text = formatZone(field.mValue);
-                break;
+                return formatZone(value);
             case TargetHR:
-                text = formatBPM(field.mValue);
-                break;
+                return formatBPM(value);
         }
-        label.setText(text);
     }
 
-    function formatBPM(value as Float?) as String {
-        if (value != null) {
-            return value.format("%i");
-        }
-        return "--";
+    function formatBPM(value as Float) as String {
+        return value.format("%i");
     }
 
-    function formatZone(value as Float?) as String {
-        if (value != null) {
-            return value.format("%.1f");
-        }
-        return "--";
+    function formatZone(value as Float) as String {
+        return value.format("%.1f");
     }
 }

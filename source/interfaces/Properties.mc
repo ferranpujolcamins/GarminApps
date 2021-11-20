@@ -29,6 +29,10 @@ module UnitTest {
     class MockProperties {
         function initialize() {
             mValues = {} as Dictionary<PropertyKeys, Application.PropertyValueType>;
+            mValues[MainDataField] = None;
+            mValues[MainDataFieldOnShow] = None;
+            mValues[DataField2] = None;
+            mValues[DataField3] = None;
         }
 
         function getValue(key as PropertyKeys) as Application.PropertyValueType {

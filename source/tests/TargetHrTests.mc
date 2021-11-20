@@ -1,5 +1,6 @@
 import Toybox.Lang;
 import Toybox.Activity;
+import Toybox.UserProfile;
 import Toybox.Test;
 
 (:test)
@@ -7,17 +8,21 @@ function testTargetHrIsNullWhenNoWorkout(logger as Logger) as Boolean {
     var field = new TripleFieldView();
 
     var currentWorkoutStepProvider = new UnitTest.MockCurrentWorkoutStepProvider();
-    var workoutStep = null;
+    currentWorkoutStepProvider.mWorkoutStep = null;
 
-    var info = new Activity.Info();
+    var fieldValueProvider = new FieldValueProvider(
+        currentWorkoutStepProvider,
+        UserProfile,
+        new Activity.Info()
+    );
 
     var properties = new UnitTest.MockProperties();
     properties.setValue(MainDataField, TargetHR);
 
-    var model = field._compute(currentWorkoutStepProvider, info, properties);
+    var model = field._compute(fieldValueProvider, properties);
 
-    logger.debug("mMainFieldValue = " + model.mMainFieldValue);
-    return model.mMainFieldValue == null;
+    logger.debug("mMainField = " + model.mMainField);
+    return model.mMainField.equals("--");
 }
 
 (:test)
@@ -31,13 +36,17 @@ function testTargetHrIsAverageOfLowAndHighTargets(logger as Logger) as Boolean {
     workoutStep.targetValueHigh = 140;
     currentWorkoutStepProvider.mWorkoutStep = workoutStep;
 
-    var info = new Activity.Info();
+    var fieldValueProvider = new FieldValueProvider(
+        currentWorkoutStepProvider,
+        UserProfile,
+        new Activity.Info()
+    );
 
     var properties = new UnitTest.MockProperties();
     properties.setValue(MainDataField, TargetHR);
 
-    var model = field._compute(currentWorkoutStepProvider, info, properties);
+    var model = field._compute(fieldValueProvider, properties);
 
-    logger.debug("mMainFieldValue = " + model.mMainFieldValue);
-    return model.mMainFieldValue == 130;
+    logger.debug("mMainField = " + model.mMainField);
+    return model.mMainField.equals("130");
 }
