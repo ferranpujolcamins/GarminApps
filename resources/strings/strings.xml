@@ -12,7 +12,12 @@
     <string id="DataField3">Auxiliar data field 2</string>
     <string id="DataField3Prompt">Select what data to show no the auxiliar data field 2</string>
     
-    <string id="HeartRate">Heart rate</string>
-    <string id="HeartRateZone">Heart rate zone</string>
-    <string id="TargetHeartRate">Target heart rate</string>
+    <string id="HeartRateSetting">Heart rate</string>
+    <string id="HeartRateZoneSetting">Heart rate zone</string>
+    <string id="TargetHeartRateSetting">Target heart rate</string>
+
+    <string id ="HeartRateLabel">HEART RATE</string>
+    <string id ="HeartRateZoneLabel">HR ZONE</string>
+    <string id ="TargetHeartRateLabel">TARGET HR</string>
+
 </strings>

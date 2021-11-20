@@ -1,5 +1,6 @@
 import Toybox.Lang;
 import Toybox.Activity;
+import Toybox.Application;
 import Toybox.UserProfile;
 
 enum FieldId {
@@ -79,15 +80,14 @@ class FieldValueProvider {
     }
 }
 
-// TODO: this should be string resources
 function getFieldName(index as FieldId) as String {
     switch(index) {
         case HeartRate:
-            return "HEART RATE";
+            return Application.loadResource(Rez.Strings.HeartRateLabel);
         case HRZone:
-            return "HR ZONE";
+            return Application.loadResource(Rez.Strings.HeartRateZoneLabel);
         case TargetHR:
-            return "TARGET HR";
+            return Application.loadResource(Rez.Strings.TargetHeartRateLabel);
         default:
             return "?";
     }
