@@ -26,7 +26,7 @@ class TripleFieldView extends WatchUi.DataField {
     }
 
     var mModel as Model;
-    var mCountDown as CountDown;
+    var mTimer as PollTimer;
     var mProperties as Properties;
 
     function initialize() {
@@ -37,12 +37,12 @@ class TripleFieldView extends WatchUi.DataField {
             "",
             ""
         );
-        mCountDown = new CountDown(new Time.Duration(4));
+        mTimer = new PollTimer(new Time.Duration(4));
         mProperties = new ApplicationProperties();
     }
 
     function onShow() as Void {
-        mCountDown.reset();
+        mTimer.reset();
     }
 
     enum FieldSize {
@@ -140,11 +140,13 @@ class TripleFieldView extends WatchUi.DataField {
                 UserProfile,
                 info
             ),
+            mTimer.done(),
             mProperties
         );
     }
 
     function _compute(fieldValueProvider as FieldValueProvider,
+                      timerDone as Boolean,
                       properties as Properties) as Model {
 
         var mainFieldId = properties.getValue(MainDataField) as FieldId;
@@ -153,7 +155,7 @@ class TripleFieldView extends WatchUi.DataField {
         var field3Id = properties.getValue(DataField3) as FieldId;
 
         var mainField;
-        if (!mCountDown.done() && mainFieldOnShowId != null && mainFieldOnShowId != None) {
+        if (!timerDone && mainFieldOnShowId != null && mainFieldOnShowId != None) {
             mainField = new Field(mainFieldOnShowId, fieldValueProvider.get(mainFieldOnShowId));
         } else {
             mainField = new Field(mainFieldId, fieldValueProvider.get(mainFieldId));

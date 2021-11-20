@@ -1,7 +1,8 @@
 import Toybox.Lang;
 import Toybox.Time;
 
-class CountDown {
+// A timer that has to be polled with the 'done()' method.
+class PollTimer {
     hidden var mDuration as Duration;
     hidden var mEndMoment as Moment;
 

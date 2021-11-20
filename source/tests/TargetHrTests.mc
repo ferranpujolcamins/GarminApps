@@ -19,7 +19,7 @@ function testTargetHrIsNullWhenNoWorkout(logger as Logger) as Boolean {
     var properties = new UnitTest.MockProperties();
     properties.setValue(MainDataField, TargetHR);
 
-    var model = field._compute(fieldValueProvider, properties);
+    var model = field._compute(fieldValueProvider, true, properties);
 
     logger.debug("mMainField = " + model.mMainField);
     return model.mMainField.equals("--");
@@ -45,7 +45,7 @@ function testTargetHrIsAverageOfLowAndHighTargets(logger as Logger) as Boolean {
     var properties = new UnitTest.MockProperties();
     properties.setValue(MainDataField, TargetHR);
 
-    var model = field._compute(fieldValueProvider, properties);
+    var model = field._compute(fieldValueProvider, true, properties);
 
     logger.debug("mMainField = " + model.mMainField);
     return model.mMainField.equals("130");
