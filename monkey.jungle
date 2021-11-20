@@ -1,1 +1,2 @@
 project.manifest = manifest.xml
+fenix6spro.resourcePath = $(fenix6spro.resourcePath);device_resources/fenix6spro

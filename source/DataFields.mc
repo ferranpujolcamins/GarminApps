@@ -43,14 +43,15 @@ function getFieldValue(index as FieldId, info as Info, workoutStepProvider as Cu
     }
 }
 
+// TODO: this should be string resources
 function getFieldName(index as FieldId) as String {
     switch(index) {
         case HeartRate:
-            return "Heart Rate";
+            return "HEART RATE";
         case HRZone:
-            return "HR zone";
+            return "HR ZONE";
         case TargetHR:
-            return "Target HR";
+            return "TARGET HR";
         default:
             throw new Lang.InvalidValueException("Invalid field index");
     }

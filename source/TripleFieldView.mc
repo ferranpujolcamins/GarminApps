@@ -39,23 +39,87 @@ class TripleFieldView extends WatchUi.DataField {
         mCountDown.reset();
     }
 
+    enum FieldSize {
+        small,
+        medium,
+        big
+    }
+
     // Set your layout here. Anytime the size of obscurity of
     // the draw context is changed this will be called.
     function onLayout(dc as Dc) as Void {
+        // TODO: option to not show label and have more space?
+
         var obscurityFlags = DataField.getObscurityFlags();
 
+        var fieldHeight = dc.getHeight();
+        var fieldSize;
+        if (fieldHeight < 60) {
+            fieldSize = small;
+        } else if (fieldHeight < 119) {
+            fieldSize = medium;
+        } else {
+            fieldSize = big;
+        }
+
         if (obscurityFlags == (OBSCURE_TOP | OBSCURE_LEFT | OBSCURE_RIGHT)) {
-            View.setLayout(Rez.Layouts.TopLayout(dc));
+            switch (fieldSize) {
+                case small:
+                    View.setLayout(Rez.Layouts.TopSmallLayout(dc));
+                    break;
+                case medium:
+                    View.setLayout(Rez.Layouts.TopLayout(dc));
+                    break;
+                default:
+                    View.setLayout(Rez.Layouts.TopBigLayout(dc));
+                    break;
+            }
         } else if (obscurityFlags == (OBSCURE_TOP | OBSCURE_LEFT)) {
             View.setLayout(Rez.Layouts.TopLeftLayout(dc));
         } else if (obscurityFlags == (OBSCURE_TOP | OBSCURE_RIGHT)) {
             View.setLayout(Rez.Layouts.TopRightLayout(dc));
+        } else if (obscurityFlags == (OBSCURE_BOTTOM | OBSCURE_LEFT | OBSCURE_RIGHT)) {
+            switch (fieldSize) {
+                case small:
+                    View.setLayout(Rez.Layouts.BottomSmallLayout(dc));
+                    break;
+                case medium:
+                    View.setLayout(Rez.Layouts.BottomLayout(dc));
+                    break;
+                default:
+                    View.setLayout(Rez.Layouts.BottomBigLayout(dc));
+                    break;
+            }
         } else if (obscurityFlags == (OBSCURE_BOTTOM | OBSCURE_LEFT)) {
             View.setLayout(Rez.Layouts.BottomLeftLayout(dc));
         } else if (obscurityFlags == (OBSCURE_BOTTOM | OBSCURE_RIGHT)) {
             View.setLayout(Rez.Layouts.BottomRightLayout(dc));
+        } else if (obscurityFlags == (OBSCURE_LEFT)) {
+            switch (fieldSize) {
+                case small:
+                    View.setLayout(Rez.Layouts.LeftSmallLayout(dc));
+                    break;
+                case medium:
+                    View.setLayout(Rez.Layouts.LeftLayout(dc));
+                    break;
+                default:
+                    View.setLayout(Rez.Layouts.LeftBigLayout(dc));
+                    break;
+            }
+        } else if (obscurityFlags == (OBSCURE_RIGHT)) {
+            switch (fieldSize) {
+                case small:
+                    View.setLayout(Rez.Layouts.RightSmallLayout(dc));
+                    break;
+                case medium:
+                    View.setLayout(Rez.Layouts.RightLayout(dc));
+                    break;
+                default:
+                    View.setLayout(Rez.Layouts.RightBigLayout(dc));
+                    break;
+            }
         } else {
-            View.setLayout(Rez.Layouts.MainLayout(dc));
+            View.setLayout(Rez.Layouts.SingleFieldLayout(dc));
         }
     }
 

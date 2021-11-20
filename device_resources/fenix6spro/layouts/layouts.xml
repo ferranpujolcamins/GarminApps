@@ -1,0 +1,127 @@
+<layouts>
+    <layout id="SingleFieldLayout">
+        <drawable class="Background" />
+        <label id="label" x="center" y="40" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_SMALL" />
+        <label id="value1" x="center" y="center" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_NUMBER_THAI_HOT" />
+        <label id="value2" x="70" y="160" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_NUMBER_MILD" />
+        <label id="value3" x="160" y="160" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_NUMBER_MILD" />
+    </layout>
+
+    <layout id="TopBigLayout">
+        <drawable class="Background" />
+        <label id="label" x="center" y="13" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_XTINY" />
+        <label id="value1" x="center" y="30" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_NUMBER_HOT" />
+        <label id="value2" x="13%" y="49" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_SYSTEM_TINY" />
+        <label id="value3" x="87%" y="49" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_RIGHT" font="Graphics.FONT_SYSTEM_TINY" />
+    </layout>
+    <layout id="TopLayout">
+        <drawable class="Background" />
+        <label id="label" x="center" y="13" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_XTINY" />
+        <label id="value1" x="center" y="30" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_NUMBER_MILD" />
+        <label id="value2" x="17%" y="49" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_SYSTEM_TINY" />
+        <label id="value3" x="83%" y="49" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_RIGHT" font="Graphics.FONT_SYSTEM_TINY" />
+    </layout>
+    <layout id="TopSmallLayout">
+        <drawable class="Background" />
+        <label id="label" x="center" y="8" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_XTINY" />
+        <label id="value1" x="center" y="15" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_NUMBER_MILD" />
+        <label id="value2" x="17%" y="34" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_SYSTEM_TINY" />
+        <label id="value3" x="83%" y="34" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_RIGHT" font="Graphics.FONT_SYSTEM_TINY" />
+    </layout>
+
+    <layout id="TopLeftLayout">
+        <drawable class="Background" />
+        <label id="label" x="center" y="40%" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_XTINY" />
+        <label id="value1" x="center" y="32%" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_NUMBER_MILD" />
+        <label id="value2" x="17%" y="bottom" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_SYSTEM_TINY" />
+        <label id="value3" x="83%" y="bottom" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_RIGHT" font="Graphics.FONT_SYSTEM_TINY" />
+    </layout>
+    <layout id="TopRightLayout">
+        <drawable class="Background" />
+        <label id="label" x="center" y="40%" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_XTINY" />
+        <label id="value1" x="center" y="32%" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_NUMBER_MILD" />
+        <label id="value2" x="17%" y="bottom" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_SYSTEM_TINY" />
+        <label id="value3" x="83%" y="bottom" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_RIGHT" font="Graphics.FONT_SYSTEM_TINY" />
+    </layout>
+
+    <layout id="BottomBigLayout">
+        <drawable class="Background" />
+        <label id="label" x="center" y="0" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_XTINY" />
+        <label id="value1" x="center" y="16" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_NUMBER_HOT" />
+        <label id="value2" x="13%" y="23" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_SYSTEM_TINY" />
+        <label id="value3" x="87%" y="23" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_RIGHT" font="Graphics.FONT_SYSTEM_TINY" />
+    </layout>
+    <layout id="BottomLayout">
+        <drawable class="Background" />
+        <label id="label" x="center" y="0" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_XTINY" />
+        <label id="value1" x="center" y="16" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_NUMBER_MILD" />
+        <label id="value2" x="17%" y="23" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_SYSTEM_TINY" />
+        <label id="value3" x="83%" y="23" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_RIGHT" font="Graphics.FONT_SYSTEM_TINY" />
+    </layout>
+    <layout id="BottomSmallLayout">
+        <drawable class="Background" />
+        <label id="label" x="center" y="0" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_XTINY" />
+        <label id="value1" x="center" y="8" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_NUMBER_MILD" />
+        <label id="value2" x="17%" y="5" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_SYSTEM_TINY" />
+        <label id="value3" x="83%" y="5" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_RIGHT" font="Graphics.FONT_SYSTEM_TINY" />
+    </layout>
+
+    <layout id="BottomLeftLayout">
+        <drawable class="Background" />
+        <label id="label" x="center" y="40%" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_XTINY" />
+        <label id="value1" x="center" y="32%" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_NUMBER_MILD" />
+        <label id="value2" x="17%" y="bottom" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_SYSTEM_TINY" />
+        <label id="value3" x="83%" y="bottom" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_RIGHT" font="Graphics.FONT_SYSTEM_TINY" />
+    </layout>
+    <layout id="BottomRightLayout">
+        <drawable class="Background" />
+        <label id="label" x="center" y="40%" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_XTINY" />
+        <label id="value1" x="center" y="32%" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_NUMBER_MILD" />
+        <label id="value2" x="17%" y="bottom" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_SYSTEM_TINY" />
+        <label id="value3" x="83%" y="bottom" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_RIGHT" font="Graphics.FONT_SYSTEM_TINY" />
+    </layout>
+
+    <layout id="LeftBigLayout">
+        <drawable class="Background" />
+        <label id="label" x="center" y="0" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_XTINY" />
+        <label id="value1" x="70" y="12" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_NUMBER_MILD" />
+        <label id="value2" x="24" y="15" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_TINY" />
+        <label id="value3" x="24" y="35" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_TINY" />
+    </layout>
+    <layout id="LeftLayout">
+        <drawable class="Background" />
+        <label id="label" x="center" y="0" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_XTINY" />
+        <label id="value1" x="70" y="12" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_NUMBER_MILD" />
+        <label id="value2" x="24" y="15" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_TINY" />
+        <label id="value3" x="24" y="35" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_TINY" />
+    </layout>
+    <layout id="LeftSmallLayout">
+        <drawable class="Background" />
+        <label id="label" x="center" y="0" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_XTINY" />
+        <label id="value1" x="70" y="15" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_LARGE" />
+        <label id="value2" x="30" y="12" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_TINY" />
+        <label id="value3" x="30" y="30" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_TINY" />
+    </layout>
+
+    <layout id="RightBigLayout">
+        <drawable class="Background" />
+        <label id="label" x="center" y="0" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_XTINY" />
+        <label id="value1" x="70" y="12" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_NUMBER_MILD" />
+        <label id="value2" x="24" y="15" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_TINY" />
+        <label id="value3" x="24" y="35" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_TINY" />
+    </layout>
+    <layout id="RightLayout">
+        <drawable class="Background" />
+        <label id="label" x="center" y="0" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_XTINY" />
+        <label id="value1" x="70" y="12" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_NUMBER_MILD" />
+        <label id="value2" x="24" y="15" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_TINY" />
+        <label id="value3" x="24" y="35" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_TINY" />
+    </layout>
+    <layout id="RightSmallLayout">
+        <drawable class="Background" />
+        <label id="label" x="center" y="0" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_XTINY" />
+        <label id="value1" x="70" y="15" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_LARGE" />
+        <label id="value2" x="30" y="12" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_TINY" />
+        <label id="value3" x="30" y="30" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SYSTEM_TINY" />
+    </layout>
+</layouts>
