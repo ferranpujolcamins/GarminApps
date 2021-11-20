@@ -4,13 +4,14 @@ import Toybox.UserProfile;
 
 enum FieldId {
     None = 9999,
+
     HeartRate = 0,
     HRZone = 1,
     TargetHR = 2,
     TargetHRZone = 3,
 
-   // Target = 3,
-   // TargetData = 4
+   // Target = 3, shows the target value no matter what target type
+   // TargetType = 4
 }
 
 
