@@ -34,7 +34,21 @@ function testHeartRateZones(logger as Logger) as Boolean {
         && checkHeartRateZone(169, 5.9, userProfileProvider, logger)
         && checkHeartRateZone(170, 5.9, userProfileProvider, logger)
         && checkHeartRateZone(171, 5.9, userProfileProvider, logger);
-        
+}
+
+(:test)
+function testHeartRateZonesWithoutRestingHeartRate(logger as Logger) as Boolean {
+    var userProfileProvider = new UnitTest.MockUserProfileProvider();
+    userProfileProvider.mZones = [120, 130, 140, 150, 160, 170] as Array<Number>;
+    userProfileProvider.mProfile.restingHeartRate = null;
+
+    return checkHeartRateZone(50, 1.0, userProfileProvider, logger)
+        && checkHeartRateZone(60, 1.0, userProfileProvider, logger)
+        && checkHeartRateZone(90, 1.0, userProfileProvider, logger)
+        && checkHeartRateZone(119, 1.0, userProfileProvider, logger)
+        && checkHeartRateZone(120, 1.0, userProfileProvider, logger)
+        && checkHeartRateZone(125, 1.5, userProfileProvider, logger)
+        && checkHeartRateZone(129, 1.9, userProfileProvider, logger);
 }
 
 function checkHeartRateZone(heartRate as Number,
@@ -46,5 +60,3 @@ function checkHeartRateZone(heartRate as Number,
     logger.debug(status + ": heartRate = " + heartRate + ", zone = " + zone + ", expectedZone = " + expectedZone);
     return zone == expectedZone;
 }
-
-// TODO: test when resting hr is null
