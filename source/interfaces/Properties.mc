@@ -14,7 +14,6 @@ typedef Properties as interface {
     function setValue(key as PropertyKeys, value as Application.PropertyValueType) as Void;
 };
 
-(:device_settings)
 class ApplicationProperties {
     function getValue(key as PropertyKeys) as Application.PropertyValueType {
         return Application.Properties.getValue(key as String);
