@@ -10,7 +10,7 @@ class ActivityCurrentWorkoutStepProvider {
     }
 
     function getCurrentWorkoutStep() as WorkoutStep? {
-        if (!(Activity has : getCurrentWorkoutStep)) {
+        if (!(mActivity has :getCurrentWorkoutStep)) {
             return null;
         }
         var stepInfo = mActivity.getCurrentWorkoutStep();
@@ -18,7 +18,7 @@ class ActivityCurrentWorkoutStepProvider {
             return null;
         }
         var stepOrInterval = stepInfo.step;
-        if (stepOrInterval instanceof WorkoutIntervalStep) {
+        if (stepOrInterval instanceof Activity.WorkoutIntervalStep) {
             // TODO: check we return correct values while in rest step.
             return stepOrInterval.activeStep;
         }
