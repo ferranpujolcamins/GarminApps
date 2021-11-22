@@ -108,5 +108,5 @@ function testTargetHrZoneIsSingleHrTargetZone(logger as Logger) as Boolean {
     var model = field._compute(fieldValueProvider, true, properties);
 
     logger.debug("mMainField = " + model.mMainField);
-    return model.mMainField.equals("2");
+    return model.mMainField.equals("2.0");
 }
