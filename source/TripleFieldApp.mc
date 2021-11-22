@@ -4,6 +4,14 @@ import Toybox.WatchUi;
 
 class TripleFieldApp extends Application.AppBase {
 
+    (:debug)
+    function initialize() {
+        AppBase.initialize();
+
+        UnitTest.runTests();
+    }
+
+    (:release)
     function initialize() {
         AppBase.initialize();
     }
