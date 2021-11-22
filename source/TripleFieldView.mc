@@ -217,6 +217,11 @@ class TripleFieldView extends WatchUi.DataField {
                 return formatZone(value);
             case TargetHR:
                 return formatBPM(value);
+            case TargetHRZone:
+                return formatZone(value);
+            default:
+                assertDebug(false);
+                return "--";
         }
     }
 

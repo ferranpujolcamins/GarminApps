@@ -19,5 +19,6 @@
     <string id ="HeartRateLabel">HEART RATE</string>
     <string id ="HeartRateZoneLabel">HR ZONE</string>
     <string id ="TargetHeartRateLabel">TARGET HR</string>
+    <string id ="TargetHeartRateZoneLabel">TARGET HR</string>
 
 </strings>

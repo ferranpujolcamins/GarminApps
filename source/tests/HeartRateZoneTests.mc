@@ -57,6 +57,8 @@ function checkHeartRateZone(heartRate as Number,
                             logger as Logger) as Boolean {
     var zone = getHeartRateZone(heartRate, userProfileProvider);
     var status = zone == expectedZone ? "PASS" : "FAIL";
-    logger.debug(status + ": heartRate = " + heartRate + ", zone = " + zone + ", expectedZone = " + expectedZone);
+    if (zone != expectedZone) {
+        logger.debug(status + ": heartRate = " + heartRate + ", zone = " + zone + ", expectedZone = " + expectedZone);
+    }
     return zone == expectedZone;
 }

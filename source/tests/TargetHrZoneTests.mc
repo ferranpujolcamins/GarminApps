@@ -3,8 +3,10 @@ import Toybox.Activity;
 import Toybox.UserProfile;
 import Toybox.Test;
 
+import Toybox.System;
+
 (:test)
-function testTargetHrIsNullWhenNoWorkout(logger as Logger) as Boolean {
+function testTargetHrZoneIsNullWhenNoWorkout(logger as Logger) as Boolean {
     var field = new TripleFieldView();
 
     var currentWorkoutStepProvider = new UnitTest.MockCurrentWorkoutStepProvider();
@@ -17,7 +19,7 @@ function testTargetHrIsNullWhenNoWorkout(logger as Logger) as Boolean {
     );
 
     var properties = new UnitTest.MockProperties();
-    properties.setValue(MainDataField, TargetHR);
+    properties.setValue(MainDataField, TargetHRZone);
 
     var model = field._compute(fieldValueProvider, true, properties);
 
@@ -26,33 +28,39 @@ function testTargetHrIsNullWhenNoWorkout(logger as Logger) as Boolean {
 }
 
 (:test)
-function testTargetHrIsAverageOfLowAndHighHrTargets(logger as Logger) as Boolean {
+function testTargetHrZoneIsAverageOfLowAndHighHrTargets(logger as Logger) as Boolean {
     var field = new TripleFieldView();
 
     var currentWorkoutStepProvider = new UnitTest.MockCurrentWorkoutStepProvider();
     var workoutStep = new Activity.WorkoutStep();
     workoutStep.targetType = Activity.WORKOUT_STEP_TARGET_HEART_RATE;
-    workoutStep.targetValueLow = 120;
-    workoutStep.targetValueHigh = 140;
+    workoutStep.targetValueLow = 130;
+    workoutStep.targetValueHigh = 150;
     currentWorkoutStepProvider.mWorkoutStep = workoutStep;
+
+    var userProfileProvider = new UnitTest.MockUserProfileProvider();
+    userProfileProvider.mZones = [110, 135, 150, 150, 160, 170] as Array<Number>;
+    userProfileProvider.mProfile.restingHeartRate = 60;
 
     var fieldValueProvider = new FieldValueProvider(
         currentWorkoutStepProvider,
-        UserProfile,
+        userProfileProvider,
         new Activity.Info()
     );
 
     var properties = new UnitTest.MockProperties();
-    properties.setValue(MainDataField, TargetHR);
+    properties.setValue(MainDataField, TargetHRZone);
+    System.println(properties.getValue(MainDataField));
+    System.println((properties.getValue(MainDataField) as FieldId) as Number);
 
     var model = field._compute(fieldValueProvider, true, properties);
 
     logger.debug("mMainField = " + model.mMainField);
-    return model.mMainField.equals("130");
+    return model.mMainField.equals("2.3");
 }
 
 (:test)
-function testTargetHrIsAverageOfLowAndHighZoneTargets(logger as Logger) as Boolean {
+function testTargetHrZoneIsAverageOfLowAndHighZoneTargets(logger as Logger) as Boolean {
     var field = new TripleFieldView();
 
     var currentWorkoutStepProvider = new UnitTest.MockCurrentWorkoutStepProvider();
@@ -62,27 +70,23 @@ function testTargetHrIsAverageOfLowAndHighZoneTargets(logger as Logger) as Boole
     workoutStep.targetValueHigh = 3;
     currentWorkoutStepProvider.mWorkoutStep = workoutStep;
 
-    var userProfileProvider = new UnitTest.MockUserProfileProvider();
-    userProfileProvider.mZones = [120, 130, 140, 150, 160, 170] as Array<Number>;
-    userProfileProvider.mProfile.restingHeartRate = 60;
-
     var fieldValueProvider = new FieldValueProvider(
         currentWorkoutStepProvider,
-        userProfileProvider,
+        UserProfile,
         new Activity.Info()
     );
 
     var properties = new UnitTest.MockProperties();
-    properties.setValue(MainDataField, TargetHR);
+    properties.setValue(MainDataField, TargetHRZone);
 
     var model = field._compute(fieldValueProvider, true, properties);
 
     logger.debug("mMainField = " + model.mMainField);
-    return model.mMainField.equals("135");
+    return model.mMainField.equals("2.5");
 }
 
 (:test)
-function testTargetHrIsSingleHrTargetZone(logger as Logger) as Boolean {
+function testTargetHrZoneIsSingleHrTargetZone(logger as Logger) as Boolean {
     var field = new TripleFieldView();
 
     var currentWorkoutStepProvider = new UnitTest.MockCurrentWorkoutStepProvider();
@@ -92,21 +96,17 @@ function testTargetHrIsSingleHrTargetZone(logger as Logger) as Boolean {
     workoutStep.targetValueHigh = 0;
     currentWorkoutStepProvider.mWorkoutStep = workoutStep;
 
-    var userProfileProvider = new UnitTest.MockUserProfileProvider();
-    userProfileProvider.mZones = [120, 130, 140, 150, 160, 170] as Array<Number>;
-    userProfileProvider.mProfile.restingHeartRate = 60;
-
     var fieldValueProvider = new FieldValueProvider(
         currentWorkoutStepProvider,
-        userProfileProvider,
+        UserProfile,
         new Activity.Info()
     );
 
     var properties = new UnitTest.MockProperties();
-    properties.setValue(MainDataField, TargetHR);
+    properties.setValue(MainDataField, TargetHRZone);
 
     var model = field._compute(fieldValueProvider, true, properties);
 
     logger.debug("mMainField = " + model.mMainField);
-    return model.mMainField.equals("130");
+    return model.mMainField.equals("2");
 }

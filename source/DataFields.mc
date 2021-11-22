@@ -46,35 +46,64 @@ class FieldValueProvider {
         switch(index) {
             case None:
                 return null;
+
             case HeartRate:
                 return currentHeartRate;
+
             case HRZone:
                 if (currentHeartRate != null) {
                     return getHeartRateZone(currentHeartRate, mUserProfileProvider);
                 } else {
                     return null;
                 }
+
             case TargetHR:
                 workoutStep = mWorkoutStepProvider.getCurrentWorkoutStep();
                 if (workoutStep == null) {
                     return null;
                 }
                 if (workoutStep.targetType == Activity.WORKOUT_STEP_TARGET_HEART_RATE) {
-                    return ((workoutStep.targetValueLow + workoutStep.targetValueHigh) / 2) as Float;
+                    if (workoutStep.targetValueLow < 6 && workoutStep.targetValueLow >= 0) {
+                        // We are given a zone
+                        var zone;
+                        if (workoutStep.targetValueHigh == 0) {
+                            zone = workoutStep.targetValueLow as Float;
+                        } else {
+                            zone = (workoutStep.targetValueLow + workoutStep.targetValueHigh) / 2.0;
+                        }
+                        return getHeartRate(zone, mUserProfileProvider);
+                    } else {
+                        // We are given bpm
+                        return ((workoutStep.targetValueLow + workoutStep.targetValueHigh) / 2) as Float;
+                    }
                 }
                 return null;
+
             case TargetHRZone:
                 workoutStep = mWorkoutStepProvider.getCurrentWorkoutStep();
                 if (workoutStep == null) {
                     return null;
                 }
                 if (workoutStep.targetType == Activity.WORKOUT_STEP_TARGET_HEART_RATE) {
-                    var targetHR = ((workoutStep.targetValueLow + workoutStep.targetValueHigh) / 2);
-                    return getHeartRateZone(targetHR, mUserProfileProvider);
+                    if (workoutStep.targetValueLow < 6 && workoutStep.targetValueLow >= 0) {
+                        // We are given a zone
+                        var zone;
+                        if (workoutStep.targetValueHigh == 0) {
+                            zone = workoutStep.targetValueLow as Float;
+                        } else {
+                            zone = (workoutStep.targetValueLow + workoutStep.targetValueHigh) / 2.0;
+                        }
+                        return zone;
+                    } else {
+                        // We are given bpm
+                        var bpm = (workoutStep.targetValueLow + workoutStep.targetValueHigh) / 2;
+                        return getHeartRateZone(bpm, mUserProfileProvider);
+                    }
                 }
                 return null;
 
             default:
+                assertDebug(false);
                 return null;
         }
     }
@@ -88,7 +117,10 @@ function getFieldName(index as FieldId) as String {
             return Application.loadResource(Rez.Strings.HeartRateZoneLabel);
         case TargetHR:
             return Application.loadResource(Rez.Strings.TargetHeartRateLabel);
+        case TargetHRZone:
+            return Application.loadResource(Rez.Strings.TargetHeartRateZoneLabel);
         default:
+            assertDebug(false);
             return "?";
     }
 }

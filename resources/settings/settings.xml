@@ -5,6 +5,7 @@
             <listEntry value="1">@Strings.HeartRateZoneSetting</listEntry>
             <listEntry value="2">@Strings.TargetHeartRateSetting</listEntry>
             <!-- TODO: low and high target values -->
+            <!-- TODO: option to see workout step name instead of label -->
         </settingConfig>
     </setting>
     <setting propertyKey="@Properties.MainDataFieldOnShow" title="@Strings.MainDataFieldOnShow" prompt="@Strings.MainDataFieldOnShowPrompt">
