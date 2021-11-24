@@ -19,7 +19,6 @@ class ActivityCurrentWorkoutStepProvider {
         }
         var stepOrInterval = stepInfo.step;
         if (stepOrInterval instanceof Activity.WorkoutIntervalStep) {
-            // TODO: check we return correct values while in rest step.
             return stepOrInterval.activeStep;
         }
         return stepOrInterval;

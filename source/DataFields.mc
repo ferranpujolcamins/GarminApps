@@ -74,7 +74,8 @@ class FieldValueProvider {
                         return (lowHr + hiHr) / 2.0;
                     } else {
                         // We are given bpm
-                        return ((workoutStep.targetValueLow + workoutStep.targetValueHigh) / 2) as Float;
+                        // There seems to be a bug in connectIQ that sets these values 100 too high.
+                        return ((workoutStep.targetValueLow + workoutStep.targetValueHigh) / 2) - 100 as Float;
                     }
                 }
                 return null;
@@ -90,7 +91,8 @@ class FieldValueProvider {
                         return workoutStep.targetValueLow as Float;
                     } else {
                         // We are given bpm
-                        var bpm = (workoutStep.targetValueLow + workoutStep.targetValueHigh) / 2;
+                        // There seems to be a bug in connectIQ that sets these values 100 too high.
+                        var bpm = (workoutStep.targetValueLow + workoutStep.targetValueHigh) / 2 - 100;
                         return getHeartRateZone(bpm, mUserProfileProvider);
                     }
                 }

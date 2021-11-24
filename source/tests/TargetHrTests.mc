@@ -33,8 +33,9 @@ function testTargetHrIsAverageOfLowAndHighHrTargets(logger as Logger) as Boolean
     var currentWorkoutStepProvider = new UnitTest.MockCurrentWorkoutStepProvider();
     var workoutStep = new Activity.WorkoutStep();
     workoutStep.targetType = Activity.WORKOUT_STEP_TARGET_HEART_RATE;
-    workoutStep.targetValueLow = 120;
-    workoutStep.targetValueHigh = 140;
+    // There seems to be a bug in connectIQ that sets these values 100 too high.
+    workoutStep.targetValueLow = 120 + 100;
+    workoutStep.targetValueHigh = 140 + 100;
     currentWorkoutStepProvider.mWorkoutStep = workoutStep;
 
     var fieldValueProvider = new FieldValueProvider(
