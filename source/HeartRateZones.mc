@@ -66,7 +66,9 @@ function getHeartRate(zone as Float, userProfileProvider as UserProfileProvider)
         return (zone - 3) * (z4 - z3) + z3;
     } else if (zone < 5) {
         return (zone - 4) * (z5 - z4) + z4;
-    } else {
+    } else if (zone < 6) {
         return (zone - 5) * (maxHr - z5) + z5;
+    } else {
+        return maxHr as Float;
     }
 }

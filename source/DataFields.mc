@@ -65,13 +65,13 @@ class FieldValueProvider {
                 if (workoutStep.targetType == Activity.WORKOUT_STEP_TARGET_HEART_RATE) {
                     if (workoutStep.targetValueLow < 6 && workoutStep.targetValueLow >= 0) {
                         // We are given a zone
-                        var zone;
-                        if (workoutStep.targetValueHigh == 0) {
-                            zone = workoutStep.targetValueLow as Float;
-                        } else {
-                            zone = (workoutStep.targetValueLow + workoutStep.targetValueHigh) / 2.0;
+                        var zone = workoutStep.targetValueLow as Float;
+                        var lowHr = getHeartRate(zone, mUserProfileProvider);
+                        var hiHr = getHeartRate(zone + 1, mUserProfileProvider);
+                        if (lowHr == null || hiHr == null) {
+                            return null;
                         }
-                        return getHeartRate(zone, mUserProfileProvider);
+                        return (lowHr + hiHr) / 2.0;
                     } else {
                         // We are given bpm
                         return ((workoutStep.targetValueLow + workoutStep.targetValueHigh) / 2) as Float;
@@ -87,13 +87,7 @@ class FieldValueProvider {
                 if (workoutStep.targetType == Activity.WORKOUT_STEP_TARGET_HEART_RATE) {
                     if (workoutStep.targetValueLow < 6 && workoutStep.targetValueLow >= 0) {
                         // We are given a zone
-                        var zone;
-                        if (workoutStep.targetValueHigh == 0) {
-                            zone = workoutStep.targetValueLow as Float;
-                        } else {
-                            zone = (workoutStep.targetValueLow + workoutStep.targetValueHigh) / 2.0;
-                        }
-                        return zone;
+                        return workoutStep.targetValueLow as Float;
                     } else {
                         // We are given bpm
                         var bpm = (workoutStep.targetValueLow + workoutStep.targetValueHigh) / 2;

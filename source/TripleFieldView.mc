@@ -218,7 +218,11 @@ class TripleFieldView extends WatchUi.DataField {
             case TargetHR:
                 return formatBPM(value);
             case TargetHRZone:
-                return formatZone(value);
+                if (value.toNumber().toFloat() == value) {
+                    return formatExactZone(value);
+                } else {
+                    return formatZone(value);
+                }
             default:
                 assertDebug(false);
                 return "--";
@@ -231,5 +235,9 @@ class TripleFieldView extends WatchUi.DataField {
 
     function formatZone(value as Float) as String {
         return value.format("%.1f");
+    }
+
+    function formatExactZone(value as Float) as String {
+        return value.format("%i");
     }
 }
