@@ -213,16 +213,32 @@ class TripleFieldView extends WatchUi.DataField {
         switch (field.mId) {
             case HeartRate:
                 return formatBPM(value);
+
             case HRZone:
                 return formatZone(value);
+
             case TargetHR:
                 return formatBPM(value);
+
             case TargetHRZone:
                 if (value.toNumber().toFloat() == value) {
                     return formatExactZone(value);
                 } else {
                     return formatZone(value);
                 }
+
+            case LoTargetHR:
+                return formatBPM(value);
+
+            case HiTargetHR:
+                return formatBPM(value);
+
+            case LoTargetHRZone:
+                return formatZone(value);
+
+            case HiTargetHRZone:
+                return formatZone(value);
+
             default:
                 assertDebug(false);
                 return "--";

@@ -6,7 +6,7 @@ import Toybox.Test;
 import Toybox.System;
 
 (:test)
-function testTargetHrZoneIsNullWhenNoWorkout(logger as Logger) as Boolean {
+function testLoTargetHrZoneIsNullWhenNoWorkout(logger as Logger) as Boolean {
     var field = new TripleFieldView();
 
     var currentWorkoutStepProvider = new UnitTest.MockCurrentWorkoutStepProvider();
@@ -19,7 +19,7 @@ function testTargetHrZoneIsNullWhenNoWorkout(logger as Logger) as Boolean {
     );
 
     var properties = new UnitTest.MockProperties();
-    properties.setValue(MainDataField, TargetHRZone);
+    properties.setValue(MainDataField, LoTargetHRZone);
 
     var model = field._compute(fieldValueProvider, true, properties);
 
@@ -28,7 +28,7 @@ function testTargetHrZoneIsNullWhenNoWorkout(logger as Logger) as Boolean {
 }
 
 (:test)
-function testTargetHrZoneIsAverageOfLowAndHighHrTargets(logger as Logger) as Boolean {
+function testLoTargetHrZoneIsAverageOfLowAndHighHrTargets(logger as Logger) as Boolean {
     var field = new TripleFieldView();
 
     var currentWorkoutStepProvider = new UnitTest.MockCurrentWorkoutStepProvider();
@@ -50,16 +50,16 @@ function testTargetHrZoneIsAverageOfLowAndHighHrTargets(logger as Logger) as Boo
     );
 
     var properties = new UnitTest.MockProperties();
-    properties.setValue(MainDataField, TargetHRZone);
+    properties.setValue(MainDataField, LoTargetHRZone);
 
     var model = field._compute(fieldValueProvider, true, properties);
 
     logger.debug("mMainField = " + model.mMainField);
-    return model.mMainField.equals("2.3");
+    return model.mMainField.equals("1.8");
 }
 
 (:test)
-function testTargetHrZoneWithHrZoneTarget(logger as Logger) as Boolean {
+function testLoTargetHrZoneWithHrZoneTarget(logger as Logger) as Boolean {
     var field = new TripleFieldView();
 
     var currentWorkoutStepProvider = new UnitTest.MockCurrentWorkoutStepProvider();
@@ -76,10 +76,10 @@ function testTargetHrZoneWithHrZoneTarget(logger as Logger) as Boolean {
     );
 
     var properties = new UnitTest.MockProperties();
-    properties.setValue(MainDataField, TargetHRZone);
+    properties.setValue(MainDataField, LoTargetHRZone);
 
     var model = field._compute(fieldValueProvider, true, properties);
 
     logger.debug("mMainField = " + model.mMainField);
-    return model.mMainField.equals("2");
+    return model.mMainField.equals("2.0");
 }

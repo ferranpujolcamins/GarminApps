@@ -15,10 +15,19 @@
     <string id="HeartRateSetting">Heart rate</string>
     <string id="HeartRateZoneSetting">Heart rate zone</string>
     <string id="TargetHeartRateSetting">Target heart rate</string>
+    <string id="TargetHeartRateZoneSetting">Target heart rate zone</string>
+    <string id="LowTargetHeartRateSetting">Target low heart rate</string>
+    <string id="HighTargetHeartRateSetting">Target high heart rate</string>
+    <string id="LowTargetHeartRateZoneSetting">Target low heart rate zone</string>
+    <string id="HighTargetHeartRateZoneSetting">Target high heart rate zone</string>
 
     <string id ="HeartRateLabel">HEART RATE</string>
     <string id ="HeartRateZoneLabel">HR ZONE</string>
     <string id ="TargetHeartRateLabel">TARGET HR</string>
     <string id ="TargetHeartRateZoneLabel">TARGET HR</string>
+    <string id ="LowTargetHeartRateLabel">TARGET LOW HR</string>
+    <string id ="HighTargetHeartRateLabel">TARGET Hi HR</string>
+    <string id ="LowTargetHeartRateZoneLabel">TARGET LOW HR</string>
+    <string id ="HighTargetHeartRateZoneLabel">TARGET HI HR</string>
 
 </strings>

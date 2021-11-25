@@ -10,6 +10,10 @@ enum FieldId {
     HRZone = 1,
     TargetHR = 2,
     TargetHRZone = 3,
+    LoTargetHR = 4,
+    HiTargetHR = 5,
+    LoTargetHRZone = 6,
+    HiTargetHRZone = 7,
 
    // Target = 3, shows the target value no matter what target type
    // TargetType = 4
@@ -42,6 +46,7 @@ class FieldValueProvider {
 
     function get(index as FieldId) as Float? {
         var workoutStep;
+        var hrWorkoutTarget;
         var currentHeartRate = mInfo.currentHeartRate;
         switch(index) {
             case None:
@@ -59,44 +64,101 @@ class FieldValueProvider {
 
             case TargetHR:
                 workoutStep = mWorkoutStepProvider.getCurrentWorkoutStep();
-                if (workoutStep == null) {
-                    return null;
-                }
-                if (workoutStep.targetType == Activity.WORKOUT_STEP_TARGET_HEART_RATE) {
-                    if (workoutStep.targetValueLow < 6 && workoutStep.targetValueLow >= 0) {
-                        // We are given a zone
-                        var zone = workoutStep.targetValueLow as Float;
-                        var lowHr = getHeartRate(zone, mUserProfileProvider);
-                        var hiHr = getHeartRate(zone + 1, mUserProfileProvider);
-                        if (lowHr == null || hiHr == null) {
-                            return null;
-                        }
-                        return (lowHr + hiHr) / 2.0;
-                    } else {
-                        // We are given bpm
-                        // There seems to be a bug in connectIQ that sets these values 100 too high.
-                        return ((workoutStep.targetValueLow + workoutStep.targetValueHigh) / 2) - 100 as Float;
+                if (workoutStep == null) { return null; }
+
+                hrWorkoutTarget = HrWorkoutTarget.isTargetHr(workoutStep);
+                if (hrWorkoutTarget == null) { return null; }
+
+                if (hrWorkoutTarget.isZone()) {
+                    var zone = hrWorkoutTarget.getZone() as Float;
+                    var lowHr = getHeartRate(zone, mUserProfileProvider);
+                    var hiHr = getHeartRate(zone + 1, mUserProfileProvider);
+                    if (lowHr == null || hiHr == null) {
+                        return null;
                     }
+                    return (lowHr + hiHr) / 2.0;
+                } else {
+                    return ((hrWorkoutTarget.getValueLow() + hrWorkoutTarget.getValueHigh()) / 2) as Float;
                 }
-                return null;
 
             case TargetHRZone:
                 workoutStep = mWorkoutStepProvider.getCurrentWorkoutStep();
-                if (workoutStep == null) {
-                    return null;
+                if (workoutStep == null) { return null; }
+
+                hrWorkoutTarget = HrWorkoutTarget.isTargetHr(workoutStep);
+                if (hrWorkoutTarget == null) { return null; }
+
+                if (hrWorkoutTarget.isZone()) {
+                    return hrWorkoutTarget.getZone() as Float;
+                } else {
+                    var bpm = (hrWorkoutTarget.getValueLow() + hrWorkoutTarget.getValueHigh()) / 2;
+                    return getHeartRateZone(bpm, mUserProfileProvider);
                 }
-                if (workoutStep.targetType == Activity.WORKOUT_STEP_TARGET_HEART_RATE) {
-                    if (workoutStep.targetValueLow < 6 && workoutStep.targetValueLow >= 0) {
-                        // We are given a zone
-                        return workoutStep.targetValueLow as Float;
-                    } else {
-                        // We are given bpm
-                        // There seems to be a bug in connectIQ that sets these values 100 too high.
-                        var bpm = (workoutStep.targetValueLow + workoutStep.targetValueHigh) / 2 - 100;
-                        return getHeartRateZone(bpm, mUserProfileProvider);
+
+            case LoTargetHR:
+                workoutStep = mWorkoutStepProvider.getCurrentWorkoutStep();
+                if (workoutStep == null) { return null; }
+
+                hrWorkoutTarget = HrWorkoutTarget.isTargetHr(workoutStep);
+                if (hrWorkoutTarget == null) { return null; }
+
+                if (hrWorkoutTarget.isZone()) {
+                    var zone = hrWorkoutTarget.getZone() as Float;
+                    var lowHr = getHeartRate(zone, mUserProfileProvider);
+                    if (lowHr == null) {
+                        return null;
                     }
+                    return lowHr as Float;
+                } else {
+                    return hrWorkoutTarget.getValueLow() as Float;
                 }
-                return null;
+
+            case HiTargetHR:
+                workoutStep = mWorkoutStepProvider.getCurrentWorkoutStep();
+                if (workoutStep == null) { return null; }
+
+                hrWorkoutTarget = HrWorkoutTarget.isTargetHr(workoutStep);
+                if (hrWorkoutTarget == null) { return null; }
+
+                if (hrWorkoutTarget.isZone()) {
+                    var zone = hrWorkoutTarget.getZone() as Float;
+                    var hiHr = getHeartRate(zone + 1, mUserProfileProvider);
+                    if (hiHr == null) {
+                        return null;
+                    }
+                    return hiHr as Float;
+                } else {
+                    return hrWorkoutTarget.getValueHigh() as Float;
+                }
+
+            case LoTargetHRZone:
+                workoutStep = mWorkoutStepProvider.getCurrentWorkoutStep();
+                if (workoutStep == null) { return null; }
+
+                hrWorkoutTarget = HrWorkoutTarget.isTargetHr(workoutStep);
+                if (hrWorkoutTarget == null) { return null; }
+
+                if (hrWorkoutTarget.isZone()) {
+                    return hrWorkoutTarget.getZone() as Float;
+                } else {
+                    return getHeartRateZone(hrWorkoutTarget.getValueLow(), mUserProfileProvider);
+                }
+
+            case HiTargetHRZone:
+                workoutStep = mWorkoutStepProvider.getCurrentWorkoutStep();
+                if (workoutStep == null) { return null; }
+
+                hrWorkoutTarget = HrWorkoutTarget.isTargetHr(workoutStep);
+                if (hrWorkoutTarget == null) { return null; }
+
+                if (hrWorkoutTarget.isZone()) {
+                    if (hrWorkoutTarget.getZone() >= 5) {
+                        return 5.9;
+                    }
+                    return hrWorkoutTarget.getZone() + 1.0;
+                } else {
+                    return getHeartRateZone(hrWorkoutTarget.getValueHigh(), mUserProfileProvider);
+                }
 
             default:
                 assertDebug(false);
@@ -115,8 +177,50 @@ function getFieldName(index as FieldId) as String {
             return Application.loadResource(Rez.Strings.TargetHeartRateLabel);
         case TargetHRZone:
             return Application.loadResource(Rez.Strings.TargetHeartRateZoneLabel);
+        case LoTargetHR:
+            return Application.loadResource(Rez.Strings.LowTargetHeartRateLabel);
+        case HiTargetHR:
+            return Application.loadResource(Rez.Strings.HighTargetHeartRateLabel);
+        case LoTargetHRZone:
+            return Application.loadResource(Rez.Strings.LowTargetHeartRateZoneLabel);
+        case HiTargetHRZone:
+            return Application.loadResource(Rez.Strings.HighTargetHeartRateZoneLabel);
+
         default:
             assertDebug(false);
             return "?";
+    }
+}
+
+class HrWorkoutTarget {
+    hidden var mWorkoutStep as WorkoutStep;
+
+    function initialize(workoutStep as WorkoutStep) {
+        mWorkoutStep = workoutStep;
+    }
+
+    static function isTargetHr(workoutStep as WorkoutStep) as HrWorkoutTarget? {
+        if (workoutStep.targetType != Activity.WORKOUT_STEP_TARGET_HEART_RATE) {
+            return null;
+        }
+        return new HrWorkoutTarget(workoutStep);
+    }
+
+    function isZone() as Boolean {
+        return mWorkoutStep.targetValueLow < 100;
+    }
+
+    function getZone() as Number {
+        return mWorkoutStep.targetValueLow;
+    }
+
+    function getValueLow() as Number {
+        // There seems to be a bug in connectIQ that sets these values 100 too high.
+        return mWorkoutStep.targetValueLow - 100;
+    }
+
+    function getValueHigh() as Number {
+        // There seems to be a bug in connectIQ that sets these values 100 too high.
+        return mWorkoutStep.targetValueHigh - 100;
     }
 }

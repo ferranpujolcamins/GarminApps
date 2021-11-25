@@ -25,7 +25,6 @@ function testTargetHrIsNullWhenNoWorkout(logger as Logger) as Boolean {
     return model.mMainField.equals("--");
 }
 
-// TODO: on the device this is not what happens
 (:test)
 function testTargetHrIsAverageOfLowAndHighHrTargets(logger as Logger) as Boolean {
     var field = new TripleFieldView();
@@ -54,7 +53,7 @@ function testTargetHrIsAverageOfLowAndHighHrTargets(logger as Logger) as Boolean
 }
 
 (:test)
-function testTargetHrSingleHrTargetZone(logger as Logger) as Boolean {
+function testTargetHrWithHrZoneTarget(logger as Logger) as Boolean {
     var field = new TripleFieldView();
 
     var currentWorkoutStepProvider = new UnitTest.MockCurrentWorkoutStepProvider();

@@ -4,16 +4,24 @@
             <listEntry value="0">@Strings.HeartRateSetting</listEntry>
             <listEntry value="1">@Strings.HeartRateZoneSetting</listEntry>
             <listEntry value="2">@Strings.TargetHeartRateSetting</listEntry>
-            <!-- TODO: low and high target values -->
+            <listEntry value="3">@Strings.TargetHeartRateZoneSetting</listEntry>
+            <listEntry value="4">@Strings.LowTargetHeartRateSetting</listEntry>
+            <listEntry value="5">@Strings.HighTargetHeartRateSetting</listEntry>
+            <listEntry value="6">@Strings.LowTargetHeartRateZoneSetting</listEntry>
+            <listEntry value="7">@Strings.HighTargetHeartRateZoneSetting</listEntry>
             <!-- TODO: option to see workout step name instead of label -->
         </settingConfig>
     </setting>
     <setting propertyKey="@Properties.MainDataFieldOnShow" title="@Strings.MainDataFieldOnShow" prompt="@Strings.MainDataFieldOnShowPrompt">
         <settingConfig type="list" required="true">
-            <listEntry value="9999">@Strings.None</listEntry>
             <listEntry value="0">@Strings.HeartRateSetting</listEntry>
             <listEntry value="1">@Strings.HeartRateZoneSetting</listEntry>
             <listEntry value="2">@Strings.TargetHeartRateSetting</listEntry>
+            <listEntry value="3">@Strings.TargetHeartRateZoneSetting</listEntry>
+            <listEntry value="4">@Strings.LowTargetHeartRateSetting</listEntry>
+            <listEntry value="5">@Strings.HighTargetHeartRateSetting</listEntry>
+            <listEntry value="6">@Strings.LowTargetHeartRateZoneSetting</listEntry>
+            <listEntry value="7">@Strings.HighTargetHeartRateZoneSetting</listEntry>
         </settingConfig>
     </setting>
     <setting propertyKey="@Properties.DataField2" title="@Strings.DataField2" prompt="@Strings.DataField2Prompt">
@@ -21,6 +29,11 @@
             <listEntry value="0">@Strings.HeartRateSetting</listEntry>
             <listEntry value="1">@Strings.HeartRateZoneSetting</listEntry>
             <listEntry value="2">@Strings.TargetHeartRateSetting</listEntry>
+            <listEntry value="3">@Strings.TargetHeartRateZoneSetting</listEntry>
+            <listEntry value="4">@Strings.LowTargetHeartRateSetting</listEntry>
+            <listEntry value="5">@Strings.HighTargetHeartRateSetting</listEntry>
+            <listEntry value="6">@Strings.LowTargetHeartRateZoneSetting</listEntry>
+            <listEntry value="7">@Strings.HighTargetHeartRateZoneSetting</listEntry>
         </settingConfig>
     </setting>
     <setting propertyKey="@Properties.DataField3" title="@Strings.DataField3" prompt="@Strings.DataField3Prompt">
@@ -28,6 +41,11 @@
             <listEntry value="0">@Strings.HeartRateSetting</listEntry>
             <listEntry value="1">@Strings.HeartRateZoneSetting</listEntry>
             <listEntry value="2">@Strings.TargetHeartRateSetting</listEntry>
+            <listEntry value="3">@Strings.TargetHeartRateZoneSetting</listEntry>
+            <listEntry value="4">@Strings.LowTargetHeartRateSetting</listEntry>
+            <listEntry value="5">@Strings.HighTargetHeartRateSetting</listEntry>
+            <listEntry value="6">@Strings.LowTargetHeartRateZoneSetting</listEntry>
+            <listEntry value="7">@Strings.HighTargetHeartRateZoneSetting</listEntry>
         </settingConfig>
     </setting>
 </settings>

@@ -43,7 +43,7 @@ function getHeartRateZone(heartRate as Number, userProfileProvider as UserProfil
     return Math.floor(heartRateZone * 10) / 10;
 }
 
-function getHeartRate(zone as Float, userProfileProvider as UserProfileProvider) as Float? {
+function getHeartRate(zone as Float, userProfileProvider as UserProfileProvider) as Number? {
     var zones = userProfileProvider.getHeartRateZones(UserProfile.getCurrentSport());
     var restingHr = userProfileProvider.getProfile().restingHeartRate;
     var z1 = zones[0];
@@ -53,22 +53,24 @@ function getHeartRate(zone as Float, userProfileProvider as UserProfileProvider)
     var z5 = zones[4];
     var maxHr = zones[5];
 
+    var heartRate;
     if (zone < 1) {
         if (restingHr == null || zone < 0) { 
             return null;
         }
-        return zone * (z1 - restingHr) + restingHr;
+        heartRate = zone * (z1 - restingHr) + restingHr;
     } else if (zone < 2) {
-        return (zone - 1) * (z2 - z1) + z1;
+        heartRate = (zone - 1) * (z2 - z1) + z1;
     } else if (zone < 3) {
-        return (zone - 2) * (z3 - z2) + z2;
+        heartRate = (zone - 2) * (z3 - z2) + z2;
     } else if (zone < 4) {
-        return (zone - 3) * (z4 - z3) + z3;
+        heartRate = (zone - 3) * (z4 - z3) + z3;
     } else if (zone < 5) {
-        return (zone - 4) * (z5 - z4) + z4;
+        heartRate = (zone - 4) * (z5 - z4) + z4;
     } else if (zone < 6) {
-        return (zone - 5) * (maxHr - z5) + z5;
+        heartRate = (zone - 5) * (maxHr - z5) + z5;
     } else {
-        return maxHr as Float;
+        heartRate = maxHr;
     }
+    return heartRate as Number;
 }
