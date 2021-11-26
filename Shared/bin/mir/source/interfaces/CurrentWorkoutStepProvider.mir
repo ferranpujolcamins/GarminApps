@@ -1,0 +1,118 @@
+[ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc"; @line = 1; ]
+import Toybox.Activity;
+[ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc"; @line = 3; ]
+module Shared {
+    [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc"; @line = 3; ]
+    <init> {
+    }
+    [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc"; @line = 5; CurrentWorkoutStepProvider = true; ]
+    module CurrentWorkoutStepProviderModule {
+        [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc"; @line = 6; ]
+        <init> {
+        }
+        [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc"; @line = 8; ]
+    type CurrentWorkoutStepProvider as interface {function getCurrentWorkoutStep() as WorkoutStep or Null;};
+        [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc"; @line = 12; ]
+        class ActivityCurrentWorkoutStepProvider{
+            [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc"; @line = 12; ]
+            <init> {
+            }
+            [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc"; @line = 13; ]
+            function initialize(activity as Activity) as Void {
+[ "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc" 14 ]
+                %tmp.2 = lgetv %activity;
+                putv self :mActivity %tmp.2;
+            }
+            [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc"; @line = 17; ]
+            function getCurrentWorkoutStep() as WorkoutStep or Null {
+[ "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc" 18 ]
+                %tmp.2 = getv ? :mActivity;
+                %tmp.3 = :getCurrentWorkoutStep;
+                %tmp.4 = canhazplz %tmp.2 %tmp.3;
+                %tmp.5 = not %tmp.4;
+                bf %tmp.5 @C_Ferran_Dev_TripleField_Shared_source_interfaces_CurrentWorkoutStepProvider_mc_18_16_end;
+C_Ferran_Dev_TripleField_Shared_source_interfaces_CurrentWorkoutStepProvider_mc_18_16_if:
+[ "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc" 19 ]
+                %tmp.6 = null;
+                ret %tmp.6;
+                goto @C_Ferran_Dev_TripleField_Shared_source_interfaces_CurrentWorkoutStepProvider_mc_18_16_end;
+C_Ferran_Dev_TripleField_Shared_source_interfaces_CurrentWorkoutStepProvider_mc_18_16_end:
+[ "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc" 21 ]
+                %stepInfo.1 = local;
+                %tmp.8 = getv ? :mActivity;
+                %tmp.9 = getv const %tmp.8 :getCurrentWorkoutStep;
+                %tmp.10 = invoke %tmp.8 %tmp.9();
+                lputv %stepInfo.1 %tmp.10;
+[ "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc" 22 ]
+                %tmp.12 = lgetv %stepInfo.1;
+                %tmp.13 = null;
+                %tmp.14 = eq %tmp.12 %tmp.13;
+                bf %tmp.14 @C_Ferran_Dev_TripleField_Shared_source_interfaces_CurrentWorkoutStepProvider_mc_22_16_end;
+C_Ferran_Dev_TripleField_Shared_source_interfaces_CurrentWorkoutStepProvider_mc_22_16_if:
+[ "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc" 23 ]
+                %tmp.15 = null;
+                ret %tmp.15;
+                goto @C_Ferran_Dev_TripleField_Shared_source_interfaces_CurrentWorkoutStepProvider_mc_22_16_end;
+C_Ferran_Dev_TripleField_Shared_source_interfaces_CurrentWorkoutStepProvider_mc_22_16_end:
+[ "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc" 25 ]
+                %stepOrInterval.2 = local;
+                %tmp.17 = lgetv %stepInfo.1;
+                %tmp.18 = getv %tmp.17 :step;
+                lputv %stepOrInterval.2 %tmp.18;
+[ "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc" 26 ]
+                %tmp.20 = lgetv %stepOrInterval.2;
+                %tmp.21 = getm $.Toybox.Activity;
+                %tmp.22 = getv %tmp.21 :WorkoutIntervalStep;
+                %tmp.23 = isa %tmp.20 %tmp.22;
+                bf %tmp.23 @C_Ferran_Dev_TripleField_Shared_source_interfaces_CurrentWorkoutStepProvider_mc_26_16_end;
+C_Ferran_Dev_TripleField_Shared_source_interfaces_CurrentWorkoutStepProvider_mc_26_16_if:
+[ "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc" 27 ]
+                %tmp.25 = lgetv %stepOrInterval.2;
+                %tmp.26 = as %tmp.25 { (Activity.WorkoutIntervalStep) };
+                %tmp.27 = getv %tmp.26 :activeStep;
+                ret %tmp.27;
+                goto @C_Ferran_Dev_TripleField_Shared_source_interfaces_CurrentWorkoutStepProvider_mc_26_16_end;
+C_Ferran_Dev_TripleField_Shared_source_interfaces_CurrentWorkoutStepProvider_mc_26_16_end:
+[ "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc" 29 ]
+                %tmp.29 = lgetv %stepOrInterval.2;
+                ret %tmp.29;
+            }
+            [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc"; @line = 32; ]
+            private
+            var mActivity as Activity;
+        }
+    }
+    [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc"; @line = 36; CurrentWorkoutStepProvider = true; tests = true; ]
+    module CurrentWorkoutStepProviderTests {
+        [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc"; @line = 37; ]
+        <init> {
+        }
+        [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc"; @line = 39; ]
+        class MockCurrentWorkoutStepProvider{
+            [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc"; @line = 39; ]
+            <init> {
+                [ "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc" 44 ]
+                %tmp.32 = getm $.Toybox.Activity;
+                %tmp.33 = getv %tmp.32 :WorkoutStep;
+                %tmp.30 = newc %tmp.33;
+                %tmp.34 = dup %tmp.30;
+                %tmp.35 = getv const %tmp.34 :initialize;
+                %tmp.36 = dup %tmp.30;
+                invoke %tmp.36 %tmp.35();
+                putv self :mWorkoutStep %tmp.30;
+            }
+            function initialize() as Void {
+            }
+            [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc"; @line = 40; ]
+            function getCurrentWorkoutStep() as WorkoutStep or Null {
+[ "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc" 41 ]
+                %tmp.2 = getv ? :mWorkoutStep;
+                ret %tmp.2;
+            }
+            [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\CurrentWorkoutStepProvider.mc"; @line = 44; ]
+            var mWorkoutStep as WorkoutStep or Null;
+        }
+    }
+}
+<init> {
+}

@@ -1,0 +1,81 @@
+[ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\UserProfileProvider.mc"; @line = 1; ]
+import Toybox.Lang;
+[ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\UserProfileProvider.mc"; @line = 2; ]
+import Toybox.UserProfile;
+[ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\UserProfileProvider.mc"; @line = 4; ]
+module Shared {
+    [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\UserProfileProvider.mc"; @line = 4; ]
+    <init> {
+    }
+    [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\UserProfileProvider.mc"; @line = 6; UserProfileProvider = true; ]
+    module UserProfileProviderModule {
+        [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\UserProfileProvider.mc"; @line = 7; ]
+        <init> {
+        }
+        [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\UserProfileProvider.mc"; @line = 9; ]
+    type UserProfileProvider as interface {function getHeartRateZones(sport as UserProfile.SportHrZone) as Array<Number>;function getProfile() as UserProfile.Profile;};
+    }
+    [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\UserProfileProvider.mc"; @line = 15; UserProfileProviderTests = true; ]
+    module UserProfileProviderTests {
+        [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\UserProfileProvider.mc"; @line = 16; ]
+        <init> {
+        }
+        [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\UserProfileProvider.mc"; @line = 17; ]
+        class MockUserProfileProvider{
+            [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\UserProfileProvider.mc"; @line = 17; ]
+            <init> {
+                [ "C:\Ferran\Dev\TripleField\Shared\source\interfaces\UserProfileProvider.mc" 28 ]
+                %tmp.3 = getm $.Toybox.UserProfile;
+                %tmp.4 = getv %tmp.3 :Profile;
+                %tmp.1 = newc %tmp.4;
+                %tmp.5 = dup %tmp.1;
+                %tmp.6 = getv const %tmp.5 :initialize;
+                %tmp.7 = dup %tmp.1;
+                invoke %tmp.7 %tmp.6();
+                putv self :mProfile %tmp.1;
+                [ "C:\Ferran\Dev\TripleField\Shared\source\interfaces\UserProfileProvider.mc" 29 ]
+                %tmp.8 = newa Array<Number> 6;
+                %tmp.9 = 120;
+                %tmp.10 = dup %tmp.8;
+                %tmp.11 = aputv %tmp.10 0 %tmp.9;
+                %tmp.12 = 130;
+                %tmp.13 = dup %tmp.11;
+                %tmp.14 = aputv %tmp.13 1 %tmp.12;
+                %tmp.15 = 140;
+                %tmp.16 = dup %tmp.14;
+                %tmp.17 = aputv %tmp.16 2 %tmp.15;
+                %tmp.18 = 150;
+                %tmp.19 = dup %tmp.17;
+                %tmp.20 = aputv %tmp.19 3 %tmp.18;
+                %tmp.21 = 160;
+                %tmp.22 = dup %tmp.20;
+                %tmp.23 = aputv %tmp.22 4 %tmp.21;
+                %tmp.24 = 170;
+                %tmp.25 = dup %tmp.23;
+                %tmp.26 = aputv %tmp.25 5 %tmp.24;
+                putv self :mZones %tmp.26;
+            }
+            [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\UserProfileProvider.mc"; @line = 18; ]
+            function initialize() as Void {
+            }
+            [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\UserProfileProvider.mc"; @line = 20; ]
+            function getHeartRateZones(sport as UserProfile.SportHrZone) as Array<Number> {
+[ "C:\Ferran\Dev\TripleField\Shared\source\interfaces\UserProfileProvider.mc" 21 ]
+                %tmp.2 = getv ? :mZones;
+                ret %tmp.2;
+            }
+            [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\UserProfileProvider.mc"; @line = 24; ]
+            function getProfile() as UserProfile.Profile {
+[ "C:\Ferran\Dev\TripleField\Shared\source\interfaces\UserProfileProvider.mc" 25 ]
+                %tmp.2 = getv ? :mProfile;
+                ret %tmp.2;
+            }
+            [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\UserProfileProvider.mc"; @line = 28; ]
+            var mProfile as UserProfile.Profile;
+            [ @file = "C:\Ferran\Dev\TripleField\Shared\source\interfaces\UserProfileProvider.mc"; @line = 29; ]
+            var mZones as Array<Number>;
+        }
+    }
+}
+<init> {
+}

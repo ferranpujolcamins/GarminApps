@@ -1,0 +1,50 @@
+[ @file = "Shared_Rez.mc"; @line = 1; ]
+module Shared {
+    [ @file = "Shared_Rez.mc"; @line = 1; ]
+    <init> {
+    }
+    [ @file = "Shared_Rez.mc"; @line = 2; ]
+    module Rez {
+        [ @file = "Shared_Rez.mc"; @line = 2; ]
+        <init> {
+        }
+        [ @file = "Shared_Rez.mc"; @line = 3; ]
+        module Drawables {
+            [ @file = "Shared_Rez.mc"; @line = 3; ]
+            <init> {
+            }
+        }
+        [ @file = "Shared_Rez.mc"; @line = 5; ]
+        module Fonts {
+            [ @file = "Shared_Rez.mc"; @line = 5; ]
+            <init> {
+            }
+        }
+        [ @file = "Shared_Rez.mc"; @line = 7; ]
+        module JsonData {
+            [ @file = "Shared_Rez.mc"; @line = 7; ]
+            <init> {
+            }
+        }
+        [ @file = "Shared_Rez.mc"; @line = 9; ]
+        module Layouts {
+            [ @file = "Shared_Rez.mc"; @line = 9; ]
+            <init> {
+            }
+        }
+        [ @file = "Shared_Rez.mc"; @line = 11; ]
+        module Menus {
+            [ @file = "Shared_Rez.mc"; @line = 11; ]
+            <init> {
+            }
+        }
+        [ @file = "Shared_Rez.mc"; @line = 13; ]
+        module Strings {
+            [ @file = "Shared_Rez.mc"; @line = 13; ]
+            <init> {
+            }
+        }
+    }
+}
+<init> {
+}

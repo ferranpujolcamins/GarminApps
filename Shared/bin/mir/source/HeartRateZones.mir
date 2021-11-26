@@ -1,0 +1,435 @@
+[ @file = "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc"; @line = 1; ]
+import Toybox.Lang;
+[ @file = "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc"; @line = 2; ]
+import Toybox.Math;
+[ @file = "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc"; @line = 3; ]
+import Toybox.UserProfile;
+[ @file = "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc"; @line = 4; ]
+import Shared.UserProfileProviderModule;
+[ @file = "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc"; @line = 6; ]
+module Shared {
+    [ @file = "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc"; @line = 6; ]
+    <init> {
+    }
+    [ @file = "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc"; @line = 8; HeartRateZones = true; ]
+    module HeartRateZonesModule {
+        [ @file = "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc"; @line = 9; ]
+        <init> {
+        }
+        [ @file = "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc"; @line = 11; ]
+        function getHeartRateZone(heartRate as Number, userProfileProvider as UserProfileProvider) as Float {
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 12 ]
+            %zones.1 = local;
+            %tmp.2 = lgetv %userProfileProvider;
+            %tmp.3 = getv const %tmp.2 :getHeartRateZones;
+            %tmp.4 = getm $.Toybox.UserProfile;
+            %tmp.5 = getv const %tmp.4 :getCurrentSport;
+            %tmp.6 = invoke %tmp.4 %tmp.5();
+            %tmp.7 = invoke %tmp.2 %tmp.3(%tmp.6);
+            lputv %zones.1 %tmp.7;
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 13 ]
+            %restingHr.2 = local;
+            %tmp.9 = lgetv %userProfileProvider;
+            %tmp.10 = getv const %tmp.9 :getProfile;
+            %tmp.11 = invoke %tmp.9 %tmp.10();
+            %tmp.12 = getv %tmp.11 :restingHeartRate;
+            lputv %restingHr.2 %tmp.12;
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 14 ]
+            %z1.3 = local;
+            %tmp.14 = lgetv %zones.1;
+            %tmp.15 = 0;
+            %tmp.16 = agetv %tmp.14 %tmp.15;
+            lputv %z1.3 %tmp.16;
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 15 ]
+            %z2.4 = local;
+            %tmp.18 = lgetv %zones.1;
+            %tmp.19 = 1;
+            %tmp.20 = agetv %tmp.18 %tmp.19;
+            lputv %z2.4 %tmp.20;
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 16 ]
+            %z3.5 = local;
+            %tmp.22 = lgetv %zones.1;
+            %tmp.23 = 2;
+            %tmp.24 = agetv %tmp.22 %tmp.23;
+            lputv %z3.5 %tmp.24;
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 17 ]
+            %z4.6 = local;
+            %tmp.26 = lgetv %zones.1;
+            %tmp.27 = 3;
+            %tmp.28 = agetv %tmp.26 %tmp.27;
+            lputv %z4.6 %tmp.28;
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 18 ]
+            %z5.7 = local;
+            %tmp.30 = lgetv %zones.1;
+            %tmp.31 = 4;
+            %tmp.32 = agetv %tmp.30 %tmp.31;
+            lputv %z5.7 %tmp.32;
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 19 ]
+            %maxHr.8 = local;
+            %tmp.34 = lgetv %zones.1;
+            %tmp.35 = 5;
+            %tmp.36 = agetv %tmp.34 %tmp.35;
+            lputv %maxHr.8 %tmp.36;
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 21 ]
+            %_heartRate.9 = local;
+            %tmp.38 = lgetv %heartRate;
+            %tmp.39 = getv const %tmp.38 :toFloat;
+            %tmp.40 = invoke %tmp.38 %tmp.39();
+            lputv %_heartRate.9 %tmp.40;
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 22 ]
+            %heartRateZone.10 = local;
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 24 ]
+            %tmp.42 = lgetv %heartRate;
+            %tmp.44 = lgetv %z1.3;
+            %tmp.45 = lt %tmp.42 %tmp.44;
+            bf %tmp.45 @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_24_12_else;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_24_12_if:
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 25 ]
+            %tmp.47 = lgetv %restingHr.2;
+            %tmp.48 = null;
+            %tmp.49 = ne %tmp.47 %tmp.48;
+            bf %tmp.49 @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_25_16_else;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_25_16_if:
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 26 ]
+            %tmp.51 = lgetv %_heartRate.9;
+            %tmp.53 = lgetv %restingHr.2;
+            %tmp.54 = as %tmp.53 { (!Null) };
+            %tmp.55 = sub %tmp.51 %tmp.54;
+            %tmp.57 = lgetv %z1.3;
+            %tmp.59 = lgetv %restingHr.2;
+            %tmp.60 = as %tmp.59 { (!Null) };
+            %tmp.61 = sub %tmp.57 %tmp.60;
+            %tmp.62 = div %tmp.55 %tmp.61;
+            lputv %heartRateZone.10 %tmp.62;
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 27 ]
+            %tmp.64 = lgetv %heartRateZone.10;
+            %tmp.65 = 0;
+            %tmp.66 = lt %tmp.64 %tmp.65;
+            bf %tmp.66 @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_27_20_end;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_27_20_if:
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 28 ]
+            %tmp.67 = 0;
+            lputv %heartRateZone.10 %tmp.67;
+            goto @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_27_20_end;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_27_20_end:
+            goto @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_25_16_end;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_25_16_else:
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 31 ]
+            %tmp.68 = 1.0;
+            lputv %heartRateZone.10 %tmp.68;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_25_16_end:
+            goto @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_24_12_end;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_24_12_else:
+            %tmp.70 = lgetv %heartRate;
+            %tmp.72 = lgetv %z2.4;
+            %tmp.73 = lt %tmp.70 %tmp.72;
+            bf %tmp.73 @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_33_19_else;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_33_19_if:
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 34 ]
+            %tmp.74 = 1.0;
+            %tmp.76 = lgetv %_heartRate.9;
+            %tmp.78 = lgetv %z1.3;
+            %tmp.79 = sub %tmp.76 %tmp.78;
+            %tmp.81 = lgetv %z2.4;
+            %tmp.83 = lgetv %z1.3;
+            %tmp.84 = sub %tmp.81 %tmp.83;
+            %tmp.85 = div %tmp.79 %tmp.84;
+            %tmp.86 = add %tmp.74 %tmp.85;
+            lputv %heartRateZone.10 %tmp.86;
+            goto @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_33_19_end;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_33_19_else:
+            %tmp.88 = lgetv %heartRate;
+            %tmp.90 = lgetv %z3.5;
+            %tmp.91 = lt %tmp.88 %tmp.90;
+            bf %tmp.91 @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_35_19_else;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_35_19_if:
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 36 ]
+            %tmp.92 = 2.0;
+            %tmp.94 = lgetv %_heartRate.9;
+            %tmp.96 = lgetv %z2.4;
+            %tmp.97 = sub %tmp.94 %tmp.96;
+            %tmp.99 = lgetv %z3.5;
+            %tmp.101 = lgetv %z2.4;
+            %tmp.102 = sub %tmp.99 %tmp.101;
+            %tmp.103 = div %tmp.97 %tmp.102;
+            %tmp.104 = add %tmp.92 %tmp.103;
+            lputv %heartRateZone.10 %tmp.104;
+            goto @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_35_19_end;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_35_19_else:
+            %tmp.106 = lgetv %heartRate;
+            %tmp.108 = lgetv %z4.6;
+            %tmp.109 = lt %tmp.106 %tmp.108;
+            bf %tmp.109 @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_37_19_else;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_37_19_if:
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 38 ]
+            %tmp.110 = 3.0;
+            %tmp.112 = lgetv %_heartRate.9;
+            %tmp.114 = lgetv %z3.5;
+            %tmp.115 = sub %tmp.112 %tmp.114;
+            %tmp.117 = lgetv %z4.6;
+            %tmp.119 = lgetv %z3.5;
+            %tmp.120 = sub %tmp.117 %tmp.119;
+            %tmp.121 = div %tmp.115 %tmp.120;
+            %tmp.122 = add %tmp.110 %tmp.121;
+            lputv %heartRateZone.10 %tmp.122;
+            goto @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_37_19_end;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_37_19_else:
+            %tmp.124 = lgetv %heartRate;
+            %tmp.126 = lgetv %z5.7;
+            %tmp.127 = lt %tmp.124 %tmp.126;
+            bf %tmp.127 @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_39_19_else;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_39_19_if:
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 40 ]
+            %tmp.128 = 4.0;
+            %tmp.130 = lgetv %_heartRate.9;
+            %tmp.132 = lgetv %z4.6;
+            %tmp.133 = sub %tmp.130 %tmp.132;
+            %tmp.135 = lgetv %z5.7;
+            %tmp.137 = lgetv %z4.6;
+            %tmp.138 = sub %tmp.135 %tmp.137;
+            %tmp.139 = div %tmp.133 %tmp.138;
+            %tmp.140 = add %tmp.128 %tmp.139;
+            lputv %heartRateZone.10 %tmp.140;
+            goto @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_39_19_end;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_39_19_else:
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 42 ]
+            %tmp.141 = 5.0;
+            %tmp.143 = lgetv %_heartRate.9;
+            %tmp.145 = lgetv %z5.7;
+            %tmp.146 = sub %tmp.143 %tmp.145;
+            %tmp.148 = lgetv %maxHr.8;
+            %tmp.150 = lgetv %z5.7;
+            %tmp.151 = sub %tmp.148 %tmp.150;
+            %tmp.152 = div %tmp.146 %tmp.151;
+            %tmp.153 = add %tmp.141 %tmp.152;
+            lputv %heartRateZone.10 %tmp.153;
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 43 ]
+            %tmp.155 = lgetv %heartRateZone.10;
+            %tmp.156 = 6;
+            %tmp.157 = gte %tmp.155 %tmp.156;
+            bf %tmp.157 @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_43_16_end;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_43_16_if:
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 44 ]
+            %tmp.158 = 5.9;
+            lputv %heartRateZone.10 %tmp.158;
+            goto @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_43_16_end;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_43_16_end:
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_39_19_end:
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_37_19_end:
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_35_19_end:
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_33_19_end:
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_24_12_end:
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 49 ]
+            %tmp.159 = getm $.Toybox.Math;
+            %tmp.160 = getv const %tmp.159 :floor;
+            %tmp.162 = lgetv %heartRateZone.10;
+            %tmp.163 = 10;
+            %tmp.164 = mul %tmp.162 %tmp.163;
+            %tmp.165 = invoke %tmp.159 %tmp.160(%tmp.164);
+            %tmp.166 = 10;
+            %tmp.167 = div %tmp.165 %tmp.166;
+            ret %tmp.167;
+        }
+        [ @file = "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc"; @line = 52; ]
+        function getHeartRate(zone as Float, userProfileProvider as UserProfileProvider) as Number or Null {
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 53 ]
+            %zones.1 = local;
+            %tmp.2 = lgetv %userProfileProvider;
+            %tmp.3 = getv const %tmp.2 :getHeartRateZones;
+            %tmp.4 = getm $.Toybox.UserProfile;
+            %tmp.5 = getv const %tmp.4 :getCurrentSport;
+            %tmp.6 = invoke %tmp.4 %tmp.5();
+            %tmp.7 = invoke %tmp.2 %tmp.3(%tmp.6);
+            lputv %zones.1 %tmp.7;
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 54 ]
+            %restingHr.2 = local;
+            %tmp.9 = lgetv %userProfileProvider;
+            %tmp.10 = getv const %tmp.9 :getProfile;
+            %tmp.11 = invoke %tmp.9 %tmp.10();
+            %tmp.12 = getv %tmp.11 :restingHeartRate;
+            lputv %restingHr.2 %tmp.12;
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 55 ]
+            %z1.3 = local;
+            %tmp.14 = lgetv %zones.1;
+            %tmp.15 = 0;
+            %tmp.16 = agetv %tmp.14 %tmp.15;
+            lputv %z1.3 %tmp.16;
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 56 ]
+            %z2.4 = local;
+            %tmp.18 = lgetv %zones.1;
+            %tmp.19 = 1;
+            %tmp.20 = agetv %tmp.18 %tmp.19;
+            lputv %z2.4 %tmp.20;
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 57 ]
+            %z3.5 = local;
+            %tmp.22 = lgetv %zones.1;
+            %tmp.23 = 2;
+            %tmp.24 = agetv %tmp.22 %tmp.23;
+            lputv %z3.5 %tmp.24;
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 58 ]
+            %z4.6 = local;
+            %tmp.26 = lgetv %zones.1;
+            %tmp.27 = 3;
+            %tmp.28 = agetv %tmp.26 %tmp.27;
+            lputv %z4.6 %tmp.28;
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 59 ]
+            %z5.7 = local;
+            %tmp.30 = lgetv %zones.1;
+            %tmp.31 = 4;
+            %tmp.32 = agetv %tmp.30 %tmp.31;
+            lputv %z5.7 %tmp.32;
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 60 ]
+            %maxHr.8 = local;
+            %tmp.34 = lgetv %zones.1;
+            %tmp.35 = 5;
+            %tmp.36 = agetv %tmp.34 %tmp.35;
+            lputv %maxHr.8 %tmp.36;
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 62 ]
+            %heartRate.9 = local;
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 63 ]
+            %tmp.38 = lgetv %zone;
+            %tmp.39 = 1;
+            %tmp.40 = lt %tmp.38 %tmp.39;
+            bf %tmp.40 @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_63_12_else;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_63_12_if:
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 64 ]
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_64_20_begin:
+            %tmp.42 = lgetv %restingHr.2;
+            %tmp.43 = null;
+            %tmp.44 = eq %tmp.42 %tmp.43;
+            %tmp.45 = dup %tmp.44;
+            bt %tmp.45 @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_64_20_end;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_64_20_false:
+            %tmp.47 = lgetv %zone;
+            %tmp.48 = 0;
+            %tmp.49 = lt %tmp.47 %tmp.48;
+            %tmp.50 = or %tmp.44 %tmp.49;
+            push %tmp.50;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_64_20_end:
+            %tmp.51 = phi [%tmp.44 @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_64_20_begin] [%tmp.50 @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_64_20_false];
+            bf %tmp.51 @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_64_16_end;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_64_16_if:
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 65 ]
+            %tmp.52 = null;
+            ret %tmp.52;
+            goto @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_64_16_end;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_64_16_end:
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 67 ]
+            %tmp.54 = lgetv %zone;
+            %tmp.56 = lgetv %z1.3;
+            %tmp.58 = lgetv %restingHr.2;
+            %tmp.59 = sub %tmp.56 %tmp.58;
+            %tmp.60 = mul %tmp.54 %tmp.59;
+            %tmp.62 = lgetv %restingHr.2;
+            %tmp.63 = add %tmp.60 %tmp.62;
+            lputv %heartRate.9 %tmp.63;
+            goto @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_63_12_end;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_63_12_else:
+            %tmp.65 = lgetv %zone;
+            %tmp.66 = 2;
+            %tmp.67 = lt %tmp.65 %tmp.66;
+            bf %tmp.67 @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_68_19_else;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_68_19_if:
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 69 ]
+            %tmp.69 = lgetv %zone;
+            %tmp.70 = 1;
+            %tmp.71 = sub %tmp.69 %tmp.70;
+            %tmp.73 = lgetv %z2.4;
+            %tmp.75 = lgetv %z1.3;
+            %tmp.76 = sub %tmp.73 %tmp.75;
+            %tmp.77 = mul %tmp.71 %tmp.76;
+            %tmp.79 = lgetv %z1.3;
+            %tmp.80 = add %tmp.77 %tmp.79;
+            lputv %heartRate.9 %tmp.80;
+            goto @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_68_19_end;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_68_19_else:
+            %tmp.82 = lgetv %zone;
+            %tmp.83 = 3;
+            %tmp.84 = lt %tmp.82 %tmp.83;
+            bf %tmp.84 @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_70_19_else;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_70_19_if:
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 71 ]
+            %tmp.86 = lgetv %zone;
+            %tmp.87 = 2;
+            %tmp.88 = sub %tmp.86 %tmp.87;
+            %tmp.90 = lgetv %z3.5;
+            %tmp.92 = lgetv %z2.4;
+            %tmp.93 = sub %tmp.90 %tmp.92;
+            %tmp.94 = mul %tmp.88 %tmp.93;
+            %tmp.96 = lgetv %z2.4;
+            %tmp.97 = add %tmp.94 %tmp.96;
+            lputv %heartRate.9 %tmp.97;
+            goto @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_70_19_end;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_70_19_else:
+            %tmp.99 = lgetv %zone;
+            %tmp.100 = 4;
+            %tmp.101 = lt %tmp.99 %tmp.100;
+            bf %tmp.101 @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_72_19_else;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_72_19_if:
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 73 ]
+            %tmp.103 = lgetv %zone;
+            %tmp.104 = 3;
+            %tmp.105 = sub %tmp.103 %tmp.104;
+            %tmp.107 = lgetv %z4.6;
+            %tmp.109 = lgetv %z3.5;
+            %tmp.110 = sub %tmp.107 %tmp.109;
+            %tmp.111 = mul %tmp.105 %tmp.110;
+            %tmp.113 = lgetv %z3.5;
+            %tmp.114 = add %tmp.111 %tmp.113;
+            lputv %heartRate.9 %tmp.114;
+            goto @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_72_19_end;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_72_19_else:
+            %tmp.116 = lgetv %zone;
+            %tmp.117 = 5;
+            %tmp.118 = lt %tmp.116 %tmp.117;
+            bf %tmp.118 @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_74_19_else;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_74_19_if:
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 75 ]
+            %tmp.120 = lgetv %zone;
+            %tmp.121 = 4;
+            %tmp.122 = sub %tmp.120 %tmp.121;
+            %tmp.124 = lgetv %z5.7;
+            %tmp.126 = lgetv %z4.6;
+            %tmp.127 = sub %tmp.124 %tmp.126;
+            %tmp.128 = mul %tmp.122 %tmp.127;
+            %tmp.130 = lgetv %z4.6;
+            %tmp.131 = add %tmp.128 %tmp.130;
+            lputv %heartRate.9 %tmp.131;
+            goto @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_74_19_end;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_74_19_else:
+            %tmp.133 = lgetv %zone;
+            %tmp.134 = 6;
+            %tmp.135 = lt %tmp.133 %tmp.134;
+            bf %tmp.135 @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_76_19_else;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_76_19_if:
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 77 ]
+            %tmp.137 = lgetv %zone;
+            %tmp.138 = 5;
+            %tmp.139 = sub %tmp.137 %tmp.138;
+            %tmp.141 = lgetv %maxHr.8;
+            %tmp.143 = lgetv %z5.7;
+            %tmp.144 = sub %tmp.141 %tmp.143;
+            %tmp.145 = mul %tmp.139 %tmp.144;
+            %tmp.147 = lgetv %z5.7;
+            %tmp.148 = add %tmp.145 %tmp.147;
+            lputv %heartRate.9 %tmp.148;
+            goto @C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_76_19_end;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_76_19_else:
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 79 ]
+            %tmp.150 = lgetv %maxHr.8;
+            lputv %heartRate.9 %tmp.150;
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_76_19_end:
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_74_19_end:
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_72_19_end:
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_70_19_end:
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_68_19_end:
+C_Ferran_Dev_TripleField_Shared_source_HeartRateZones_mc_63_12_end:
+[ "C:\Ferran\Dev\TripleField\Shared\source\HeartRateZones.mc" 81 ]
+            %tmp.152 = lgetv %heartRate.9;
+            %tmp.153 = as %tmp.152 Number;
+            ret %tmp.153;
+        }
+    }
+}
+<init> {
+}

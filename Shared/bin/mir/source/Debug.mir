@@ -1,0 +1,87 @@
+[ @file = "C:\Ferran\Dev\TripleField\Shared\source\Debug.mc"; @line = 1; ]
+import Toybox.Lang;
+[ @file = "C:\Ferran\Dev\TripleField\Shared\source\Debug.mc"; @line = 2; ]
+import Toybox.System;
+[ @file = "C:\Ferran\Dev\TripleField\Shared\source\Debug.mc"; @line = 4; ]
+module Shared {
+    [ @file = "C:\Ferran\Dev\TripleField\Shared\source\Debug.mc"; @line = 4; ]
+    <init> {
+    }
+    [ @file = "C:\Ferran\Dev\TripleField\Shared\source\Debug.mc"; @line = 6; Debug = true; ]
+    module DebugModule {
+        [ @file = "C:\Ferran\Dev\TripleField\Shared\source\Debug.mc"; @line = 7; ]
+        <init> {
+        }
+        [ @file = "C:\Ferran\Dev\TripleField\Shared\source\Debug.mc"; @line = 9; debug = true; ]
+        function assertDebug(predicate as Boolean) as Void {
+[ "C:\Ferran\Dev\TripleField\Shared\source\Debug.mc" 11 ]
+            %tmp.3 = getm $.Toybox.Lang;
+            %tmp.4 = getv %tmp.3 :InvalidValueException;
+            %tmp.1 = newc %tmp.4;
+            %tmp.5 = dup %tmp.1;
+            %tmp.6 = getv const %tmp.5 :initialize;
+            %tmp.7 = dup %tmp.1;
+            %tmp.8 = "Assertion failed";
+            invoke %tmp.7 %tmp.6(%tmp.8);
+            throw %tmp.1;
+        }
+        [ @file = "C:\Ferran\Dev\TripleField\Shared\source\Debug.mc"; @line = 14; release = true; ]
+        function assertDebug(predicate as Boolean) as Void {
+[ "C:\Ferran\Dev\TripleField\Shared\source\Debug.mc" 16 ]
+            try @C_Ferran_Dev_TripleField_Shared_source_Debug_mc_16_12_try @C_Ferran_Dev_TripleField_Shared_source_Debug_mc_16_12_catch @C_Ferran_Dev_TripleField_Shared_source_Debug_mc_16_12_finally;
+C_Ferran_Dev_TripleField_Shared_source_Debug_mc_16_12_try:
+[ "C:\Ferran\Dev\TripleField\Shared\source\Debug.mc" 17 ]
+            %tmp.3 = getm $.Toybox.Lang;
+            %tmp.4 = getv %tmp.3 :InvalidValueException;
+            %tmp.1 = newc %tmp.4;
+            %tmp.5 = dup %tmp.1;
+            %tmp.6 = getv const %tmp.5 :initialize;
+            %tmp.7 = dup %tmp.1;
+            %tmp.8 = "Assertion failed";
+            invoke %tmp.7 %tmp.6(%tmp.8);
+            throw %tmp.1;
+            jsr @C_Ferran_Dev_TripleField_Shared_source_Debug_mc_16_12_finally;
+            goto @C_Ferran_Dev_TripleField_Shared_source_Debug_mc_16_12_end;
+C_Ferran_Dev_TripleField_Shared_source_Debug_mc_16_12_catch:
+            %tmp.9 = exception;
+            push %tmp.9;
+            %e.1 = local;
+            %tmp.10 = dup %tmp.9;
+            lputv %e.1 %tmp.10;
+[ "C:\Ferran\Dev\TripleField\Shared\source\Debug.mc" 19 ]
+            %errorMessage.2 = local;
+            %tmp.12 = lgetv %e.1;
+            %tmp.13 = getv const %tmp.12 :getErrorMessage;
+            %tmp.14 = invoke %tmp.12 %tmp.13();
+            lputv %errorMessage.2 %tmp.14;
+[ "C:\Ferran\Dev\TripleField\Shared\source\Debug.mc" 20 ]
+            %tmp.16 = lgetv %errorMessage.2;
+            %tmp.17 = null;
+            %tmp.18 = ne %tmp.16 %tmp.17;
+            bf %tmp.18 @C_Ferran_Dev_TripleField_Shared_source_Debug_mc_20_16_end;
+C_Ferran_Dev_TripleField_Shared_source_Debug_mc_20_16_if:
+[ "C:\Ferran\Dev\TripleField\Shared\source\Debug.mc" 21 ]
+            %tmp.19 = getm $.Toybox.System;
+            %tmp.20 = getv const %tmp.19 :println;
+            %tmp.22 = lgetv %errorMessage.2;
+            %tmp.23 = as %tmp.22 { (!Null) };
+            invoke %tmp.19 %tmp.20(%tmp.23);
+            goto @C_Ferran_Dev_TripleField_Shared_source_Debug_mc_20_16_end;
+C_Ferran_Dev_TripleField_Shared_source_Debug_mc_20_16_end:
+[ "C:\Ferran\Dev\TripleField\Shared\source\Debug.mc" 23 ]
+            %tmp.25 = lgetv %e.1;
+            %tmp.26 = getv const %tmp.25 :printStackTrace;
+            invoke %tmp.25 %tmp.26();
+            jsr @C_Ferran_Dev_TripleField_Shared_source_Debug_mc_16_12_finally;
+            goto @C_Ferran_Dev_TripleField_Shared_source_Debug_mc_16_12_end;
+C_Ferran_Dev_TripleField_Shared_source_Debug_mc_18_14_end:
+            jsr @C_Ferran_Dev_TripleField_Shared_source_Debug_mc_16_12_finally;
+            throw %tmp.9;
+C_Ferran_Dev_TripleField_Shared_source_Debug_mc_16_12_finally:
+            jsrret;
+C_Ferran_Dev_TripleField_Shared_source_Debug_mc_16_12_end:
+        }
+    }
+}
+<init> {
+}

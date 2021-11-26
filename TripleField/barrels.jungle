@@ -1,0 +1,6 @@
+# Do not hand edit this file. To make changes run the 
+# "Configure Monkey Barrels" command.
+
+Shared = [..\Shared\monkey.jungle]
+base.barrelPath = $(base.barrelPath);$(Shared)
+base.Shared.annotations = CurrentWorkoutStepProvider;UserProfileProvider;HeartRateZones;PollTimer;Assert

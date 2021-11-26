@@ -1,0 +1,564 @@
+[ @file = "C:\Ferran\Dev\TripleField\Shared\tests\HeartRateZoneTests.mc"; @line = 1; ]
+import Toybox.Lang;
+[ @file = "C:\Ferran\Dev\TripleField\Shared\tests\HeartRateZoneTests.mc"; @line = 2; ]
+import Toybox.Test;
+[ @file = "C:\Ferran\Dev\TripleField\Shared\tests\HeartRateZoneTests.mc"; @line = 3; ]
+import Toybox.UserProfile;
+[ @file = "C:\Ferran\Dev\TripleField\Shared\tests\HeartRateZoneTests.mc"; @line = 4; ]
+import Shared.UserProfileProviderModule;
+[ @file = "C:\Ferran\Dev\TripleField\Shared\tests\HeartRateZoneTests.mc"; @line = 5; ]
+import Shared.UserProfileProviderTests;
+[ @file = "C:\Ferran\Dev\TripleField\Shared\tests\HeartRateZoneTests.mc"; @line = 6; ]
+using Shared.HeartRateZonesModule as :Hr;
+[ @file = "C:\Ferran\Dev\TripleField\Shared\tests\HeartRateZoneTests.mc"; @line = 8; ]
+module Shared {
+    [ @file = "C:\Ferran\Dev\TripleField\Shared\tests\HeartRateZoneTests.mc"; @line = 8; ]
+    <init> {
+    }
+    [ @file = "C:\Ferran\Dev\TripleField\Shared\tests\HeartRateZoneTests.mc"; @line = 9; test = true; ]
+    function testHeartRateZones(logger as Logger) as Boolean {
+[ "C:\Ferran\Dev\TripleField\Shared\tests\HeartRateZoneTests.mc" 11 ]
+        %userProfileProvider.1 = local;
+        %tmp.4 = getv ? :MockUserProfileProvider;
+        %tmp.1 = newc %tmp.4;
+        %tmp.5 = dup %tmp.1;
+        %tmp.6 = getv const %tmp.5 :initialize;
+        %tmp.7 = dup %tmp.1;
+        invoke %tmp.7 %tmp.6();
+        lputv %userProfileProvider.1 %tmp.1;
+[ "C:\Ferran\Dev\TripleField\Shared\tests\HeartRateZoneTests.mc" 12 ]
+        %tmp.8 = lgetv %userProfileProvider.1;
+        %tmp.9 = newa Array<Number> 6;
+        %tmp.10 = 120;
+        %tmp.11 = dup %tmp.9;
+        %tmp.12 = aputv %tmp.11 0 %tmp.10;
+        %tmp.13 = 130;
+        %tmp.14 = dup %tmp.12;
+        %tmp.15 = aputv %tmp.14 1 %tmp.13;
+        %tmp.16 = 140;
+        %tmp.17 = dup %tmp.15;
+        %tmp.18 = aputv %tmp.17 2 %tmp.16;
+        %tmp.19 = 150;
+        %tmp.20 = dup %tmp.18;
+        %tmp.21 = aputv %tmp.20 3 %tmp.19;
+        %tmp.22 = 160;
+        %tmp.23 = dup %tmp.21;
+        %tmp.24 = aputv %tmp.23 4 %tmp.22;
+        %tmp.25 = 170;
+        %tmp.26 = dup %tmp.24;
+        %tmp.27 = aputv %tmp.26 5 %tmp.25;
+        putv %tmp.8 :mZones %tmp.27;
+[ "C:\Ferran\Dev\TripleField\Shared\tests\HeartRateZoneTests.mc" 13 ]
+        %tmp.28 = lgetv %userProfileProvider.1;
+        %tmp.29 = getv %tmp.28 :mProfile;
+        %tmp.30 = 60;
+        putv %tmp.29 :restingHeartRate %tmp.30;
+[ "C:\Ferran\Dev\TripleField\Shared\tests\HeartRateZoneTests.mc" 15 ]
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin:
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin:
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin:
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin:
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin:
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin:
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin:
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin:
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin:
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin:
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin:
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin:
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin:
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin:
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin:
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin:
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin:
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin:
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin:
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin:
+        %tmp.31 = self;
+        %tmp.32 = getv const %tmp.31 :checkHeartRateZone;
+        %tmp.33 = 50;
+        %tmp.34 = 0.0;
+        %tmp.36 = lgetv %userProfileProvider.1;
+        %tmp.38 = lgetv %logger;
+        %tmp.39 = invoke %tmp.31 %tmp.32(%tmp.33, %tmp.34, %tmp.36, %tmp.38);
+        %tmp.40 = dup %tmp.39;
+        bf %tmp.40 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true:
+        %tmp.41 = self;
+        %tmp.42 = getv const %tmp.41 :checkHeartRateZone;
+        %tmp.43 = 60;
+        %tmp.44 = 0.0;
+        %tmp.46 = lgetv %userProfileProvider.1;
+        %tmp.48 = lgetv %logger;
+        %tmp.49 = invoke %tmp.41 %tmp.42(%tmp.43, %tmp.44, %tmp.46, %tmp.48);
+        %tmp.50 = and %tmp.39 %tmp.49;
+        push %tmp.50;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end:
+        %tmp.51 = phi [%tmp.39 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin] [%tmp.50 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true];
+        %tmp.52 = dup %tmp.51;
+        bf %tmp.52 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true:
+        %tmp.53 = self;
+        %tmp.54 = getv const %tmp.53 :checkHeartRateZone;
+        %tmp.55 = 90;
+        %tmp.56 = 0.5;
+        %tmp.58 = lgetv %userProfileProvider.1;
+        %tmp.60 = lgetv %logger;
+        %tmp.61 = invoke %tmp.53 %tmp.54(%tmp.55, %tmp.56, %tmp.58, %tmp.60);
+        %tmp.62 = and %tmp.51 %tmp.61;
+        push %tmp.62;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end:
+        %tmp.63 = phi [%tmp.51 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin] [%tmp.62 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true];
+        %tmp.64 = dup %tmp.63;
+        bf %tmp.64 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true:
+        %tmp.65 = self;
+        %tmp.66 = getv const %tmp.65 :checkHeartRateZone;
+        %tmp.67 = 119;
+        %tmp.68 = 0.9;
+        %tmp.70 = lgetv %userProfileProvider.1;
+        %tmp.72 = lgetv %logger;
+        %tmp.73 = invoke %tmp.65 %tmp.66(%tmp.67, %tmp.68, %tmp.70, %tmp.72);
+        %tmp.74 = and %tmp.63 %tmp.73;
+        push %tmp.74;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end:
+        %tmp.75 = phi [%tmp.63 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin] [%tmp.74 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true];
+        %tmp.76 = dup %tmp.75;
+        bf %tmp.76 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true:
+        %tmp.77 = self;
+        %tmp.78 = getv const %tmp.77 :checkHeartRateZone;
+        %tmp.79 = 120;
+        %tmp.80 = 1.0;
+        %tmp.82 = lgetv %userProfileProvider.1;
+        %tmp.84 = lgetv %logger;
+        %tmp.85 = invoke %tmp.77 %tmp.78(%tmp.79, %tmp.80, %tmp.82, %tmp.84);
+        %tmp.86 = and %tmp.75 %tmp.85;
+        push %tmp.86;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end:
+        %tmp.87 = phi [%tmp.75 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin] [%tmp.86 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true];
+        %tmp.88 = dup %tmp.87;
+        bf %tmp.88 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true:
+        %tmp.89 = self;
+        %tmp.90 = getv const %tmp.89 :checkHeartRateZone;
+        %tmp.91 = 125;
+        %tmp.92 = 1.5;
+        %tmp.94 = lgetv %userProfileProvider.1;
+        %tmp.96 = lgetv %logger;
+        %tmp.97 = invoke %tmp.89 %tmp.90(%tmp.91, %tmp.92, %tmp.94, %tmp.96);
+        %tmp.98 = and %tmp.87 %tmp.97;
+        push %tmp.98;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end:
+        %tmp.99 = phi [%tmp.87 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin] [%tmp.98 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true];
+        %tmp.100 = dup %tmp.99;
+        bf %tmp.100 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true:
+        %tmp.101 = self;
+        %tmp.102 = getv const %tmp.101 :checkHeartRateZone;
+        %tmp.103 = 129;
+        %tmp.104 = 1.9;
+        %tmp.106 = lgetv %userProfileProvider.1;
+        %tmp.108 = lgetv %logger;
+        %tmp.109 = invoke %tmp.101 %tmp.102(%tmp.103, %tmp.104, %tmp.106, %tmp.108);
+        %tmp.110 = and %tmp.99 %tmp.109;
+        push %tmp.110;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end:
+        %tmp.111 = phi [%tmp.99 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin] [%tmp.110 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true];
+        %tmp.112 = dup %tmp.111;
+        bf %tmp.112 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true:
+        %tmp.113 = self;
+        %tmp.114 = getv const %tmp.113 :checkHeartRateZone;
+        %tmp.115 = 130;
+        %tmp.116 = 2.0;
+        %tmp.118 = lgetv %userProfileProvider.1;
+        %tmp.120 = lgetv %logger;
+        %tmp.121 = invoke %tmp.113 %tmp.114(%tmp.115, %tmp.116, %tmp.118, %tmp.120);
+        %tmp.122 = and %tmp.111 %tmp.121;
+        push %tmp.122;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end:
+        %tmp.123 = phi [%tmp.111 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin] [%tmp.122 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true];
+        %tmp.124 = dup %tmp.123;
+        bf %tmp.124 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true:
+        %tmp.125 = self;
+        %tmp.126 = getv const %tmp.125 :checkHeartRateZone;
+        %tmp.127 = 135;
+        %tmp.128 = 2.5;
+        %tmp.130 = lgetv %userProfileProvider.1;
+        %tmp.132 = lgetv %logger;
+        %tmp.133 = invoke %tmp.125 %tmp.126(%tmp.127, %tmp.128, %tmp.130, %tmp.132);
+        %tmp.134 = and %tmp.123 %tmp.133;
+        push %tmp.134;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end:
+        %tmp.135 = phi [%tmp.123 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin] [%tmp.134 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true];
+        %tmp.136 = dup %tmp.135;
+        bf %tmp.136 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true:
+        %tmp.137 = self;
+        %tmp.138 = getv const %tmp.137 :checkHeartRateZone;
+        %tmp.139 = 139;
+        %tmp.140 = 2.9;
+        %tmp.142 = lgetv %userProfileProvider.1;
+        %tmp.144 = lgetv %logger;
+        %tmp.145 = invoke %tmp.137 %tmp.138(%tmp.139, %tmp.140, %tmp.142, %tmp.144);
+        %tmp.146 = and %tmp.135 %tmp.145;
+        push %tmp.146;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end:
+        %tmp.147 = phi [%tmp.135 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin] [%tmp.146 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true];
+        %tmp.148 = dup %tmp.147;
+        bf %tmp.148 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true:
+        %tmp.149 = self;
+        %tmp.150 = getv const %tmp.149 :checkHeartRateZone;
+        %tmp.151 = 140;
+        %tmp.152 = 3.0;
+        %tmp.154 = lgetv %userProfileProvider.1;
+        %tmp.156 = lgetv %logger;
+        %tmp.157 = invoke %tmp.149 %tmp.150(%tmp.151, %tmp.152, %tmp.154, %tmp.156);
+        %tmp.158 = and %tmp.147 %tmp.157;
+        push %tmp.158;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end:
+        %tmp.159 = phi [%tmp.147 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin] [%tmp.158 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true];
+        %tmp.160 = dup %tmp.159;
+        bf %tmp.160 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true:
+        %tmp.161 = self;
+        %tmp.162 = getv const %tmp.161 :checkHeartRateZone;
+        %tmp.163 = 145;
+        %tmp.164 = 3.5;
+        %tmp.166 = lgetv %userProfileProvider.1;
+        %tmp.168 = lgetv %logger;
+        %tmp.169 = invoke %tmp.161 %tmp.162(%tmp.163, %tmp.164, %tmp.166, %tmp.168);
+        %tmp.170 = and %tmp.159 %tmp.169;
+        push %tmp.170;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end:
+        %tmp.171 = phi [%tmp.159 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin] [%tmp.170 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true];
+        %tmp.172 = dup %tmp.171;
+        bf %tmp.172 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true:
+        %tmp.173 = self;
+        %tmp.174 = getv const %tmp.173 :checkHeartRateZone;
+        %tmp.175 = 149;
+        %tmp.176 = 3.9;
+        %tmp.178 = lgetv %userProfileProvider.1;
+        %tmp.180 = lgetv %logger;
+        %tmp.181 = invoke %tmp.173 %tmp.174(%tmp.175, %tmp.176, %tmp.178, %tmp.180);
+        %tmp.182 = and %tmp.171 %tmp.181;
+        push %tmp.182;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end:
+        %tmp.183 = phi [%tmp.171 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin] [%tmp.182 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true];
+        %tmp.184 = dup %tmp.183;
+        bf %tmp.184 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true:
+        %tmp.185 = self;
+        %tmp.186 = getv const %tmp.185 :checkHeartRateZone;
+        %tmp.187 = 150;
+        %tmp.188 = 4.0;
+        %tmp.190 = lgetv %userProfileProvider.1;
+        %tmp.192 = lgetv %logger;
+        %tmp.193 = invoke %tmp.185 %tmp.186(%tmp.187, %tmp.188, %tmp.190, %tmp.192);
+        %tmp.194 = and %tmp.183 %tmp.193;
+        push %tmp.194;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end:
+        %tmp.195 = phi [%tmp.183 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin] [%tmp.194 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true];
+        %tmp.196 = dup %tmp.195;
+        bf %tmp.196 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true:
+        %tmp.197 = self;
+        %tmp.198 = getv const %tmp.197 :checkHeartRateZone;
+        %tmp.199 = 155;
+        %tmp.200 = 4.5;
+        %tmp.202 = lgetv %userProfileProvider.1;
+        %tmp.204 = lgetv %logger;
+        %tmp.205 = invoke %tmp.197 %tmp.198(%tmp.199, %tmp.200, %tmp.202, %tmp.204);
+        %tmp.206 = and %tmp.195 %tmp.205;
+        push %tmp.206;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end:
+        %tmp.207 = phi [%tmp.195 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin] [%tmp.206 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true];
+        %tmp.208 = dup %tmp.207;
+        bf %tmp.208 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true:
+        %tmp.209 = self;
+        %tmp.210 = getv const %tmp.209 :checkHeartRateZone;
+        %tmp.211 = 159;
+        %tmp.212 = 4.9;
+        %tmp.214 = lgetv %userProfileProvider.1;
+        %tmp.216 = lgetv %logger;
+        %tmp.217 = invoke %tmp.209 %tmp.210(%tmp.211, %tmp.212, %tmp.214, %tmp.216);
+        %tmp.218 = and %tmp.207 %tmp.217;
+        push %tmp.218;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end:
+        %tmp.219 = phi [%tmp.207 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin] [%tmp.218 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true];
+        %tmp.220 = dup %tmp.219;
+        bf %tmp.220 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true:
+        %tmp.221 = self;
+        %tmp.222 = getv const %tmp.221 :checkHeartRateZone;
+        %tmp.223 = 160;
+        %tmp.224 = 5.0;
+        %tmp.226 = lgetv %userProfileProvider.1;
+        %tmp.228 = lgetv %logger;
+        %tmp.229 = invoke %tmp.221 %tmp.222(%tmp.223, %tmp.224, %tmp.226, %tmp.228);
+        %tmp.230 = and %tmp.219 %tmp.229;
+        push %tmp.230;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end:
+        %tmp.231 = phi [%tmp.219 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin] [%tmp.230 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true];
+        %tmp.232 = dup %tmp.231;
+        bf %tmp.232 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true:
+        %tmp.233 = self;
+        %tmp.234 = getv const %tmp.233 :checkHeartRateZone;
+        %tmp.235 = 165;
+        %tmp.236 = 5.5;
+        %tmp.238 = lgetv %userProfileProvider.1;
+        %tmp.240 = lgetv %logger;
+        %tmp.241 = invoke %tmp.233 %tmp.234(%tmp.235, %tmp.236, %tmp.238, %tmp.240);
+        %tmp.242 = and %tmp.231 %tmp.241;
+        push %tmp.242;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end:
+        %tmp.243 = phi [%tmp.231 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin] [%tmp.242 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true];
+        %tmp.244 = dup %tmp.243;
+        bf %tmp.244 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true:
+        %tmp.245 = self;
+        %tmp.246 = getv const %tmp.245 :checkHeartRateZone;
+        %tmp.247 = 169;
+        %tmp.248 = 5.9;
+        %tmp.250 = lgetv %userProfileProvider.1;
+        %tmp.252 = lgetv %logger;
+        %tmp.253 = invoke %tmp.245 %tmp.246(%tmp.247, %tmp.248, %tmp.250, %tmp.252);
+        %tmp.254 = and %tmp.243 %tmp.253;
+        push %tmp.254;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end:
+        %tmp.255 = phi [%tmp.243 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin] [%tmp.254 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true];
+        %tmp.256 = dup %tmp.255;
+        bf %tmp.256 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true:
+        %tmp.257 = self;
+        %tmp.258 = getv const %tmp.257 :checkHeartRateZone;
+        %tmp.259 = 170;
+        %tmp.260 = 5.9;
+        %tmp.262 = lgetv %userProfileProvider.1;
+        %tmp.264 = lgetv %logger;
+        %tmp.265 = invoke %tmp.257 %tmp.258(%tmp.259, %tmp.260, %tmp.262, %tmp.264);
+        %tmp.266 = and %tmp.255 %tmp.265;
+        push %tmp.266;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end:
+        %tmp.267 = phi [%tmp.255 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin] [%tmp.266 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true];
+        %tmp.268 = dup %tmp.267;
+        bf %tmp.268 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true:
+        %tmp.269 = self;
+        %tmp.270 = getv const %tmp.269 :checkHeartRateZone;
+        %tmp.271 = 171;
+        %tmp.272 = 5.9;
+        %tmp.274 = lgetv %userProfileProvider.1;
+        %tmp.276 = lgetv %logger;
+        %tmp.277 = invoke %tmp.269 %tmp.270(%tmp.271, %tmp.272, %tmp.274, %tmp.276);
+        %tmp.278 = and %tmp.267 %tmp.277;
+        push %tmp.278;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_end:
+        %tmp.279 = phi [%tmp.267 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_begin] [%tmp.278 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_15_15_true];
+        ret %tmp.279;
+    }
+    [ @file = "C:\Ferran\Dev\TripleField\Shared\tests\HeartRateZoneTests.mc"; @line = 43; test = true; ]
+    function testHeartRateZonesWithoutRestingHeartRate(logger as Logger) as Boolean {
+[ "C:\Ferran\Dev\TripleField\Shared\tests\HeartRateZoneTests.mc" 45 ]
+        %userProfileProvider.1 = local;
+        %tmp.4 = getv ? :MockUserProfileProvider;
+        %tmp.1 = newc %tmp.4;
+        %tmp.5 = dup %tmp.1;
+        %tmp.6 = getv const %tmp.5 :initialize;
+        %tmp.7 = dup %tmp.1;
+        invoke %tmp.7 %tmp.6();
+        lputv %userProfileProvider.1 %tmp.1;
+[ "C:\Ferran\Dev\TripleField\Shared\tests\HeartRateZoneTests.mc" 46 ]
+        %tmp.8 = lgetv %userProfileProvider.1;
+        %tmp.9 = newa Array<Number> 6;
+        %tmp.10 = 120;
+        %tmp.11 = dup %tmp.9;
+        %tmp.12 = aputv %tmp.11 0 %tmp.10;
+        %tmp.13 = 130;
+        %tmp.14 = dup %tmp.12;
+        %tmp.15 = aputv %tmp.14 1 %tmp.13;
+        %tmp.16 = 140;
+        %tmp.17 = dup %tmp.15;
+        %tmp.18 = aputv %tmp.17 2 %tmp.16;
+        %tmp.19 = 150;
+        %tmp.20 = dup %tmp.18;
+        %tmp.21 = aputv %tmp.20 3 %tmp.19;
+        %tmp.22 = 160;
+        %tmp.23 = dup %tmp.21;
+        %tmp.24 = aputv %tmp.23 4 %tmp.22;
+        %tmp.25 = 170;
+        %tmp.26 = dup %tmp.24;
+        %tmp.27 = aputv %tmp.26 5 %tmp.25;
+        putv %tmp.8 :mZones %tmp.27;
+[ "C:\Ferran\Dev\TripleField\Shared\tests\HeartRateZoneTests.mc" 47 ]
+        %tmp.28 = lgetv %userProfileProvider.1;
+        %tmp.29 = getv %tmp.28 :mProfile;
+        %tmp.30 = null;
+        putv %tmp.29 :restingHeartRate %tmp.30;
+[ "C:\Ferran\Dev\TripleField\Shared\tests\HeartRateZoneTests.mc" 49 ]
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_begin:
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_begin:
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_begin:
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_begin:
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_begin:
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_begin:
+        %tmp.31 = self;
+        %tmp.32 = getv const %tmp.31 :checkHeartRateZone;
+        %tmp.33 = 50;
+        %tmp.34 = 1.0;
+        %tmp.36 = lgetv %userProfileProvider.1;
+        %tmp.38 = lgetv %logger;
+        %tmp.39 = invoke %tmp.31 %tmp.32(%tmp.33, %tmp.34, %tmp.36, %tmp.38);
+        %tmp.40 = dup %tmp.39;
+        bf %tmp.40 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_true:
+        %tmp.41 = self;
+        %tmp.42 = getv const %tmp.41 :checkHeartRateZone;
+        %tmp.43 = 60;
+        %tmp.44 = 1.0;
+        %tmp.46 = lgetv %userProfileProvider.1;
+        %tmp.48 = lgetv %logger;
+        %tmp.49 = invoke %tmp.41 %tmp.42(%tmp.43, %tmp.44, %tmp.46, %tmp.48);
+        %tmp.50 = and %tmp.39 %tmp.49;
+        push %tmp.50;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_end:
+        %tmp.51 = phi [%tmp.39 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_begin] [%tmp.50 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_true];
+        %tmp.52 = dup %tmp.51;
+        bf %tmp.52 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_true:
+        %tmp.53 = self;
+        %tmp.54 = getv const %tmp.53 :checkHeartRateZone;
+        %tmp.55 = 90;
+        %tmp.56 = 1.0;
+        %tmp.58 = lgetv %userProfileProvider.1;
+        %tmp.60 = lgetv %logger;
+        %tmp.61 = invoke %tmp.53 %tmp.54(%tmp.55, %tmp.56, %tmp.58, %tmp.60);
+        %tmp.62 = and %tmp.51 %tmp.61;
+        push %tmp.62;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_end:
+        %tmp.63 = phi [%tmp.51 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_begin] [%tmp.62 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_true];
+        %tmp.64 = dup %tmp.63;
+        bf %tmp.64 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_true:
+        %tmp.65 = self;
+        %tmp.66 = getv const %tmp.65 :checkHeartRateZone;
+        %tmp.67 = 119;
+        %tmp.68 = 1.0;
+        %tmp.70 = lgetv %userProfileProvider.1;
+        %tmp.72 = lgetv %logger;
+        %tmp.73 = invoke %tmp.65 %tmp.66(%tmp.67, %tmp.68, %tmp.70, %tmp.72);
+        %tmp.74 = and %tmp.63 %tmp.73;
+        push %tmp.74;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_end:
+        %tmp.75 = phi [%tmp.63 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_begin] [%tmp.74 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_true];
+        %tmp.76 = dup %tmp.75;
+        bf %tmp.76 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_true:
+        %tmp.77 = self;
+        %tmp.78 = getv const %tmp.77 :checkHeartRateZone;
+        %tmp.79 = 120;
+        %tmp.80 = 1.0;
+        %tmp.82 = lgetv %userProfileProvider.1;
+        %tmp.84 = lgetv %logger;
+        %tmp.85 = invoke %tmp.77 %tmp.78(%tmp.79, %tmp.80, %tmp.82, %tmp.84);
+        %tmp.86 = and %tmp.75 %tmp.85;
+        push %tmp.86;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_end:
+        %tmp.87 = phi [%tmp.75 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_begin] [%tmp.86 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_true];
+        %tmp.88 = dup %tmp.87;
+        bf %tmp.88 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_true:
+        %tmp.89 = self;
+        %tmp.90 = getv const %tmp.89 :checkHeartRateZone;
+        %tmp.91 = 125;
+        %tmp.92 = 1.5;
+        %tmp.94 = lgetv %userProfileProvider.1;
+        %tmp.96 = lgetv %logger;
+        %tmp.97 = invoke %tmp.89 %tmp.90(%tmp.91, %tmp.92, %tmp.94, %tmp.96);
+        %tmp.98 = and %tmp.87 %tmp.97;
+        push %tmp.98;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_end:
+        %tmp.99 = phi [%tmp.87 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_begin] [%tmp.98 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_true];
+        %tmp.100 = dup %tmp.99;
+        bf %tmp.100 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_true:
+        %tmp.101 = self;
+        %tmp.102 = getv const %tmp.101 :checkHeartRateZone;
+        %tmp.103 = 129;
+        %tmp.104 = 1.9;
+        %tmp.106 = lgetv %userProfileProvider.1;
+        %tmp.108 = lgetv %logger;
+        %tmp.109 = invoke %tmp.101 %tmp.102(%tmp.103, %tmp.104, %tmp.106, %tmp.108);
+        %tmp.110 = and %tmp.99 %tmp.109;
+        push %tmp.110;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_end:
+        %tmp.111 = phi [%tmp.99 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_begin] [%tmp.110 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_49_15_true];
+        ret %tmp.111;
+    }
+    [ @file = "C:\Ferran\Dev\TripleField\Shared\tests\HeartRateZoneTests.mc"; @line = 58; ]
+    function checkHeartRateZone(heartRate as Number, expectedZone as Float, userProfileProvider as UserProfileProvider, logger as Logger) as Boolean {
+[ "C:\Ferran\Dev\TripleField\Shared\tests\HeartRateZoneTests.mc" 62 ]
+        %zone.1 = local;
+        %tmp.1 = getm $.Shared.HeartRateZonesModule;
+        %tmp.2 = getv const %tmp.1 :getHeartRateZone;
+        %tmp.4 = lgetv %heartRate;
+        %tmp.6 = lgetv %userProfileProvider;
+        %tmp.7 = invoke %tmp.1 %tmp.2(%tmp.4, %tmp.6);
+        lputv %zone.1 %tmp.7;
+[ "C:\Ferran\Dev\TripleField\Shared\tests\HeartRateZoneTests.mc" 63 ]
+        %status.2 = local;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_63_21_begin:
+        %tmp.9 = lgetv %zone.1;
+        %tmp.11 = lgetv %expectedZone;
+        %tmp.12 = eq %tmp.9 %tmp.11;
+        bf %tmp.12 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_63_21_false;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_63_21_true:
+        %tmp.13 = "PASS";
+        push %tmp.13;
+        goto @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_63_21_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_63_21_false:
+        %tmp.14 = "FAIL";
+        push %tmp.14;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_63_21_end:
+        %tmp.15 = phi [%tmp.13 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_63_21_true] [%tmp.14 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_63_21_false];
+        lputv %status.2 %tmp.15;
+[ "C:\Ferran\Dev\TripleField\Shared\tests\HeartRateZoneTests.mc" 64 ]
+        %tmp.17 = lgetv %zone.1;
+        %tmp.19 = lgetv %expectedZone;
+        %tmp.20 = ne %tmp.17 %tmp.19;
+        bf %tmp.20 @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_64_8_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_64_8_if:
+[ "C:\Ferran\Dev\TripleField\Shared\tests\HeartRateZoneTests.mc" 65 ]
+        %tmp.22 = lgetv %logger;
+        %tmp.23 = getv const %tmp.22 :debug;
+        %tmp.25 = lgetv %status.2;
+        %tmp.26 = ": heartRate = ";
+        %tmp.27 = add %tmp.25 %tmp.26;
+        %tmp.29 = lgetv %heartRate;
+        %tmp.30 = add %tmp.27 %tmp.29;
+        %tmp.31 = ", zone = ";
+        %tmp.32 = add %tmp.30 %tmp.31;
+        %tmp.34 = lgetv %zone.1;
+        %tmp.35 = add %tmp.32 %tmp.34;
+        %tmp.36 = ", expectedZone = ";
+        %tmp.37 = add %tmp.35 %tmp.36;
+        %tmp.39 = lgetv %expectedZone;
+        %tmp.40 = add %tmp.37 %tmp.39;
+        invoke %tmp.22 %tmp.23(%tmp.40);
+        goto @C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_64_8_end;
+C_Ferran_Dev_TripleField_Shared_tests_HeartRateZoneTests_mc_64_8_end:
+[ "C:\Ferran\Dev\TripleField\Shared\tests\HeartRateZoneTests.mc" 67 ]
+        %tmp.42 = lgetv %zone.1;
+        %tmp.44 = lgetv %expectedZone;
+        %tmp.45 = eq %tmp.42 %tmp.44;
+        ret %tmp.45;
+    }
+}
+<init> {
+}
