@@ -84,6 +84,7 @@ function testHiTargetHrZoneWithHrZoneTarget(logger as Logger) as Boolean {
     return model.mMainField.equals("3.0");
 }
 
+(:test)
 function testHiTargetHrZoneWithHrZone5Target(logger as Logger) as Boolean {
     var field = new TripleFieldView();
 

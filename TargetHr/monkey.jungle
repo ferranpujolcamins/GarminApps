@@ -1,1 +1,2 @@
 project.manifest = manifest.xml
+base.sourcePath = source;..\Shared_3_2_0\source;..\Shared_1_4_0\source

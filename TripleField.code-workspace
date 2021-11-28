@@ -1,13 +1,16 @@
 {
 	"folders": [
 		{
-			"path": "Shared"
-		},
-		{
 			"path": "TargetHr"
 		},
 		{
 			"path": "TripleField"
+		},
+		{
+			"path": "Shared_1_4_0"
+		},
+		{
+			"path": "Shared_3_2_0"
 		}
 	]
 }

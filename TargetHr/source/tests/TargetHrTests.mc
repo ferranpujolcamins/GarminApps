@@ -2,34 +2,24 @@ import Toybox.Lang;
 import Toybox.Activity;
 import Toybox.UserProfile;
 import Toybox.Test;
+import TargetHrField;
+using Shared_1_4_0.UserProfileInterfaces;
+using Shared_3_2_0.Workout;
 
 (:test)
 function testTargetHrIsNullWhenNoWorkout(logger as Logger) as Boolean {
-    var field = new TripleFieldView();
-
-    var currentWorkoutStepProvider = new UnitTest.MockCurrentWorkoutStepProvider();
+    var currentWorkoutStepProvider = new Workout.UnitTests.MockCurrentWorkoutStepProvider();
     currentWorkoutStepProvider.mWorkoutStep = null;
 
-    var fieldValueProvider = new FieldValueProvider(
-        currentWorkoutStepProvider,
-        UserProfile,
-        new Activity.Info()
-    );
+    var field = TargetHrField.compute(currentWorkoutStepProvider, UserProfile);
 
-    var properties = new UnitTest.MockProperties();
-    properties.setValue(MainDataField, TargetHR);
-
-    var model = field._compute(fieldValueProvider, true, properties);
-
-    logger.debug("mMainField = " + model.mMainField);
-    return model.mMainField.equals("--");
+    logger.debug("field = " + field);
+    return field.equals("--");
 }
 
 (:test)
 function testTargetHrIsAverageOfLowAndHighHrTargets(logger as Logger) as Boolean {
-    var field = new TripleFieldView();
-
-    var currentWorkoutStepProvider = new UnitTest.MockCurrentWorkoutStepProvider();
+    var currentWorkoutStepProvider = new Workout.UnitTests.MockCurrentWorkoutStepProvider();
     var workoutStep = new Activity.WorkoutStep();
     workoutStep.targetType = Activity.WORKOUT_STEP_TARGET_HEART_RATE;
     // There seems to be a bug in connectIQ that sets these values 100 too high.
@@ -37,47 +27,27 @@ function testTargetHrIsAverageOfLowAndHighHrTargets(logger as Logger) as Boolean
     workoutStep.targetValueHigh = 140 + 100;
     currentWorkoutStepProvider.mWorkoutStep = workoutStep;
 
-    var fieldValueProvider = new FieldValueProvider(
-        currentWorkoutStepProvider,
-        UserProfile,
-        new Activity.Info()
-    );
+    var field = TargetHrField.compute(currentWorkoutStepProvider, UserProfile);
 
-    var properties = new UnitTest.MockProperties();
-    properties.setValue(MainDataField, TargetHR);
-
-    var model = field._compute(fieldValueProvider, true, properties);
-
-    logger.debug("mMainField = " + model.mMainField);
-    return model.mMainField.equals("130");
+    logger.debug("field = " + field);
+    return field.equals("130");
 }
 
 (:test)
 function testTargetHrWithHrZoneTarget(logger as Logger) as Boolean {
-    var field = new TripleFieldView();
-
-    var currentWorkoutStepProvider = new UnitTest.MockCurrentWorkoutStepProvider();
+    var currentWorkoutStepProvider = new Workout.UnitTests.MockCurrentWorkoutStepProvider();
     var workoutStep = new Activity.WorkoutStep();
     workoutStep.targetType = Activity.WORKOUT_STEP_TARGET_HEART_RATE;
     workoutStep.targetValueLow = 2;
     workoutStep.targetValueHigh = 0;
     currentWorkoutStepProvider.mWorkoutStep = workoutStep;
 
-    var userProfileProvider = new UnitTest.MockUserProfileProvider();
+    var userProfileProvider = new UserProfileInterfaces.UnitTests.MockUserProfileProvider();
     userProfileProvider.mZones = [120, 130, 140, 150, 160, 170] as Array<Number>;
     userProfileProvider.mProfile.restingHeartRate = 60;
 
-    var fieldValueProvider = new FieldValueProvider(
-        currentWorkoutStepProvider,
-        userProfileProvider,
-        new Activity.Info()
-    );
+    var field = TargetHrField.compute(currentWorkoutStepProvider, userProfileProvider);
 
-    var properties = new UnitTest.MockProperties();
-    properties.setValue(MainDataField, TargetHR);
-
-    var model = field._compute(fieldValueProvider, true, properties);
-
-    logger.debug("mMainField = " + model.mMainField);
-    return model.mMainField.equals("135");
+    logger.debug("field = " + field);
+    return field.equals("135");
 }

@@ -1,0 +1,19 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "monkeyc",
+			"device": "",
+			"problemMatcher": [
+				"$monkeyc.error",
+				"$monkeyc.fileWarning",
+				"$monkeyc.genericWarning"
+			],
+			"label": "build",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}
