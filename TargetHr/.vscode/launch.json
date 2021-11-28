@@ -11,7 +11,7 @@
             "prg": "${workspaceFolder}${pathSeparator}bin${pathSeparator}${workspaceFolderBasename}.prg",
             "prgDebugXml": "${workspaceFolder}${pathSeparator}bin${pathSeparator}${workspaceFolderBasename}.prg.debug.xml",
             "stopAtLaunch": false,
-            "device": "fenix6spro",
-        }
+            "device": "${command:GetTargetDevice}"
+        },
     ]
 }
