@@ -8,7 +8,7 @@ If you found a a problem with any of the data fields, or something is not workin
 If you have any questions about the data fields, you need help, you want to share a feature idea, or anything else, please [start a discussion](https://github.com/ferranpujolcamins/GarminDataFields/discussions/new).
 
 ### Donations
-You can use all the data fields for free. However, you can show your appreciation by making a donation. Any amout is very appreciated! Among other things, this helps me get more devices to test my fields on.
+You can use all the data fields for free. However, you can show your appreciation by making a donation. Any amount is very appreciated! Among other things, this helps me get more devices to test my fields on.
 
 <a href="https://www.paypal.com/donate/?business=SNYLYZW7C6NMQ&no_recurring=0&item_name=I+really+appreciate+your+contribution%21+I%27m+glad+you+found+my+work+useful.&currency_code=EUR">
 <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" alt="Donate with PayPal button" 
