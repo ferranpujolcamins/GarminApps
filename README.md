@@ -10,14 +10,10 @@ If you have any questions about the data fields, you need help, you want to shar
 ### Donations
 You can use all the data fields for free. However, you can show your appreciation by making a donation. Any amout is very appreciated! Among other things, this helps me get more devices to test my fields on.
 
-<form action="https://www.paypal.com/donate" method="post" target="_top">
-<input type="hidden" name="business" value="SNYLYZW7C6NMQ" />
-<input type="hidden" name="no_recurring" value="0" />
-<input type="hidden" name="item_name" value="I really appreciate your contribution! I'm glad you found my work useful." />
-<input type="hidden" name="currency_code" value="EUR" />
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-<img alt="" border="0" src="https://www.paypal.com/en_ES/i/scr/pixel.gif" width="1" height="1" />
-</form>
+<a href="https://www.paypal.com/donate/?business=SNYLYZW7C6NMQ&no_recurring=0&item_name=I+really+appreciate+your+contribution%21+I%27m+glad+you+found+my+work+useful.&currency_code=EUR">
+<img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" alt="Donate with PayPal button" 
+title="PayPal – The safer, easier way to pay online!" border="0" />
+</a>
 
 ## Fields in this repository
 ### TargetHr
