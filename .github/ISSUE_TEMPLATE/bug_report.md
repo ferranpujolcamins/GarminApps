@@ -14,7 +14,7 @@ A clear and concise description of what the bug is.
 If applicable, add screenshots to help explain your problem.
 
 **Device**
-What device is the data field installed on? You can find a list of devices here:
+- What device is the data field installed on? You can find a list of devices here:
 https://developer.garmin.com/connect-iq/compatible-devices/
 
 - What software version is installed on the device? Follow this link to learn how:
