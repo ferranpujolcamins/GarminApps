@@ -23,6 +23,8 @@ You can use all the data fields for free. However, you can show your appreciatio
 ### TargetHr
 A data field that displays the current workout step target heart rate, in beats per minute.
 
+[Download](https://apps.garmin.com/en-US/apps/a686aad7-0747-47e9-b61f-83e44aa7ea3a)
+
 ![image](https://user-images.githubusercontent.com/6429775/143912998-0ba62450-05a0-40c4-a8bb-6bf1055221d7.png)
 
 When the target is a heart rate zone, the data field displays the heart rate corresponding to the middle of the zone.
