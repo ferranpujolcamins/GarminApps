@@ -1,0 +1,28 @@
+Un campo de datos que muestra la frecuencia cardíaca objetivo de la fase de entrenamiento actual, en pulsaciones por minuto.
+
+Cuando el objetivo es una zona de frecuencia cardíaca, el campo de datos muestra la frecuencia cardíaca que corresponde al punto medio de la zona.
+Por ejemplo, si el objetivo actual es la zona 2, y tu zona 2 va de 130 a 150 pulsaciones por minuto, el campo de datos mostrará 140.
+
+Cuando el objetivo actual está especificado con un límite inferior y un límite superior, el campo muestra la media de los dos valores.
+Por ejemplo, si el objetivo es estar entre 140 y 180 pulsaciones por minuto, el campo de datos mostrará 160.
+
+Cuando no hay ningún entrenamiento activo o el objetivo actual no es de frecuencia cardíaca, el campo de datos muestra "--".
+
+--------------------------------------
+ENCONTRASTE UN ERROR?
+
+Si has encontrado un error, o algo no funciona como tu esperas, puedes abrir una incidencia en GitHub:
+https://github.com/ferranpujolcamins/GarminDataFields/issues/new/choose
+
+----------------------------
+NECESITAS AYUDA?
+
+Si tienes cualquier duda, necesitas ayuda, quieres compartir una idea para una nueva funcionalidad, o cualquier otra cosa, puedes preguntar en GitHub discussions:
+https://github.com/ferranpujolcamins/GarminDataFields/discussions/new
+
+------------------
+DONACIONES
+
+Puedes usar este campo de datos gratuitamente. De todos modos, puedes mostrar tu aprecio por el trabajo que hago haciendo una donación. Se agradece cualquier cantidad, no importa lo pequeña que sea!
+Entre otras cosas, las donaciones me ayudan a conseguir más dispositivos donde probar mis campos de datos.
+https://www.paypal.com/donate/?business=SNYLYZW7C6NMQ

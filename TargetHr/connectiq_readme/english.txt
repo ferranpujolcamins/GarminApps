@@ -1,0 +1,27 @@
+A data field that displays the current workout step target heart rate, in beats per minute.
+
+When the target is a heart rate zone, the data field displays the heart rate corresponding to the middle of the zone.
+For example, if the target is zone 2 and your zone 2 goes from 130 to 150 bpm, the data field will display 140.
+
+When the target is specified as a low and high heart rate limits, the data field displays the average of both values.
+For example, if the target is to be between 140 and 180 bpm, the data field will display 160.
+
+When there's no active workout or the current workout step target is not heart rate, the data field displays "--".
+
+--------------------------------------
+DID YOU FOUND AN ERROR?
+
+If you found a a problem, or something is not working as you'd expect, please open a new issue on GitHub:
+https://github.com/ferranpujolcamins/GarminDataFields/issues/new/choose
+
+----------------------------
+DO YOU NEED HELP?
+
+If you have any questions, you need help, you want to share a feature idea, or anything else, please start a discussion on GitHub:
+https://github.com/ferranpujolcamins/GarminDataFields/discussions/new
+
+----------------
+DONATIONS
+
+You can use this data field for free. However, you can show your appreciation by making a donation. Any amount is very appreciated! Among other things, this helps me get more devices to test my fields on.
+https://www.paypal.com/donate/?business=SNYLYZW7C6NMQ
