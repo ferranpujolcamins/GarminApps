@@ -3,8 +3,8 @@ import Toybox.Activity;
 import Toybox.UserProfile;
 import Toybox.Test;
 import TargetHrField;
-using Shared_1_4_0.UserProfileInterfaces;
-using Shared_3_2_0.Workout;
+using Shared_IQ_1_4_0.UserProfileInterfaces;
+using Shared_IQ_3_2_0.Workout;
 
 (:test)
 function testTargetHrIsNullWhenNoWorkout(logger as Logger) as Boolean {

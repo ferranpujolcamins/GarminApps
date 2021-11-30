@@ -1,7 +1,7 @@
 import Toybox.Lang;
 import Toybox.System;
 
-module Shared_1_4_0 {
+module Shared_IQ_1_4_0 {
     
     (:Assert)
     module Assert {

@@ -1,7 +1,7 @@
 import Toybox.Lang;
 import Toybox.Activity;
 
-module Shared_3_2_0 {
+module Shared_IQ_3_2_0 {
     
     (:Workout)
     module Workout {

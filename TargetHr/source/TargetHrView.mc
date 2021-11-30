@@ -2,7 +2,7 @@ import Toybox.Activity;
 import Toybox.Lang;
 import Toybox.Time;
 import Toybox.WatchUi;
-using Shared_3_2_0.Workout;
+using Shared_IQ_3_2_0.Workout;
 using TargetHrField as Field;
 
 class TargetHrView extends WatchUi.SimpleDataField {

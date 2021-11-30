@@ -1,10 +1,10 @@
 import Toybox.Lang;
 import Toybox.Test;
 import Toybox.UserProfile;
-import Shared_1_4_0.UserProfileProviderModule;
-using Shared_1_4_0.HeartRateZones as Hr;
+import Shared_IQ_1_4_0.UserProfileInterfaces;
+using Shared_IQ_1_4_0.HeartRateZones as Hr;
 
-module Shared_1_4_0 {
+module Shared_IQ_1_4_0 {
     (:test)
     function testHeartRateZones(logger as Logger) as Boolean {
         var userProfileProvider = new UnitTests.MockUserProfileProvider();

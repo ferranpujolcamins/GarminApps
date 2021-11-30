@@ -1,7 +1,7 @@
 import Toybox.Lang;
-using Shared_1_4_0.HeartRateZones as Hr;
-import Shared_1_4_0.UserProfileInterfaces;
-import Shared_3_2_0.Workout;
+using Shared_IQ_1_4_0.HeartRateZones as Hr;
+import Shared_IQ_1_4_0.UserProfileInterfaces;
+import Shared_IQ_3_2_0.Workout;
 
 module TargetHrField {
     function compute(workoutStepProvider as CurrentWorkoutStepProvider,

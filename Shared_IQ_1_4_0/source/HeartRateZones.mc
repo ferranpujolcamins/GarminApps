@@ -1,9 +1,9 @@
 import Toybox.Lang;
 import Toybox.Math;
 import Toybox.UserProfile;
-import Shared_1_4_0.UserProfileInterfaces;
+import Shared_IQ_1_4_0.UserProfileInterfaces;
 
-module Shared_1_4_0 {
+module Shared_IQ_1_4_0 {
     
     (:HeartRateZones)
     module HeartRateZones {

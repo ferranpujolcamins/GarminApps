@@ -1,7 +1,7 @@
 import Toybox.Lang;
 import Toybox.Time;
 
-module Shared_1_4_0 {
+module Shared_IQ_1_4_0 {
     
     (:PollTimer)
     module PollTimerModule {
