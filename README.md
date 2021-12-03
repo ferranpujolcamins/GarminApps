@@ -7,6 +7,9 @@ If you found a a problem with any of the data fields, or something is not workin
 ### Do you need help?
 If you have any questions about the data fields, you need help, you want to share a feature idea, or anything else, please [start a discussion](https://github.com/ferranpujolcamins/GarminDataFields/discussions/new).
 
+### Do you want to contribute?
+See [Contributing](CONTRIBUTING.md).
+
 ### Donations
 You can use all the data fields for free. However, you can show your appreciation by making a donation. Any amount is very appreciated! Among other things, this helps me get more devices to test my fields on.
 
