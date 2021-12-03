@@ -24,3 +24,5 @@ There's a Visual Studio Code workspace on the root folder that contains every pr
 Every time you press `Ctrl+Shift+b` Visual Studio Code will ask what project you want to build.
 
 When pressing `F5`, Visual Studio Code will launch the simulator with whatever data field is selected on the Run and Debug tab.
+
+![image](https://user-images.githubusercontent.com/6429775/144629757-96d37818-cfb4-4be9-b69c-5267e0ea33c3.png)
