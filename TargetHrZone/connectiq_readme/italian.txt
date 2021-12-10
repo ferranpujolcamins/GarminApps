@@ -1,0 +1,28 @@
+Un campo di dati che mostra la frequenza cardiaca obiettivo della fase d'allenamento attuale, in battiti per minuto.
+
+Quando l'obiettivo attuale è una zona di frequenza cardiaca, il campo di dati mostra la frequenza cardiaca che corrisponde a metà della zona.
+Per esempio, se l'obiettivo attuale è la zona 2, e la tua zona 2 va da 130 a 150 battiti per minuto, il campo di dati mostrerà 140.
+
+Quando l'obiettivo attuale è specificato con una frequenza cardiaca bassa e una alta, il campo di dati mostra la media di entrambi valori.
+Per esempio, se l'obiettivo attuale è stare tra 140 e 180 battiti per minuto, il campo di dati mostrerà 160.
+
+Quando non c'è nessun allenamento attivo o l'obiettivo della fase d'allenamento attuale non è una frequenza cardiaca, il campo di dati mostra "--".
+
+---------------------
+HAI TROVATO UN ERRORE?
+
+Se hai trovato un errore, o qualcosa non funziona come aspetti, puoi aprire una issue in GitHub:
+https://github.com/ferranpujolcamins/GarminDataFields/issues/new/choose
+
+----------------
+HAI BISOGNO DI AIUTO?
+
+Se hai qualche dubbio, hai bisogno di aiuto, vuoi condividere una idea per una nuova funzionalità, o qualche altra cosa, puoi chiedere in GitHub discussions:
+https://github.com/ferranpujolcamins/GarminDataFields/discussions/new
+
+----------
+DONAZIONI
+
+Puoi usare questo campo di dati gratis. In ogni caso, puoi mostrare il tuo apprezzo per il lavoro que faccio facendo una donazione. Qualsiasi quantità è benvenuta!
+Le donazioni mi aiutano a ottenere più dispositivi dove provare i miei campi di dati.
+https://www.paypal.com/donate/?business=SNYLYZW7C6NMQ

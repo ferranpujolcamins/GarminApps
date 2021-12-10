@@ -13,6 +13,9 @@
 			"path": "Shared_IQ_3_2_0"
 		},
 		{
+			"path": "TargetHrZone"
+		},
+		{
 			"path": "BarrelTests"
 		}
 	]
