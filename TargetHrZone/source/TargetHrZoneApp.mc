@@ -23,6 +23,6 @@ class TargetHrZoneApp extends Application.AppBase {
 
 }
 
-function getApp() as TargetHrApp {
-    return Application.getApp() as TargetHrApp;
+function getApp() as TargetHrZoneApp {
+    return Application.getApp() as TargetHrZoneApp;
 }

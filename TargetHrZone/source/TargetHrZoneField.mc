@@ -7,12 +7,18 @@ module TargetHrZoneField {
     function compute(workoutStepProvider as CurrentWorkoutStepProvider,
                      userProfileProvider as UserProfileProvider) as String {
 
-        var heartRate = tryCompute(workoutStepProvider, userProfileProvider);
-        return heartRate == null ? "--" : heartRate.format("%i");
+        var heartRateZone = tryCompute(workoutStepProvider, userProfileProvider);
+        if (heartRateZone == null) {
+            return "--";
+        } else if (heartRateZone.toNumber().toFloat() == heartRateZone) {
+            return heartRateZone.format("%i");
+        } else {
+            return heartRateZone.format("%.1f");
+        }
     }
 
     function tryCompute(workoutStepProvider as CurrentWorkoutStepProvider,
-                     userProfileProvider as UserProfileProvider) as Number? {
+                     userProfileProvider as UserProfileProvider) as Float? {
 
         var workoutStep = workoutStepProvider.getCurrentWorkoutStep();
         if (workoutStep == null) { return null; }
@@ -21,15 +27,10 @@ module TargetHrZoneField {
         if (hrWorkoutTarget == null) { return null; }
 
         if (hrWorkoutTarget.isZone()) {
-            var zone = hrWorkoutTarget.getZone() as Float;
-            var lowHr = Hr.getHeartRate(zone, userProfileProvider);
-            var hiHr = Hr.getHeartRate(zone + 1, userProfileProvider);
-            if (lowHr == null || hiHr == null) {
-                return null;
-            }
-            return (lowHr + hiHr) / 2;
+            return hrWorkoutTarget.getZone() as Float;
         } else {
-            return (hrWorkoutTarget.getValueLow() + hrWorkoutTarget.getValueHigh()) / 2;
+            var bpm = (hrWorkoutTarget.getValueLow() + hrWorkoutTarget.getValueHigh()) / 2;
+            return Hr.getHeartRateZone(bpm, userProfileProvider);
         }
     }
 }
