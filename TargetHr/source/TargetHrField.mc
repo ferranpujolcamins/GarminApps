@@ -21,7 +21,7 @@ module TargetHrField {
         if (hrWorkoutTarget == null) { return null; }
 
         if (hrWorkoutTarget.isZone()) {
-            var zone = hrWorkoutTarget.getZone() as Float;
+            var zone = hrWorkoutTarget.getZone().toFloat();
             var lowHr = Hr.getHeartRate(zone, userProfileProvider);
             var hiHr = Hr.getHeartRate(zone + 1, userProfileProvider);
             if (lowHr == null || hiHr == null) {

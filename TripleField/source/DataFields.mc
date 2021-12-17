@@ -74,7 +74,7 @@ class FieldValueProvider {
                 if (hrWorkoutTarget == null) { return null; }
 
                 if (hrWorkoutTarget.isZone()) {
-                    var zone = hrWorkoutTarget.getZone() as Float;
+                    var zone = hrWorkoutTarget.getZone().toFloat();
                     var lowHr = Hr.getHeartRate(zone, mUserProfileProvider);
                     var hiHr = Hr.getHeartRate(zone + 1, mUserProfileProvider);
                     if (lowHr == null || hiHr == null) {
@@ -82,7 +82,7 @@ class FieldValueProvider {
                     }
                     return (lowHr + hiHr) / 2.0;
                 } else {
-                    return ((hrWorkoutTarget.getValueLow() + hrWorkoutTarget.getValueHigh()) / 2) as Float;
+                    return ((hrWorkoutTarget.getValueLow() + hrWorkoutTarget.getValueHigh()) / 2).toFloat();
                 }
 
             case TargetHRZone:
@@ -93,7 +93,7 @@ class FieldValueProvider {
                 if (hrWorkoutTarget == null) { return null; }
 
                 if (hrWorkoutTarget.isZone()) {
-                    return hrWorkoutTarget.getZone() as Float;
+                    return hrWorkoutTarget.getZone().toFloat();
                 } else {
                     var bpm = (hrWorkoutTarget.getValueLow() + hrWorkoutTarget.getValueHigh()) / 2;
                     return Hr.getHeartRateZone(bpm, mUserProfileProvider);
@@ -107,14 +107,14 @@ class FieldValueProvider {
                 if (hrWorkoutTarget == null) { return null; }
 
                 if (hrWorkoutTarget.isZone()) {
-                    var zone = hrWorkoutTarget.getZone() as Float;
+                    var zone = hrWorkoutTarget.getZone().toFloat();
                     var lowHr = Hr.getHeartRate(zone, mUserProfileProvider);
                     if (lowHr == null) {
                         return null;
                     }
-                    return lowHr as Float;
+                    return lowHr.toFloat();
                 } else {
-                    return hrWorkoutTarget.getValueLow() as Float;
+                    return hrWorkoutTarget.getValueLow().toFloat();
                 }
 
             case HiTargetHR:
@@ -125,14 +125,14 @@ class FieldValueProvider {
                 if (hrWorkoutTarget == null) { return null; }
 
                 if (hrWorkoutTarget.isZone()) {
-                    var zone = hrWorkoutTarget.getZone() as Float;
+                    var zone = hrWorkoutTarget.getZone().toFloat();
                     var hiHr = Hr.getHeartRate(zone + 1, mUserProfileProvider);
                     if (hiHr == null) {
                         return null;
                     }
-                    return hiHr as Float;
+                    return hiHr.toFloat();
                 } else {
-                    return hrWorkoutTarget.getValueHigh() as Float;
+                    return hrWorkoutTarget.getValueHigh().toFloat();
                 }
 
             case LoTargetHRZone:
@@ -143,7 +143,7 @@ class FieldValueProvider {
                 if (hrWorkoutTarget == null) { return null; }
 
                 if (hrWorkoutTarget.isZone()) {
-                    return hrWorkoutTarget.getZone() as Float;
+                    return hrWorkoutTarget.getZone().toFloat();
                 } else {
                     return Hr.getHeartRateZone(hrWorkoutTarget.getValueLow(), mUserProfileProvider);
                 }

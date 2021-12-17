@@ -78,7 +78,7 @@ module Shared_IQ_1_4_0 {
             } else {
                 heartRate = maxHr;
             }
-            return heartRate as Number;
+            return heartRate.toNumber();
         }
 
     }
