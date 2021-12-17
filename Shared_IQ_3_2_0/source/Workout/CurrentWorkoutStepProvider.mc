@@ -32,7 +32,7 @@ module Shared_IQ_3_2_0 {
             private var mActivity as Activity;
         }
 
-        (:test)
+        (:debug)
         module UnitTests {
 
             class MockCurrentWorkoutStepProvider {

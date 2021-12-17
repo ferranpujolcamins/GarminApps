@@ -5,7 +5,7 @@
         Use "Monkey C: Edit Application" from the Visual Studio Code command palette
         to update the application attributes.
     -->
-    <iq:application id="e09cc8a2-1cc4-4247-94bb-79e68cc980e4" type="datafield" name="@Strings.AppName" entry="TargetHrZoneApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="3.2.0">
+    <iq:application id="153c1059-35ef-4366-a360-680c9b5a211b" type="datafield" name="@Strings.AppName" entry="TargetHrZoneApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="3.2.0">
         <!--
             Use the following from the Visual Studio Code comand palette to edit
             the build targets:

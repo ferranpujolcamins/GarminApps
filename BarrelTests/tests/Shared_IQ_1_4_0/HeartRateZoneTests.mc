@@ -54,14 +54,58 @@ function testHeartRateZonesWithoutRestingHeartRate(logger as Logger) as Boolean 
         && checkHeartRateZone(129, 1.9, userProfileProvider, logger);
 }
 
+(:debug)
 function checkHeartRateZone(heartRate as Number,
                             expectedZone as Float,
                             userProfileProvider as UserProfileProvider,
                             logger as Logger) as Boolean {
-    var zone = Hr.getHeartRateZone(heartRate, userProfileProvider);
-    var status = zone == expectedZone ? "PASS" : "FAIL";
+    var zone = Hr.getHeartRateZone(heartRate.toFloat(), userProfileProvider);
     if (zone != expectedZone) {
-        logger.debug(status + ": heartRate = " + heartRate + ", zone = " + zone + ", expectedZone = " + expectedZone);
+        logger.debug("FAIL" + ": heartRate = " + heartRate + ", zone = " + zone + ", expectedZone = " + expectedZone);
+        return false;
     }
-    return zone == expectedZone;
+    return true;
+}
+
+(:test)
+function testIsHeartRateZone(logger as Logger) as Boolean {
+    var userProfileProvider = new UnitTests.MockUserProfileProvider();
+    userProfileProvider.mZones = [120, 130, 140, 150, 160, 170] as Array<Number>;
+
+    return checkIsHeartRateZone(120, 130, 1, userProfileProvider, logger)
+        && checkIsHeartRateZone(130, 140, 2, userProfileProvider, logger)
+        && checkIsHeartRateZone(140, 150, 3, userProfileProvider, logger)
+        && checkIsHeartRateZone(150, 160, 4, userProfileProvider, logger)
+        && checkIsHeartRateZone(160, 170, 5, userProfileProvider, logger)
+
+        && checkIsHeartRateZone(120, 140, null, userProfileProvider, logger)
+        && checkIsHeartRateZone(120, 120, null, userProfileProvider, logger)
+        && checkIsHeartRateZone(130, 130, null, userProfileProvider, logger)
+        && checkIsHeartRateZone(170, 170, null, userProfileProvider, logger)
+        && checkIsHeartRateZone(110, 170, null, userProfileProvider, logger)
+        && checkIsHeartRateZone(135, 145, null, userProfileProvider, logger)
+        && checkIsHeartRateZone(110, 120, null, userProfileProvider, logger)
+        && checkIsHeartRateZone(170, 175, null, userProfileProvider, logger);
+}
+
+(:debug)
+function checkIsHeartRateZone(lowHr as Number, 
+                              highHr as Number, 
+                              expectedResult as Number?,
+                              userProfileProvider as UserProfileProvider,
+                              logger as Logger) as Boolean {
+    var isHrZone = Hr.isHeartRateZone(lowHr, highHr, userProfileProvider);
+    if (isHrZone != expectedResult) {
+        logger.debug("FAIL" + ": lowHr = " + lowHr + ", highHr = " + highHr + ", isHrZone = " + asString(isHrZone) +", expected = " + asString(expectedResult));
+        return false;
+    }
+    return true;
+}
+
+(:debug)
+function asString(n as Number?) as String {
+    if (n == null) {
+        return "null";
+    }
+    return n.toString();
 }

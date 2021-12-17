@@ -11,7 +11,7 @@ module Shared_IQ_1_4_0 {
             function getProfile() as UserProfile.Profile;
         };
 
-        (:test)
+        (:debug)
         module UnitTests {
             class MockUserProfileProvider {
                

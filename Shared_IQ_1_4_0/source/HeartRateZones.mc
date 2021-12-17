@@ -8,7 +8,8 @@ module Shared_IQ_1_4_0 {
     (:HeartRateZones)
     module HeartRateZones {
 
-        function getHeartRateZone(heartRate as Number, userProfileProvider as UserProfileProvider) as Float {
+        // Gets the decimal heart rate zone value corresponding to the given heart rate.
+        function getHeartRateZone(heartRate as Float, userProfileProvider as UserProfileProvider) as Float {
             var zones = userProfileProvider.getHeartRateZones(UserProfile.getCurrentSport());
             var restingHr = userProfileProvider.getProfile().restingHeartRate;
             var z1 = zones[0];
@@ -18,28 +19,27 @@ module Shared_IQ_1_4_0 {
             var z5 = zones[4];
             var maxHr = zones[5];
 
-            var _heartRate = heartRate.toFloat();
             var heartRateZone;
 
             if (heartRate < z1) {
                 if (restingHr != null) { 
-                    heartRateZone = (_heartRate - restingHr) / (z1 - restingHr);
+                    heartRateZone = (heartRate - restingHr) / (z1 - restingHr);
                     if (heartRateZone < 0) {
-                        heartRateZone = 0;
+                        heartRateZone = 0.0;
                     }
                 } else {
                     heartRateZone = 1.0;
                 }
             } else if (heartRate < z2) {
-                heartRateZone =  1.0 + (_heartRate - z1) / (z2 - z1);
+                heartRateZone =  1.0 + (heartRate - z1) / (z2 - z1);
             } else if (heartRate < z3) {
-                heartRateZone =  2.0 + (_heartRate - z2) / (z3 - z2);
+                heartRateZone =  2.0 + (heartRate - z2) / (z3 - z2);
             } else if (heartRate < z4) {
-                heartRateZone =  3.0 + (_heartRate - z3) / (z4 - z3);
+                heartRateZone =  3.0 + (heartRate - z3) / (z4 - z3);
             } else if (heartRate < z5) {
-                heartRateZone =  4.0 + (_heartRate - z4) / (z5 - z4);
+                heartRateZone =  4.0 + (heartRate - z4) / (z5 - z4);
             } else {
-                heartRateZone =  5.0 + (_heartRate - z5) / (maxHr - z5);
+                heartRateZone =  5.0 + (heartRate - z5) / (maxHr - z5);
                 if (heartRateZone >= 6) {
                     heartRateZone = 5.9;
                 }
@@ -49,6 +49,7 @@ module Shared_IQ_1_4_0 {
             return Math.floor(heartRateZone * 10) / 10;
         }
 
+        // Gets the heart rate value corresponding to the given decimal heart rate zone value.
         function getHeartRate(zone as Float, userProfileProvider as UserProfileProvider) as Number? {
             var zones = userProfileProvider.getHeartRateZones(UserProfile.getCurrentSport());
             var restingHr = userProfileProvider.getProfile().restingHeartRate;
@@ -81,5 +82,16 @@ module Shared_IQ_1_4_0 {
             return heartRate.toNumber();
         }
 
+        // If the given heart rate range corresponds to a heart rate zone, returns the number of the zone.
+        // Otherwise, returns null.
+        function isHeartRateZone(lowHr as Number, highHr as Number, userProfileProvider as UserProfileProvider) as Number? {
+            var zones = userProfileProvider.getHeartRateZones(UserProfile.getCurrentSport());
+            for (var i = 0; i < zones.size() - 1; i++) {
+                if (zones[i] == lowHr && zones[i + 1] == highHr) {
+                    return i + 1;
+                }
+            }
+            return null;
+        }
     }
 }

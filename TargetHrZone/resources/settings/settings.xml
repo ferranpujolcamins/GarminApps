@@ -1,0 +1,9 @@
+<settings>
+    <setting propertyKey="@Properties.DefaultValue" title="@Strings.DefaultValueSetting" prompt="@Strings.DefaultValueSettingPrompt">
+        <settingConfig type="list" required="true">
+            <listEntry value="0">@Strings.LowLimit</listEntry>
+            <listEntry value="1">@Strings.Average</listEntry>
+            <listEntry value="2">@Strings.HighLimit</listEntry>
+        </settingConfig>
+    </setting>
+</settings>
