@@ -1,4 +1,10 @@
 <strings>
-    <string id="AppName">Frequenza Cardiaca Obiettivo</string>
-    <string id="Label">FC OBIETTIVO</string>
+    <string id="AppName">Zona FC Obiettivo</string>
+    <string id="Label">ZONA FC OB.</string>
+
+    <string id="DefaultValueSetting">Valore alternativo</string>
+    <string id="DefaultValueSettingPrompt">Seleziona che valore vuoi vedere quando l'obiettivo di frequenza cardiaca non sia esattamente una zona.</string>
+    <string id="LowLimit">Limite inferiore</string>
+    <string id="Average">Media</string>
+    <string id="HighLimit">Limite superiore</string>
 </strings>

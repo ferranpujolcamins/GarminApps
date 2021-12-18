@@ -1,10 +1,16 @@
-Un campo de datos que muestra la frecuencia cardíaca objetivo de la fase de entrenamiento actual, en pulsaciones por minuto.
+Un campo de datos que muestra el valor de zona de frecuencia que corresponde al objetivo de la fase de entrenamiento actual.
 
-Cuando el objetivo es una zona de frecuencia cardíaca, el campo de datos muestra la frecuencia cardíaca que corresponde al punto medio de la zona.
-Por ejemplo, si el objetivo actual es la zona 2, y tu zona 2 va de 130 a 150 pulsaciones por minuto, el campo de datos mostrará 140.
+Cuando el campo de datos no muestra el punto decimal, significa que el objetivo es estar en una de tus zonas de frecuencia cardiaca.
 
-Cuando el objetivo actual está especificado con un límite inferior y un límite superior, el campo muestra la media de los dos valores.
-Por ejemplo, si el objetivo es estar entre 140 y 180 pulsaciones por minuto, el campo de datos mostrará 160.
+Cuando el campo de datos muestra el punto decimal, significa que el objetivo es estar en un intervalo que no corresponde a ninguna de tus zonas de frecuencia cardiaca.
+En este caso, el valor mostrado se puede configurar en las opciones de la app entre el limite inferior, el limite superior o la media del intervalo.
+
+Algunos ejemplos:
+- Cuando el objetivo actual es una zona de frecuencia cardiaca, el campo de datos muestra la zona sin el punto decimal. Por ejemplo, si el objetivo es la zona 2, el campo mostrará "2".
+
+- Cuando el objetivo actual está especificado con una frecuencia cardiaca límite inferior y una límite superior, y estos valores corresponden a una de tus zonas de frecuencia cardiaca, el campo de datos mostrará esa zoan sin el punto decimal. Por ejemplo, si el objetivo es estar entre 170 y 190 pulsaciones por minuto y esta es precisamente tu zona 5, el campo de datos mostrará "5".
+
+- Cuando el objetivo actual está especificado con una frecuencia cardiaca límite inferior y una límite superior, y estos valores no corresponden a ninguna de tus zonas de frecuencia cardiaca, el campo de datos muestra el valor de zona de frecuencia cardiaca que corresponde a la medio de ambos valores. Por ejemplo, si el objetivo es estar entre 160 y 180 pulsaciones por minuto, y tu zona 5 es 170-190, el campo de datos mostrará "5.0".
 
 Cuando no hay ningún entrenamiento activo o el objetivo actual no es de frecuencia cardíaca, el campo de datos muestra "--".
 

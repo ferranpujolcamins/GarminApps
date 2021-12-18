@@ -1,12 +1,18 @@
-Un campo di dati che mostra la frequenza cardiaca obiettivo della fase d'allenamento attuale, in battiti per minuto.
+Un campo di dati che mostra il valore di zona di frequenza cardiaca corrispondente all'obbiettivo della fase d'allenamento attuale.
 
-Quando l'obiettivo attuale è una zona di frequenza cardiaca, il campo di dati mostra la frequenza cardiaca che corrisponde a metà della zona.
-Per esempio, se l'obiettivo attuale è la zona 2, e la tua zona 2 va da 130 a 150 battiti per minuto, il campo di dati mostrerà 140.
+Quando il campo di dati non mostra il punto decimale, significa che l'obbiettivo è stare in una delle tue zone di frequenza cardiaca.
 
-Quando l'obiettivo attuale è specificato con una frequenza cardiaca bassa e una alta, il campo di dati mostra la media di entrambi valori.
-Per esempio, se l'obiettivo attuale è stare tra 140 e 180 battiti per minuto, il campo di dati mostrerà 160.
+Quando il campo di dati mostra il punto decimale, significa che l'obbiettivo è stare in un intervallo che non corrisponde a nessuna delle tue zone di frequenza cardiaca.
+In questo caso, il valore mostrato può essere scelto nelle impostazioni dell'app tra: il limite inferiore, il limite superiore e la media dell'intervallo.
 
-Quando non c'è nessun allenamento attivo o l'obiettivo della fase d'allenamento attuale non è una frequenza cardiaca, il campo di dati mostra "--".
+Qualche esempio:
+- Quando l'obbiettivo attuale è una zona di frequenza cardiaca, il campo di dati la mostra senza il punto decimale. Per esempio, se l'obbiettivo è la zona 2, il campo di dati mostrerà "2".
+
+- Quando l'obbiettivo attuale è specificato con una frequenza cardiaca bassa e una alta, e questi valori corrispondono con una delle tue zone di frequenza cardiaca, il campo di dati mostra quella zona senza punto decimale. Per esempio, se l'obbiettivo è stare tra 170 e 190 battiti per minuto, e questo intervallo coincide con la tua zona 5, il campo di dati mostrerà "5".
+
+- Quando l'obbiettivo attuale è specificato con una frequenza cardiaca bassa e una alta, e questi valori non corrispondono con nessuna delle tue zone di frequenza cardiaca, il campo di dati mostra il valore di zona di frequenza cardiaca che corrisponde al valore scelto nelle impostazioni dell'app, con il punto decimale. Per esempio, se hai scelto la media dell'intervalo nelle impostazioni, l'obbiettivo è stare tra 160 e 180 battiti per minuto, e la tua zona 5 è 170-190, il campo di dati mostrerà "5.0".
+
+Quando non c'è nessun allenamento attivo o l'obbiettivo della fase d'allenamento attuale non è una frequenza cardiaca, il campo di dati mostra "--".
 
 ---------------------
 HAI TROVATO UN ERRORE?

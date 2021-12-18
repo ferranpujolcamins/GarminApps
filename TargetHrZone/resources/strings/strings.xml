@@ -1,4 +1,10 @@
 <strings>
-    <string id="AppName">TargetHrZone</string>
-    <string id="Label">TARGET HR ZONE</string>
+    <string id="AppName">Target Heart Rate Zone</string>
+    <string id="Label">TARGET HR Z.</string>
+
+    <string id="DefaultValueSetting">Alternative value</string>
+    <string id="DefaultValueSettingPrompt">Select what value you want to see when the heart rate target is not an exact heart rate zone.</string>
+    <string id="LowLimit">Low limit</string>
+    <string id="Average">Average</string>
+    <string id="HighLimit">High limit</string>
 </strings>
