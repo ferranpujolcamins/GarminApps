@@ -1,5 +1,5 @@
 <settings>
-<!-- TODO: find mechanism to share settings by copy-pasting a string -->>
+<!-- TODO: find mechanism to share settings by copy-pasting a string -->
     <setting propertyKey="@Properties.MainDataField" title="@Strings.MainDataField" prompt="@Strings.MainDataFieldPrompt">
         <settingConfig type="list" required="true">
             <listEntry value="0">@Strings.HeartRateSetting</listEntry>

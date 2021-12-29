@@ -49,9 +49,9 @@ class TripleFieldView extends WatchUi.DataField {
     }
 
     enum FieldSize {
-        small,
-        medium,
-        big
+        Small,
+        Medium,
+        Big
     }
 
     // Set your layout here. Anytime the size of obscurity of
@@ -64,19 +64,19 @@ class TripleFieldView extends WatchUi.DataField {
         var fieldHeight = dc.getHeight();
         var fieldSize;
         if (fieldHeight < 60) {
-            fieldSize = small;
+            fieldSize = Small;
         } else if (fieldHeight < 119) {
-            fieldSize = medium;
+            fieldSize = Medium;
         } else {
-            fieldSize = big;
+            fieldSize = Big;
         }
 
         if (obscurityFlags == (OBSCURE_TOP | OBSCURE_LEFT | OBSCURE_RIGHT)) {
             switch (fieldSize) {
-                case small:
+                case Small:
                     View.setLayout(Rez.Layouts.TopSmallLayout(dc));
                     break;
-                case medium:
+                case Medium:
                     View.setLayout(Rez.Layouts.TopLayout(dc));
                     break;
                 default:
@@ -89,10 +89,10 @@ class TripleFieldView extends WatchUi.DataField {
             View.setLayout(Rez.Layouts.TopRightLayout(dc));
         } else if (obscurityFlags == (OBSCURE_BOTTOM | OBSCURE_LEFT | OBSCURE_RIGHT)) {
             switch (fieldSize) {
-                case small:
+                case Small:
                     View.setLayout(Rez.Layouts.BottomSmallLayout(dc));
                     break;
-                case medium:
+                case Medium:
                     View.setLayout(Rez.Layouts.BottomLayout(dc));
                     break;
                 default:
@@ -105,10 +105,10 @@ class TripleFieldView extends WatchUi.DataField {
             View.setLayout(Rez.Layouts.BottomRightLayout(dc));
         } else if (obscurityFlags == (OBSCURE_LEFT)) {
             switch (fieldSize) {
-                case small:
+                case Small:
                     View.setLayout(Rez.Layouts.LeftSmallLayout(dc));
                     break;
-                case medium:
+                case Medium:
                     View.setLayout(Rez.Layouts.LeftLayout(dc));
                     break;
                 default:
@@ -117,10 +117,10 @@ class TripleFieldView extends WatchUi.DataField {
             }
         } else if (obscurityFlags == (OBSCURE_RIGHT)) {
             switch (fieldSize) {
-                case small:
+                case Small:
                     View.setLayout(Rez.Layouts.RightSmallLayout(dc));
                     break;
-                case medium:
+                case Medium:
                     View.setLayout(Rez.Layouts.RightLayout(dc));
                     break;
                 default:

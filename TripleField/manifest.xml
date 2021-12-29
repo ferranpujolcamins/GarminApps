@@ -33,7 +33,6 @@
             command palette to edit the included barrels.
         -->
         <iq:barrels>
-            <iq:depends name="Shared" version="0.0.0"/>
         </iq:barrels>
     </iq:application>
 </iq:manifest>
