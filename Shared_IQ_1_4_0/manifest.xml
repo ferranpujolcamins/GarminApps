@@ -34,6 +34,8 @@
             <iq:annotation>Assert</iq:annotation>
             <iq:annotation>HeartRateZones</iq:annotation>
             <iq:annotation>PollTimer</iq:annotation>
+            <iq:annotation>Properties</iq:annotation>
+            <iq:annotation>Units</iq:annotation>
             <iq:annotation>test</iq:annotation>
         </iq:annotations>
     </iq:barrel>
