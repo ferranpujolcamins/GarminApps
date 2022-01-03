@@ -6,24 +6,24 @@ import Shared_IQ_1_4_0.Units;
 
 (:test)
 function unitsTest(logger as Logger) as Boolean {
-    return checkUnitsConversion(1.toDouble(), Units.MetersPerSecond, Units.MetersPerSecond, 1.toDouble(), logger)
-        && checkUnitsConversion(1.toDouble(), Units.KmPerHour, Units.KmPerHour, 1.toDouble(), logger)
-        && checkUnitsConversion(1.toDouble(), Units.MinPerKm, Units.MinPerKm, 1.toDouble(), logger)
+    return checkUnitsConversion(1d, Units.MetersPerSecond, Units.MetersPerSecond, 1d, logger)
+        && checkUnitsConversion(1d, Units.KmPerHour, Units.KmPerHour, 1d, logger)
+        && checkUnitsConversion(1d, Units.MinPerKm, Units.MinPerKm, 1d, logger)
 
-        && checkUnitsConversion(1.toDouble(), Units.KmPerHour, Units.MetersPerSecond, 1000.toDouble()/3600, logger)
-        && checkUnitsConversion(1.toDouble(), Units.MinPerKm, Units.MetersPerSecond, 1000.toDouble()/60, logger)
+        && checkUnitsConversion(1d, Units.KmPerHour, Units.MetersPerSecond, 1000d/3600, logger)
+        && checkUnitsConversion(1d, Units.MinPerKm, Units.MetersPerSecond, 1000d/60, logger)
 
-        && checkUnitsConversion(1.toDouble(), Units.MetersPerSecond, Units.KmPerHour, 3600.toDouble()/1000, logger)
-        && checkUnitsConversion(1.toDouble(), Units.MetersPerSecond, Units.MinPerKm, 1000.toDouble()/60, logger)
+        && checkUnitsConversion(1d, Units.MetersPerSecond, Units.KmPerHour, 3600d/1000, logger)
+        && checkUnitsConversion(1d, Units.MetersPerSecond, Units.MinPerKm, 1000d/60, logger)
 
-        && checkUnitsConversion(5.toDouble(), Units.KmPerHour, Units.MinPerKm, 12.toDouble(), logger)
-        && checkUnitsConversion(12.toDouble(), Units.MinPerKm, Units.KmPerHour, 5.toDouble(), logger)
+        && checkUnitsConversion(5d, Units.KmPerHour, Units.MinPerKm, 12d, logger)
+        && checkUnitsConversion(12d, Units.MinPerKm, Units.KmPerHour, 5d, logger)
 
-        && checkUnitsConversion(5.toDouble(), Units.MetersPerSecond, Units.KmPerHour, 18.toDouble(), logger)
-        && checkUnitsConversion(18.toDouble(), Units.KmPerHour, Units.MetersPerSecond, 5.toDouble(), logger)
+        && checkUnitsConversion(5d, Units.MetersPerSecond, Units.KmPerHour, 18d, logger)
+        && checkUnitsConversion(18d, Units.KmPerHour, Units.MetersPerSecond, 5d, logger)
 
-        && checkUnitsConversion(5.toDouble(), Units.MetersPerSecond, Units.MinPerKm, 30.toDouble()/9, logger)
-        && checkUnitsConversion(30.toDouble()/9, Units.MinPerKm, Units.MetersPerSecond, 5.toDouble(), logger);
+        && checkUnitsConversion(5d, Units.MetersPerSecond, Units.MinPerKm, 30d/9, logger)
+        && checkUnitsConversion(30d/9, Units.MinPerKm, Units.MetersPerSecond, 5d, logger);
 }
 
 (:debug)

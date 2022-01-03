@@ -42,7 +42,7 @@ module Shared_IQ_1_4_0 {
                 return value;
             }
             return fromMetersPerSecond(
-                toMetersPerSecond(value.toDouble(), from),
+                toMetersPerSecond(value, from),
                 to
             );
         }
