@@ -17,6 +17,9 @@
 		},
 		{
 			"path": "BarrelTests"
+		},
+		{
+			"path": "WorkoutTarget"
 		}
 	]
 }
