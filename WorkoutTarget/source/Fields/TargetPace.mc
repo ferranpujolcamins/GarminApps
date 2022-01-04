@@ -3,16 +3,23 @@ import Toybox.Activity;
 import Toybox.System;
 import Shared_IQ_1_4_0.Format;
 import Shared_IQ_1_4_0.Units;
+import Shared_IQ_1_4_0.DeviceSettingsInterfaces;
 import Shared_IQ_3_2_0.Workout;
 
-module TargetPaceField {
-    function compute(workoutStepProvider as CurrentWorkoutStepProvider) as String {
-        var heartRate = tryCompute(workoutStepProvider);
+class TargetPaceField {
+    function initialize(workoutStepProvider as CurrentWorkoutStepProvider,
+                        deviceSettingsProvider as DeviceSettingsProvider) {
+        mWorkoutStepProvider = workoutStepProvider;
+        mDeviceSettingsProvider = deviceSettingsProvider;
+    }
+
+    function compute() as String {
+        var heartRate = tryCompute();
         return heartRate == null ? "--:--" : heartRate;
     }
 
-    function tryCompute(workoutStepProvider as CurrentWorkoutStepProvider) as String? {
-        var workoutStep = workoutStepProvider.getCurrentWorkoutStep();
+    function tryCompute() as String? {
+        var workoutStep = mWorkoutStepProvider.getCurrentWorkoutStep();
         if (workoutStep == null) { 
             return null;
         }
@@ -20,9 +27,15 @@ module TargetPaceField {
         if(workoutStep.targetType != Activity.WORKOUT_STEP_TARGET_SPEED) {
             return null;
         }
-        // TODO: read unit from preferences
-        var lowPace = Units.convert(workoutStep.targetValueHigh as Double, Units.MetersPerSecond, Units.MinPerKm);
-        var highPace = Units.convert(workoutStep.targetValueLow as Double, Units.MetersPerSecond, Units.MinPerKm);
+
+        var targetUnits = mDeviceSettingsProvider.paceUnits() == System.UNIT_METRIC
+            ? Units.MinPerKm
+            : Units.MinPerMile;
+        var lowPace = Units.convert(workoutStep.targetValueHigh as Double, Units.MetersPerSecond, targetUnits);
+        var highPace = Units.convert(workoutStep.targetValueLow as Double, Units.MetersPerSecond, targetUnits);
         return Format.minutesAndSecondsFromMinutes((lowPace + highPace) / 2d);
     }
+
+    hidden var mWorkoutStepProvider as CurrentWorkoutStepProvider;
+    hidden var mDeviceSettingsProvider as DeviceSettingsProvider;
 }

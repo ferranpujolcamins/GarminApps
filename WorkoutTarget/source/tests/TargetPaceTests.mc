@@ -1,8 +1,9 @@
 import Toybox.Lang;
+import Toybox.System;
 import Toybox.Activity;
 import Toybox.Test;
+using Shared_IQ_1_4_0.DeviceSettingsInterfaces;
 using Shared_IQ_3_2_0.Workout;
-import TargetPaceField;
 
 // Given that:
 // - There's no current workout step.
@@ -13,7 +14,8 @@ function testTargetPaceFieldIsNullWhenNoWorkout(logger as Logger) as Boolean {
     var currentWorkoutStepProvider = new Workout.UnitTests.MockCurrentWorkoutStepProvider();
     currentWorkoutStepProvider.mWorkoutStep = null;
 
-    var field = TargetPaceField.compute(currentWorkoutStepProvider);
+    var field = new TargetPaceField(currentWorkoutStepProvider, new DeviceSettingsInterfaces.SystemDeviceSettingsProvider())
+        .compute();
 
     logger.debug("field = " + field);
     return field.equals("--:--");
@@ -32,7 +34,8 @@ function testTargetPaceFieldIsNullWhenTargetIsNotPaceNorSpeed(logger as Logger) 
     workoutStep.targetValueHigh = 130;
     currentWorkoutStepProvider.mWorkoutStep = workoutStep;
 
-    var field = TargetPaceField.compute(currentWorkoutStepProvider);
+    var field = new TargetPaceField(currentWorkoutStepProvider, new DeviceSettingsInterfaces.SystemDeviceSettingsProvider())
+        .compute();
 
     logger.debug("field = " + field);
     return field.equals("--:--");
@@ -51,7 +54,11 @@ function testTargetPaceIsAverage(logger as Logger) as Boolean {
     workoutStep.targetValueHigh = (1/(6.5d * 60 / 1000)) as Number; // 6:30 min/km in m/s
     currentWorkoutStepProvider.mWorkoutStep = workoutStep;
 
-    var field = TargetPaceField.compute(currentWorkoutStepProvider);
+    var deviceSettings = new DeviceSettingsInterfaces.UnitTests.MockDeviceSettingsProvider();
+    deviceSettings.mPaceUnits = System.UNIT_METRIC;
+
+    var field = new TargetPaceField(currentWorkoutStepProvider, deviceSettings)
+        .compute();
 
     logger.debug("field = " + field);
     return field.equals("6:00");
@@ -59,10 +66,11 @@ function testTargetPaceIsAverage(logger as Logger) as Boolean {
 
 // Given that:
 // - The workout target is a single speed.
+// - The pace units are set to metric.
 // Then:
-// - We display the speed.
+// - We display the speed in metric units.
 (:test)
-function testTargetPaceIsSingleSpeed(logger as Logger) as Boolean {
+function testTargetPaceIsSingleSpeedMetric(logger as Logger) as Boolean {
     var currentWorkoutStepProvider = new Workout.UnitTests.MockCurrentWorkoutStepProvider();
     var workoutStep = new Activity.WorkoutStep();
     workoutStep.targetType = Activity.WORKOUT_STEP_TARGET_SPEED;
@@ -70,8 +78,36 @@ function testTargetPaceIsSingleSpeed(logger as Logger) as Boolean {
     workoutStep.targetValueHigh = workoutStep.targetValueLow;
     currentWorkoutStepProvider.mWorkoutStep = workoutStep;
 
-    var field = TargetPaceField.compute(currentWorkoutStepProvider);
+    var deviceSettings = new DeviceSettingsInterfaces.UnitTests.MockDeviceSettingsProvider();
+    deviceSettings.mPaceUnits = System.UNIT_METRIC;
+
+    var field = new TargetPaceField(currentWorkoutStepProvider, deviceSettings)
+        .compute();
 
     logger.debug("field = " + field);
     return field.equals("5:30");
+}
+
+// Given that:
+// - The workout target is a single speed.
+// - The pace units are set to statute.
+// Then:
+// - We display the speed in statute units.
+(:test)
+function testTargetPaceIsSingleSpeedStatute(logger as Logger) as Boolean {
+    var currentWorkoutStepProvider = new Workout.UnitTests.MockCurrentWorkoutStepProvider();
+    var workoutStep = new Activity.WorkoutStep();
+    workoutStep.targetType = Activity.WORKOUT_STEP_TARGET_SPEED;
+    workoutStep.targetValueLow = (1 / (6.5 * 60 / 1609.344d)) as Number; // 6:30 min/mile in m/s
+    workoutStep.targetValueHigh = workoutStep.targetValueLow;
+    currentWorkoutStepProvider.mWorkoutStep = workoutStep;
+
+    var deviceSettings = new DeviceSettingsInterfaces.UnitTests.MockDeviceSettingsProvider();
+    deviceSettings.mPaceUnits = System.UNIT_STATUTE;
+
+    var field = new TargetPaceField(currentWorkoutStepProvider, deviceSettings)
+        .compute();
+
+    logger.debug("field = " + field);
+    return field.equals("6:30");
 }
