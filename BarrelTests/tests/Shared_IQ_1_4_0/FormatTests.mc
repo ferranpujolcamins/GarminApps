@@ -24,7 +24,7 @@ function checkMinutesAndSecondsFromMinutes(value as Double,
                                            logger as Logger) as Boolean {
     var result = Format.minutesAndSecondsFromMinutes(value);
     if (!result.equals(expected)) {
-        logger.debug("FAIL" + ": value = " + value + ", result = '" + result +"', expected = '" + expected + "'");
+        logger.debug(Lang.format("FAIL: value = $1$, result = '$2$', expected = '$3$'", [value, result, expected]));
         return false;
     }
     return true;

@@ -31,7 +31,7 @@ function checkGcd(a as Number,
                   logger as Logger) as Boolean {
     var result = Math.gcd(a, b);
     if (result != expected) {
-        logger.debug(Lang.format("FAIL: a = %1%, b = $2$, result = $3$, expected = $4$", [a, b, result, expected]));
+        logger.debug(Lang.format("FAIL: a = $1$, b = $2$, result = $3$, expected = $4$", [a, b, result, expected]));
         return false;
     }
     return true;
@@ -44,7 +44,7 @@ function checkLcm(a as Number,
                   logger as Logger) as Boolean {
     var result = Math.lcm(a, b);
     if (result != expected) {
-        logger.debug(Lang.format("FAIL: a = %1%, b = $2$, result = $3$, expected = $4$", [a, b, result, expected]));
+        logger.debug(Lang.format("FAIL: a = $1$, b = $2$, result = $3$, expected = $4$", [a, b, result, expected]));
         return false;
     }
     return true;
