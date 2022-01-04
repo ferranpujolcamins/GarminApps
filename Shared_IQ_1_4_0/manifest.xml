@@ -31,6 +31,7 @@
         -->
         <iq:annotations>
             <iq:annotation>Assert</iq:annotation>
+            <iq:annotation>DeviceSettings</iq:annotation>
             <iq:annotation>Format</iq:annotation>
             <iq:annotation>HeartRateZones</iq:annotation>
             <iq:annotation>Math</iq:annotation>
