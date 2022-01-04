@@ -9,12 +9,15 @@ function unitsTest(logger as Logger) as Boolean {
     return checkUnitsConversion(1d, Units.MetersPerSecond, Units.MetersPerSecond, 1d, logger)
         && checkUnitsConversion(1d, Units.KmPerHour, Units.KmPerHour, 1d, logger)
         && checkUnitsConversion(1d, Units.MinPerKm, Units.MinPerKm, 1d, logger)
+        && checkUnitsConversion(1d, Units.MinPerMile, Units.MinPerMile, 1d, logger)
 
         && checkUnitsConversion(1d, Units.KmPerHour, Units.MetersPerSecond, 1000d/3600, logger)
         && checkUnitsConversion(1d, Units.MinPerKm, Units.MetersPerSecond, 1000d/60, logger)
+        && checkUnitsConversion(1d, Units.MinPerMile, Units.MetersPerSecond, 26.8224d, logger)
 
         && checkUnitsConversion(1d, Units.MetersPerSecond, Units.KmPerHour, 3600d/1000, logger)
         && checkUnitsConversion(1d, Units.MetersPerSecond, Units.MinPerKm, 1000d/60, logger)
+        && checkUnitsConversion(1d, Units.MetersPerSecond, Units.MinPerMile, 26.8224d, logger)
 
         && checkUnitsConversion(5d, Units.KmPerHour, Units.MinPerKm, 12d, logger)
         && checkUnitsConversion(12d, Units.MinPerKm, Units.KmPerHour, 5d, logger)
@@ -34,7 +37,7 @@ function checkUnitsConversion(value as Double,
                               logger as Logger) as Boolean {
     var result = Units.convert(value, from, to);
     if (result != expected) {
-        logger.debug("FAIL" + ": value = " + value + ", result = " + result + ", from = " + from as String + ", to = " + to as String +", expected = " + expected);
+        logger.debug(Lang.format("FAIL: value = $1$, result = $2$, from = $3$, to = $4$, expected = $5$", [value, result, from as String, to as String, expected]));
         return false;
     }
     return true;

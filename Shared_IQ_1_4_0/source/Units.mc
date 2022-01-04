@@ -1,5 +1,6 @@
 import Toybox.Lang;
 import Toybox.System;
+import Shared_IQ_1_4_0.Assert;
 
 module Shared_IQ_1_4_0 {
     
@@ -8,7 +9,8 @@ module Shared_IQ_1_4_0 {
         enum Unit {
             MetersPerSecond = "m/s",
             KmPerHour = "km/h",
-            MinPerKm = "min/km"
+            MinPerKm = "min/km",
+            MinPerMile = "min/mi"
         }
 
         function toMetersPerSecond(value as Double, unit as Unit) as Double {
@@ -21,6 +23,13 @@ module Shared_IQ_1_4_0 {
 
                 case MinPerKm:
                     return 1 / (value * 60 / 1000);
+
+                case MinPerMile:
+                    return 1 / (value * 60 / 1609.344d);
+                
+                default:
+                    Assert.that(false);
+                    return 0.0d;
             }
         }
 
@@ -34,6 +43,13 @@ module Shared_IQ_1_4_0 {
 
                 case MinPerKm:
                     return 1 / (value * 60 / 1000);
+
+                case MinPerMile:
+                    return 1 / (value * 60 / 1609.344d);
+
+                default:
+                    Assert.that(false);
+                    return 0.0d;
             }
         }
 
