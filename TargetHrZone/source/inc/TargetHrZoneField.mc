@@ -5,10 +5,6 @@ import Shared_IQ_1_4_0.PropertiesModule;
 import Shared_IQ_3_2_0.Workout;
 
 class TargetHrZoneField {
-    hidden var mWorkoutStepProvider as CurrentWorkoutStepProvider;
-    hidden var mUserProfileProvider as UserProfileProvider;
-    hidden var mProperties as Properties;
-
     function initialize(workoutStepProvider as CurrentWorkoutStepProvider,
                         userProfileProvider as UserProfileProvider,
                         properties as Properties) {
@@ -69,4 +65,8 @@ class TargetHrZoneField {
                 return null;
         }
     }
+
+    hidden var mWorkoutStepProvider as CurrentWorkoutStepProvider;
+    hidden var mUserProfileProvider as UserProfileProvider;
+    hidden var mProperties as Properties;
 }

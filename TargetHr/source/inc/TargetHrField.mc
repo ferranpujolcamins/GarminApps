@@ -12,7 +12,7 @@ module TargetHrField {
     }
 
     function tryCompute(workoutStepProvider as CurrentWorkoutStepProvider,
-                     userProfileProvider as UserProfileProvider) as Number? {
+                        userProfileProvider as UserProfileProvider) as Number? {
 
         var workoutStep = workoutStepProvider.getCurrentWorkoutStep();
         if (workoutStep == null) { return null; }
