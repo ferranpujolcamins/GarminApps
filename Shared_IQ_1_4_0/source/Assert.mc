@@ -6,6 +6,7 @@ module Shared_IQ_1_4_0 {
     (:Assert)
     module Assert {
 
+        // Throw an exception if the predicate is false and the build is debug or prints the stacktrace when the build is release.
         (:debug)
         function that(predicate as Boolean) as Void {
             throw new Lang.InvalidValueException("Assertion failed");

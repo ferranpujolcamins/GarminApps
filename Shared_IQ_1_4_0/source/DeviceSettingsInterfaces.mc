@@ -6,6 +6,7 @@ module Shared_IQ_1_4_0 {
     (:DeviceSettings)
     module DeviceSettingsInterfaces {
 
+        // Represents a type that can get the device settings available at API level 1.4.0
         typedef DeviceSettingsProvider as interface {
             function activityTrackingOn() as Boolean;
             function alarmCount() as Number;
@@ -30,6 +31,7 @@ module Shared_IQ_1_4_0 {
             function weightUnits() as UnitsSystem;
         };
 
+        // A class to get the device settings available at API level 1.4.0
         class SystemDeviceSettingsProvider {
             function activityTrackingOn() as Boolean {
                 return System.getDeviceSettings().activityTrackingOn;
@@ -119,6 +121,8 @@ module Shared_IQ_1_4_0 {
 
         (:debug)
         module UnitTests {
+
+            // A class to mock the device settings available at API level 1.4.0
             class MockDeviceSettingsProvider {
                
                 function activityTrackingOn() as Boolean {
