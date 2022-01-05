@@ -19,7 +19,7 @@ You can use all the data fields for free. However, you can show your appreciatio
 ### TargetHr
 A data field that displays the current workout step target heart rate, in beats per minute.
 
-[Download](https://apps.garmin.com/en-US/apps/a686aad7-0747-47e9-b61f-83e44aa7ea3a)
+[![Download](https://img.shields.io/badge/Download-connect%20IQ-blue)](https://apps.garmin.com/en-US/apps/a686aad7-0747-47e9-b61f-83e44aa7ea3a)
 
 ![TargetHr](https://user-images.githubusercontent.com/6429775/143912998-0ba62450-05a0-40c4-a8bb-6bf1055221d7.png)
 
@@ -34,7 +34,7 @@ When there's no active workout or the current workout step target is not heart r
 ### TargetHrZone
 A data field that displays the heart rate zone value corresponding to the current workout target heart rate.
 
-[Download](https://apps.garmin.com/es-ES/apps/bd6adc81-599a-44be-a483-34b457ef9e1b)
+[![Download](https://img.shields.io/badge/Download-connect%20IQ-blue)](https://apps.garmin.com/es-ES/apps/bd6adc81-599a-44be-a483-34b457ef9e1b)
 
 ![TargetHrZone](https://user-images.githubusercontent.com/6429775/148199894-f5272cd7-57ba-4c00-85a7-2799a0a18254.png)
 
