@@ -4,4 +4,4 @@ Versione 1.0.2
 ==========
 
 Versione 1.0.1
-- Cambiato il valore predefiniti delle impostazioni.
+- Cambiato il valore predefinito delle impostazioni.
