@@ -13,10 +13,7 @@ See [Contributing](CONTRIBUTING.md).
 ### Donations
 You can use all the data fields for free. However, you can show your appreciation by making a donation. Any amount is very appreciated! Among other things, this helps me get more devices to test my fields on.
 
-<a href="https://www.paypal.com/donate/?business=SNYLYZW7C6NMQ&no_recurring=0&item_name=I+really+appreciate+your+contribution%21+I%27m+glad+you+found+my+work+useful.&currency_code=EUR">
-<img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" alt="Donate with PayPal button" 
-title="PayPal – The safer, easier way to pay online!" border="0" />
-</a>
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?business=SNYLYZW7C6NMQ&no_recurring=0&item_name=I+really+appreciate+your+contribution%21+I%27m+glad+you+found+my+work+useful.&currency_code=EUR)
 
 ## Fields in this repository
 ### TargetHr
@@ -24,7 +21,7 @@ A data field that displays the current workout step target heart rate, in beats 
 
 [Download](https://apps.garmin.com/en-US/apps/a686aad7-0747-47e9-b61f-83e44aa7ea3a)
 
-![image](https://user-images.githubusercontent.com/6429775/143912998-0ba62450-05a0-40c4-a8bb-6bf1055221d7.png)
+![TargetHr](https://user-images.githubusercontent.com/6429775/143912998-0ba62450-05a0-40c4-a8bb-6bf1055221d7.png)
 
 When the target is a heart rate zone, the data field displays the heart rate corresponding to the middle of the zone.
 For example, if the target is zone 2 and your zone 2 goes from 130 to 150 bpm, the data field will display 140.
@@ -39,7 +36,8 @@ A data field that displays the heart rate zone value corresponding to the curren
 
 [Download](https://apps.garmin.com/es-ES/apps/bd6adc81-599a-44be-a483-34b457ef9e1b)
 
-![image](https://user-images.githubusercontent.com/6429775/143912998-0ba62450-05a0-40c4-a8bb-6bf1055221d7.png)
+![TargetHrZone](https://user-images.githubusercontent.com/6429775/148199894-f5272cd7-57ba-4c00-85a7-2799a0a18254.png)
+
 
 A data field that displays the heart rate zone value corresponding to the current workout target heart rate.
 
