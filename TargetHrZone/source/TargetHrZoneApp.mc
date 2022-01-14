@@ -20,7 +20,9 @@ class TargetHrZoneApp extends Application.AppBase {
     }
 
     function getSettingsView() as Array<WatchUi.Views or WatchUi.InputDelegates> or Null {
-        return [ new Rez.Menus.SettingsMenu(),
+        var menu = new Rez.Menus.SettingsMenu();
+        menu.setTitle(Rez.Strings.DefaultValueSetting);
+        return [ menu,
                  new SettingsMenuInputDelegate(new Props.ApplicationProperties())
                ] as Array<WatchUi.Views or WatchUi.InputDelegates>;
     }

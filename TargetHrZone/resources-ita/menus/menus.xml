@@ -1,6 +1,0 @@
-<menu2 id="SettingsMenu" title="Valore alternativo">
-    <menu-item id="LowLimitMenuItem" label="@Strings.LowLimit" />
-    <menu-item id="AverageMenuItem" label="@Strings.Average" />
-    <menu-item id="HighLimitMenuItem" label="@Strings.HighLimit" />
-    <menu-item id="HelpMenuItem" label="@Strings.Help" />
-</menu2>
