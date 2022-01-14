@@ -7,4 +7,6 @@
     <string id="LowLimit">Low limit</string>
     <string id="Average">Average</string>
     <string id="HighLimit">High limit</string>
+    
+    <string id="Help">Help</string>
 </strings>

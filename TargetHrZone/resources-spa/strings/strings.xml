@@ -7,4 +7,6 @@
     <string id="LowLimit">Límite inferior</string>
     <string id="Average">Media</string>
     <string id="HighLimit">Límite superior</string>
+
+    <string id="Help">Ayuda</string>
 </strings>

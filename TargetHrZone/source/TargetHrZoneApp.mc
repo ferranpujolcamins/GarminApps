@@ -1,6 +1,7 @@
 import Toybox.Application;
 import Toybox.Lang;
 import Toybox.WatchUi;
+using Shared_IQ_1_4_0.PropertiesModule as Props;
 
 class TargetHrZoneApp extends Application.AppBase {
 
@@ -8,19 +9,25 @@ class TargetHrZoneApp extends Application.AppBase {
         AppBase.initialize();
     }
 
-    // onStart() is called on application start up
     function onStart(state as Dictionary?) as Void {
     }
 
-    // onStop() is called when your application is exiting
     function onStop(state as Dictionary?) as Void {
     }
 
-    // Return the initial view of your application here
     function getInitialView() as Array<Views or InputDelegates>? {
         return [ new TargetHrZoneView() ] as Array<Views or InputDelegates>;
     }
 
+    function getSettingsView() as Array<WatchUi.Views or WatchUi.InputDelegates> or Null {
+        return [ new Rez.Menus.SettingsMenu(),
+                 new SettingsMenuInputDelegate(new Props.ApplicationProperties())
+               ] as Array<WatchUi.Views or WatchUi.InputDelegates>;
+    }
+
+    function onSettingsChanged() {
+        WatchUi.requestUpdate();
+    }
 }
 
 function getApp() as TargetHrZoneApp {
