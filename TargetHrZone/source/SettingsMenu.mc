@@ -1,4 +1,5 @@
 import Toybox.Lang;
+import Toybox.Graphics;
 import Toybox.System;
 import Toybox.WatchUi;
 import Shared_IQ_1_4_0.Assert;
@@ -15,7 +16,7 @@ class SettingsMenuInputDelegate extends WatchUi.Menu2InputDelegate {
         switch(itemId) {
             case :HelpMenuItem:
                 showHelp();
-                break;
+                return;
                 
             case :LowLimitMenuItem:
                 mProperties.setValue(DefaultValue as String, LowLimit);
@@ -36,15 +37,22 @@ class SettingsMenuInputDelegate extends WatchUi.Menu2InputDelegate {
     }
 
     hidden function showHelp() as Void {
-        WatchUi.pushView(helpView(), null, SLIDE_LEFT);   
-    }
-
-    hidden function helpView() as View {
-        var text = Application.loadResource(Rez.Strings.DefaultValueSettingPrompt) as String;
-        return new WatchUi.TextArea({
-            :text=>text,
-        }) as View;
+        WatchUi.pushView(new SettingsHelpView(), null, SLIDE_LEFT);   
     }
 
     hidden var mProperties as Properties;
+}
+
+class SettingsHelpView extends WatchUi.View {
+    public function initialize() {
+        View.initialize();
+    }
+
+    public function onLayout(dc as Dc) as Void {
+        setLayout( Rez.Layouts.SettingsHelpLayout(dc) );
+    }
+
+    public function onUpdate(dc as Dc) as Void {
+        View.onUpdate(dc);
+    }
 }
