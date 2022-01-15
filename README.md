@@ -1,22 +1,22 @@
-# Garmin Data Fields
-This repository contains the code of several data fields for Garmin devices compatible with ConnectIQ.
+# Garmin Apps
+This repository contains the code of several data fields, watch faces and apps for Garmin devices compatible with ConnectIQ.
 
 ### Did you found an error?
-If you found a a problem with any of the data fields, or something is not working as you'd expect, please [open a new issue](https://github.com/ferranpujolcamins/GarminDataFields/issues/new/choose).
+If you found a a problem with any of the apps, or something is not working as you'd expect, please [open a new issue](https://github.com/ferranpujolcamins/GarminApps/issues/new/choose).
 
 ### Do you need help?
-If you have any questions about the data fields, you need help, you want to share a feature idea, or anything else, please [start a discussion](https://github.com/ferranpujolcamins/GarminDataFields/discussions/new).
+If you have any questions about the apps, you need help, you want to share a feature idea, or anything else, please [start a discussion](https://github.com/ferranpujolcamins/GarminApps/discussions/new).
 
 ### Do you want to contribute?
 See [Contributing](CONTRIBUTING.md).
 
 ### Donations
-You can use all the data fields for free. However, you can show your appreciation by making a donation. Any amount is very appreciated! Among other things, this helps me get more devices to test my fields on.
+You can use all the apps for free. However, you can show your appreciation by making a donation. Any amount is very appreciated! Among other things, this helps me get more devices to test my fields on.
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?business=SNYLYZW7C6NMQ&no_recurring=0&item_name=I+really+appreciate+your+contribution%21+I%27m+glad+you+found+my+work+useful.&currency_code=EUR)
 
-## Fields in this repository
-### TargetHr
+## Apps in this repository
+### TargetHr data field
 A data field that displays the current workout step target heart rate, in beats per minute.
 
 [![Download](https://img.shields.io/badge/Download-connect%20IQ-blue)](https://apps.garmin.com/en-US/apps/a686aad7-0747-47e9-b61f-83e44aa7ea3a)
@@ -31,7 +31,7 @@ For example, if the target is to be between 140 and 180 bpm, the data field will
 
 When there's no active workout or the current workout step target is not heart rate, the data field displays "--".
 
-### TargetHrZone
+### TargetHrZone data field
 A data field that displays the heart rate zone value corresponding to the current workout target heart rate.
 
 [![Download](https://img.shields.io/badge/Download-connect%20IQ-blue)](https://apps.garmin.com/es-ES/apps/bd6adc81-599a-44be-a483-34b457ef9e1b)
@@ -55,5 +55,5 @@ Some examples:
 
 When there's no active workout or the current workout step target is not heart rate, the data field displays "--".
 
-### WorkoutTarget (Work in progress)
+### WorkoutTarget data field (Work in progress)
 A data field that displays the current workout step target, no matter what kind of target it is.
