@@ -18,13 +18,13 @@ Cuando no hay ningún entrenamiento activo o el objetivo actual no es de frecuen
 ENCONTRASTE UN ERROR?
 
 Si has encontrado un error, o algo no funciona como tu esperas, puedes abrir una incidencia en GitHub:
-https://github.com/ferranpujolcamins/GarminDataFields/issues/new/choose
+https://github.com/ferranpujolcamins/GarminApps/issues/new/choose
 
 ----------------------------
 NECESITAS AYUDA?
 
 Si tienes cualquier duda, necesitas ayuda, quieres compartir una idea para una nueva funcionalidad, o cualquier otra cosa, puedes preguntar en GitHub discussions:
-https://github.com/ferranpujolcamins/GarminDataFields/discussions/new
+https://github.com/ferranpujolcamins/GarminApps/discussions/new
 
 ------------------
 DONACIONES

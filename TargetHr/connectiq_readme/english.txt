@@ -12,13 +12,13 @@ When there's no active workout or the current workout step target is not heart r
 DID YOU FOUND AN ERROR?
 
 If you found a a problem, or something is not working as you'd expect, please open a new issue on GitHub:
-https://github.com/ferranpujolcamins/GarminDataFields/issues/new/choose
+https://github.com/ferranpujolcamins/GarminApps/issues/new/choose
 
 ----------------------------
 DO YOU NEED HELP?
 
 If you have any questions, you need help, you want to share a feature idea, or anything else, please start a discussion on GitHub:
-https://github.com/ferranpujolcamins/GarminDataFields/discussions/new
+https://github.com/ferranpujolcamins/GarminApps/discussions/new
 
 ----------------
 DONATIONS

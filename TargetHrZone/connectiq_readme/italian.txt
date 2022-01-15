@@ -18,13 +18,13 @@ Quando non c'è nessun allenamento attivo o l'obbiettivo della fase d'allenament
 HAI TROVATO UN ERRORE?
 
 Se hai trovato un errore, o qualcosa non funziona come aspetti, puoi aprire una issue in GitHub:
-https://github.com/ferranpujolcamins/GarminDataFields/issues/new/choose
+https://github.com/ferranpujolcamins/GarminApps/issues/new/choose
 
 ----------------
 HAI BISOGNO DI AIUTO?
 
 Se hai qualche dubbio, hai bisogno di aiuto, vuoi condividere una idea per una nuova funzionalità, o qualche altra cosa, puoi chiedere in GitHub discussions:
-https://github.com/ferranpujolcamins/GarminDataFields/discussions/new
+https://github.com/ferranpujolcamins/GarminApps/discussions/new
 
 ----------
 DONAZIONI
