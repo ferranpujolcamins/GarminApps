@@ -1,5 +1,6 @@
 Version 1.1.0
 - Added on-device settings menu.
+- Known issue: Help text does not fit screen of some devices when language is Spanish or Italian.
 
 ==========
 

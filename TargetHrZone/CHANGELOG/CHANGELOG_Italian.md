@@ -1,5 +1,6 @@
 Versione 1.1.0
 - Aggiunto menu di impostazioni nel dispositivo.
+- Problema noto: Il testo di aiuto non sta nello schermo di alcuni dispositivi quando l'idioma è italiano o spagnolo.
 
 ==========
 
