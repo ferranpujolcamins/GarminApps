@@ -12,20 +12,33 @@ class TargetHrZoneField {
         mWorkoutStepProvider = workoutStepProvider;
         mUserProfileProvider = userProfileProvider;
         mProperties = properties;
+        mLastHrWorkoutTarget = null;
+        mFieldText = placeholder();
     }
 
     function compute() as String {
-        var heartRateZone = tryCompute();
-        return heartRateZone == null ? "-.-" : heartRateZone;
+        var hrWorkoutTarget = null as HrWorkoutTarget?;
+        var workoutStep = mWorkoutStepProvider.getCurrentWorkoutStep();
+        if (workoutStep == null) {
+            hrWorkoutTarget = mLastHrWorkoutTarget;
+        } else {
+            hrWorkoutTarget = Workout.HrWorkoutTarget.isTargetHr(workoutStep);
+        }
+
+        var mFieldText = placeholder();
+        if (hrWorkoutTarget != null) {
+            mFieldText = computeHeartRateZone(hrWorkoutTarget);
+            if (workoutStep == null) {
+                // Using mLastHrWorkoutTarget
+                mFieldText = "(" + mFieldText + ")";
+            }
+        }
+
+        mLastHrWorkoutTarget = hrWorkoutTarget;
+        return mFieldText;
     }
 
-    function tryCompute() as String? {
-        var workoutStep = mWorkoutStepProvider.getCurrentWorkoutStep();
-        if (workoutStep == null) { return null; }
-
-        var hrWorkoutTarget = Workout.HrWorkoutTarget.isTargetHr(workoutStep);
-        if (hrWorkoutTarget == null) { return null; }
-
+    hidden function computeHeartRateZone(hrWorkoutTarget as HrWorkoutTarget) as String? {
         if (hrWorkoutTarget.isZone()) {
             return hrWorkoutTarget.getZone().format("%i");
         } else {
@@ -66,7 +79,13 @@ class TargetHrZoneField {
         }
     }
 
+    hidden function placeholder() as String {
+        return "-.-";
+    }
+
     hidden var mWorkoutStepProvider as CurrentWorkoutStepProvider;
     hidden var mUserProfileProvider as UserProfileProvider;
     hidden var mProperties as Properties;
+    hidden var mLastHrWorkoutTarget as HrWorkoutTarget?;
+    hidden var mFieldText as String;
 }
