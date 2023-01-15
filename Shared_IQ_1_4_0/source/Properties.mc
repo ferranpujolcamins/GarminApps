@@ -17,6 +17,7 @@ module Shared_IQ_1_4_0 {
         //
         // Can be used with ani API level. Internally it uses the appropriate api depending on the current API level.
         class ApplicationProperties {
+            (:typecheck(false)) // TODO
             function getValue(key as Application.PropertyKeyType) as Application.PropertyValueType {
                 if (Application has :Properties) {
                     return Application.Properties.getValue(key);
@@ -25,6 +26,7 @@ module Shared_IQ_1_4_0 {
                 }
             }
 
+            (:typecheck(false)) // TODO
             function setValue(key as Application.PropertyKeyType, value as Application.PropertyValueType) as Void {
                 if (Application has :Properties) {
                     Application.Properties.setValue(key, value);
