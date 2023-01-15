@@ -19,15 +19,15 @@ class SettingsMenuInputDelegate extends WatchUi.Menu2InputDelegate {
                 return;
                 
             case :LowLimitMenuItem:
-                mProperties.setValue(DefaultValue as String, LowLimit);
+                mProperties.setValue(:DefaultValue as String, LowLimit);
                 break;
             
             case :AverageMenuItem:
-                mProperties.setValue(DefaultValue as String, Average);
+                mProperties.setValue(:DefaultValue as String, Average);
                 break;
 
             case :HighLimitMenuItem:
-                mProperties.setValue(DefaultValue as String, HighLimit);
+                mProperties.setValue(:DefaultValue as String, HighLimit);
                 break;
 
             default:

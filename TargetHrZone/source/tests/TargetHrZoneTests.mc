@@ -89,7 +89,7 @@ function testWhenDefaultValueIsAverage(logger as Logger) as Boolean {
     userProfileProvider.mZones = [110, 135, 150, 155, 160, 170] as Array<Number>;
 
     var properties = new PropertiesModule.UnitTests.MockProperties();
-    properties.setValue(DefaultValue as String, Average as Number);
+    properties.setValue(:DefaultValue as String, Average as Number);
 
     var fieldText = new TargetHrZoneField(currentWorkoutStepProvider, userProfileProvider, properties)
         .compute();
@@ -119,7 +119,7 @@ function testDefaultValueIsDisplayedWithDecimalWhenNotExactZone(logger as Logger
     userProfileProvider.mZones = [110, 135, 150, 155, 160, 170] as Array<Number>;
 
     var properties = new PropertiesModule.UnitTests.MockProperties();
-    properties.setValue(DefaultValue as String, Average as Number);
+    properties.setValue(:DefaultValue as String, Average as Number);
 
     var fieldText = new TargetHrZoneField(currentWorkoutStepProvider, userProfileProvider, properties)
         .compute();
@@ -175,7 +175,7 @@ function testWhenDefaultValueIsLowLimit(logger as Logger) as Boolean {
     userProfileProvider.mZones = [110, 135, 150, 155, 160, 170] as Array<Number>;
 
     var properties = new PropertiesModule.UnitTests.MockProperties();
-    properties.setValue(DefaultValue as String, LowLimit as Number);
+    properties.setValue(:DefaultValue as String, LowLimit as Number);
 
     var fieldText = new TargetHrZoneField(currentWorkoutStepProvider, userProfileProvider, properties)
         .compute();
@@ -205,7 +205,7 @@ function testWhenDefaultValueIsHighLimit(logger as Logger) as Boolean {
     userProfileProvider.mZones = [110, 135, 150, 155, 160, 170] as Array<Number>;
 
     var properties = new PropertiesModule.UnitTests.MockProperties();
-    properties.setValue(DefaultValue as String, HighLimit as Number);
+    properties.setValue(:DefaultValue as String, HighLimit as Number);
 
     var fieldText = new TargetHrZoneField(currentWorkoutStepProvider, userProfileProvider, properties)
         .compute();
@@ -235,7 +235,7 @@ function testTargetHrZoneIsNotRoundedOff(logger as Logger) as Boolean {
     userProfileProvider.mZones = [110, 135, 150, 155, 160, 170] as Array<Number>;
 
     var properties = new PropertiesModule.UnitTests.MockProperties();
-    properties.setValue(DefaultValue as String, Average as Number);
+    properties.setValue(:DefaultValue as String, Average as Number);
 
     var fieldText = new TargetHrZoneField(currentWorkoutStepProvider, userProfileProvider, properties)
         .compute();

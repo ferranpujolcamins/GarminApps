@@ -62,7 +62,7 @@ class TargetHrZoneField {
     }
 
     hidden function getAlternativeValue(lowHr as Number, highHr as Number) as Float? {
-        var alternativeValueType = mProperties.getValue(DefaultValue as Number);
+        var alternativeValueType = mProperties.getValue(:DefaultValue as Number);
         if (alternativeValueType == null) {
             return null;
         }
