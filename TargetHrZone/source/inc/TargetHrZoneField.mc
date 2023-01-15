@@ -27,10 +27,13 @@ class TargetHrZoneField {
 
         var mFieldText = placeholder();
         if (hrWorkoutTarget != null) {
-            mFieldText = computeHeartRateZone(hrWorkoutTarget);
-            if (workoutStep == null) {
-                // Using mLastHrWorkoutTarget
-                mFieldText = "(" + mFieldText + ")";
+            var zone = computeHeartRateZone(hrWorkoutTarget);
+            if (zone != null) {
+                mFieldText = zone;
+                if (workoutStep == null) {
+                    // Using mLastHrWorkoutTarget
+                    mFieldText = "(" + mFieldText + ")";
+                }
             }
         }
 
