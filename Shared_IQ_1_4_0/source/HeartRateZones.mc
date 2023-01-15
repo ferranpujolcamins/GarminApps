@@ -46,7 +46,7 @@ module Shared_IQ_1_4_0 {
             }
 
             // Round down to one decimal
-            return Math.floor(heartRateZone * 10) / 10;
+            return (Math.floor(heartRateZone * 10) / 10).toFloat();
         }
 
         // Gets the heart rate value corresponding to the given decimal heart rate zone value.
