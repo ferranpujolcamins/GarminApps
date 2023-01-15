@@ -1,4 +1,3 @@
-import Toybox.Activity;
 import Toybox.Lang;
 import Toybox.Time;
 import Toybox.WatchUi;
@@ -13,7 +12,7 @@ class TargetHrView extends WatchUi.SimpleDataField {
     }
 
     function compute(info as Activity.Info) as Numeric or Duration or String or Null {
-        return Field.compute(new Workout.ActivityCurrentWorkoutStepProvider(Activity),
+        return Field.compute(new Workout.ActivityCurrentWorkoutStepProvider,
                              UserProfile);
     }
 

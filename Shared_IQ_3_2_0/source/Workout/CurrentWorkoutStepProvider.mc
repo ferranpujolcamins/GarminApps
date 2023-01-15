@@ -17,17 +17,12 @@ module Shared_IQ_3_2_0 {
         // This class checks whether the current workout step is a WorkoutIntervalStep or not and gets
         // the actual current workout step accordingly.
         class ActivityCurrentWorkoutStepProvider {
-            // TODO: Do we need to pass activity here? Can't be just directly use it?
-            function initialize(activity as Activity) {
-                mActivity = activity;
-            }
-
             // Returns the current workout step or null if there's no active workout.
             function getCurrentWorkoutStep() as WorkoutStep? {
-                if (!(mActivity has :getCurrentWorkoutStep)) {
+                if (!(Activity has :getCurrentWorkoutStep)) {
                     return null;
                 }
-                var stepInfo = mActivity.getCurrentWorkoutStep();
+                var stepInfo = Activity.getCurrentWorkoutStep();
                 if (stepInfo == null) {
                     return null;
                 }
@@ -37,8 +32,6 @@ module Shared_IQ_3_2_0 {
                 }
                 return stepOrInterval;
             }
-
-            private var mActivity as Activity;
         }
 
         (:debug)

@@ -11,7 +11,7 @@ class WorkoutTargetView extends WatchUi.SimpleDataField {
         SimpleDataField.initialize();
         // TODO:
         label = "TARGET";//Application.loadResource(Rez.Strings.Label) as String;
-        mTargetPaceField = new TargetPaceField(new Workout.ActivityCurrentWorkoutStepProvider(Activity),
+        mTargetPaceField = new TargetPaceField(new Workout.ActivityCurrentWorkoutStepProvider,
                                                new DeviceSettingsInterfaces.SystemDeviceSettingsProvider());
     }
 

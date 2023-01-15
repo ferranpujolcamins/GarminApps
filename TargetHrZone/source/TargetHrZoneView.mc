@@ -13,7 +13,7 @@ class TargetHrZoneView extends WatchUi.SimpleDataField {
         SimpleDataField.initialize();
         label = Application.loadResource(Rez.Strings.Label) as String;
         mField = new TargetHrZoneField(
-            new Workout.ActivityCurrentWorkoutStepProvider(Activity),
+            new Workout.ActivityCurrentWorkoutStepProvider(),
             UserProfile,
             new Props.ApplicationProperties()
         );

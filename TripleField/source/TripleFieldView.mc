@@ -1,5 +1,4 @@
 import Toybox.Lang;
-import Toybox.Activity;
 import Toybox.Application;
 import Toybox.Graphics;
 import Toybox.Time;
@@ -139,7 +138,7 @@ class TripleFieldView extends WatchUi.DataField {
     function compute(info as Info) as Void {
         mModel = _compute(
             new FieldValueProvider(
-                new ActivityCurrentWorkoutStepProvider(Activity),
+                new ActivityCurrentWorkoutStepProvider,
                 UserProfile,
                 info
             ),
