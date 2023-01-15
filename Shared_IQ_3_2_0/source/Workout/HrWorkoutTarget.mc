@@ -13,6 +13,7 @@ module Shared_IQ_3_2_0 {
 
             // Checks whether the current workout step target is a heart rate target or not.
             // If it is, create an instance of this class so you can use it to get the heart rate target information.
+            (:typecheck(false)) // TODO
             static function isTargetHr(workoutStep as WorkoutStep) as HrWorkoutTarget? {
                 if (workoutStep.targetType != Activity.WORKOUT_STEP_TARGET_HEART_RATE) {
                     return null;
