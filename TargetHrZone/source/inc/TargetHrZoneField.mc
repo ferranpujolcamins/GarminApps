@@ -32,7 +32,7 @@ class TargetHrZoneField {
                 mFieldText = zone;
                 if (workoutStep == null) {
                     // Using mLastHrWorkoutTarget
-                    mFieldText = "(" + mFieldText + ")";
+                    mFieldText = ":." + mFieldText + ".:";
                 }
             }
         }
